@@ -6,13 +6,14 @@ import '../style/Header.scss';
 export default function Header() {
 
   var aluno = { 
-    nome: localStorage.getItem('nomeDoAluno') || 'Nicholas Carvalho do Nascimento', 
-    email: localStorage.getItem('emailDoAluno') || 'nicholas.nascimento@fatecsp.gov.br',
-    curso: localStorage.getItem('cursoDoAluno') || 'Analise e Desenvolvimento de Sistemas',
-    periodo: localStorage.getItem('periodoDoAluno') || 'NOITE',
-    matricula: localStorage.getItem('matriculaDoAluno') || '18100374',
-    campus: localStorage.getItem('campusDoAluno') || 'São Paulo'
+    nome: localStorage.getItem('nomeDoAluno'), 
+    email: localStorage.getItem('emailDoAluno'),
+    curso: localStorage.getItem('cursoDoAluno'),
+    periodo: localStorage.getItem('periodoDoAluno'),
+    matricula: localStorage.getItem('matriculaDoAluno'),
+    campus: localStorage.getItem('campusDoAluno')
   };
+  var alunoLogado = localStorage.getItem('alunoLogado');
 
   return (
     <header className='cor-header-footer' >
@@ -20,19 +21,30 @@ export default function Header() {
         <div className='container-logo background-theme' >
           <img src={LogoFatec} alt='Logo Fatec' />
         </div>
-        <div className='container-nome-email flex-column somente-pc' >
+        {
+          alunoLogado && 
           <div>
-            <h1 className='texto-fundo'>{aluno.nome}</h1>
-            <p className='texto-fundo' >E-mail: {aluno.email}</p>
+            <div className='container-nome-email flex-column somente-pc' >
+              <div>
+                <h1 className='texto-fundo'>{aluno.nome}</h1>
+                <p className='texto-fundo' >E-mail: {aluno.email}</p>
+              </div>
+            </div>
+            <div className='flex-column somente-pc' >
+              <p>{aluno.curso} | {aluno.periodo}</p>
+              <div className='flex-row flex-justify-space-between' >
+                <p>Matrícula: {aluno.matricula}</p>
+                <p>Campus: {aluno.campus}</p>
+              </div>
+            </div>
           </div>
-        </div>
-        <div className='flex-column somente-pc' >
-          <p>{aluno.curso} | {aluno.periodo}</p>
-          <div className='flex-row flex-justify-space-between' >
-            <p>Matrícula: {aluno.matricula}</p>
-            <p>Campus: {aluno.campus}</p>
+        }
+        {
+          !alunoLogado &&
+          <div>
+            <h1>FATEC SP</h1>
           </div>
-        </div>
+        }
         <div className='somente-pc' >
           <img src={LogoCTPS} alt='Logo CTPS' />
         </div>
