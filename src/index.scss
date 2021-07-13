@@ -1,7 +1,7 @@
-$background-theme-color: #0f4c5c;
+$background-theme-color: #e5e5e5;
 $background-theme-color-seg: #0f4c5c;
 $principal-title-color: #ffffff;
-$principal-title-color-theme: #ffffff;
+$principal-title-color-seg: #0f4c5c;
 $text-color-theme: #ffffff;
 /************************/
 html,
@@ -18,12 +18,17 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+h1,
+p {
+  color: $principal-title-color;
+}
+
 .break-word {
   word-wrap: break-word;
 }
 
 .cor-header-footer {
-  background-color: $background-theme-color;
+  background-color: $background-theme-color-seg;
 }
 
 .background-theme {
@@ -39,14 +44,7 @@ body {
 }
 
 .flex-row {
-  -ms-box-orient: horizontal;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -moz-flex;
   display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: row;
   flex-direction: row;
 }
 
@@ -74,5 +72,17 @@ body {
   text-transform: uppercase;
 }
 
-@media screen and (max-width: 325px) and (min-width: 0px) {
+@media screen and (max-width: 425px) {
+  .somente-pc {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 425px) and (max-width: 768px) {
+  .somente-pc {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1024px) {
 }
