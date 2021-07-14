@@ -1,0 +1,88 @@
+$background-theme-color: #e5e5e5;
+$background-theme-color-seg: #0f4c5c;
+$principal-title-color: #ffffff;
+$principal-title-color-seg: #0f4c5c;
+$text-color-theme: #ffffff;
+/************************/
+html,
+body {
+  height: 100%;
+}
+
+a {
+  cursor: pointer;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+h1,
+p {
+  color: $principal-title-color;
+}
+
+.break-word {
+  word-wrap: break-word;
+}
+
+.cor-header-footer {
+  background-color: $background-theme-color-seg;
+}
+
+.background-theme {
+  background-color: $background-theme-color;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-row {
+  display: -webkit-flex;
+  flex-direction: row;
+}
+
+.flex-center {
+  align-items: center;
+}
+
+.flex-justify-center {
+  justify-content: center;
+}
+
+.flex-justify-space-between {
+  justify-content: space-between;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 425px) {
+  .somente-pc {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 425px) and (max-width: 768px) {
+  .somente-pc {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+}
