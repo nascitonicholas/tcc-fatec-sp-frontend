@@ -3,7 +3,7 @@ import LogoFatec from '../../assets/logoFatec.png';
 import LogoCTPS from '../../assets/logoCTPS.png';
 import '../style/Header.scss';
 
-export default function Header() {
+const Header = () => {
 
   var aluno = { 
     nome: localStorage.getItem('nomeDoAluno'), 
@@ -52,3 +52,5 @@ export default function Header() {
     </header>
   );
 }
+
+export default Header;

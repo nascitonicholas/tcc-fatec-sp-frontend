@@ -1,19 +1,19 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Login from '../pages/login/Login.js';
-import Cadastro from '../pages/login/Login.js';
-import EsqueciMinhaSenha from '../pages/login/Login.js';
-import MenuPrincipal from '../pages/menu/MenuPrincipal.js';
+import Login from '../pages/login/Login';
+import MenuPrincipal from '../pages/menu/MenuPrincipal';
 
-export default function Routes(){
+const Routes = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path='/' exact component={Login}/>
-        <Route path='/cadastro' component={Login}/>
-        <Route path='/esqueci-minha-senha' component={Login}/>
+        <Route path='/' exact component={MenuPrincipal}/>
+        {/* <Route path='/cadastro' component={Login}/>
+        <Route path='/esqueci-minha-senha' component={Login}/> */}
         <Route path='/menu-principal' component={MenuPrincipal} />
+        {/* <Route path='/meus-emails' component={Login}/>
         <Route path='/protocolo-rematricula' component={Login}/>
+        <Route path='/rematricula' component={Login}/>
         <Route path='/reenvio-protocolo' component={Login}/>
         <Route path='/matriculas-confirmadas' component={Login}/>
         <Route path='/estrutura-curricular' component={Login}/>
@@ -27,9 +27,11 @@ export default function Routes(){
         <Route path='/contatos' component={Login}/>
         <Route path='/avisos' component={Login}/>
         <Route path='/alterar-dados-pessoais' component={Login}/>
-        <Route path='/alterar-senha' component={Login}/>
+        <Route path='/alterar-senha' component={Login}/> */}
       </Switch>
     </BrowserRouter>
 
   );
 }
+
+export default Routes;
