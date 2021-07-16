@@ -41,7 +41,7 @@ const Header = () => {
         }
         {
           !alunoLogado &&
-          <div>
+          <div className='somente-pc' >
             <h1>FATEC SP</h1>
           </div>
         }
