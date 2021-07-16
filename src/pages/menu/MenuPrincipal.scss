@@ -29,6 +29,11 @@ $color-menu-principal: #264653;
   margin: 20px 30px;
   height: 180px;
   width: 300px;
+  transition: opacity 0.3s;
+}
+
+.item-container button:hover {
+  opacity: 0.5;
 }
 
 .item-container img {

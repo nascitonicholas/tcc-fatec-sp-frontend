@@ -1,5 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import VoltarSair from '../../shared/components/VoltarSair'
 import EmailImg from '../../assets/menu-principal/email.png';
 import ListaControleImg from '../../assets/menu-principal/lista-de-controle.png';
 import CartaoCreditoImg from '../../assets/menu-principal/cartao-de-credito.png';
@@ -45,6 +46,7 @@ const MenuPrincipal = () => {
 
   return (
     <div className='menu-container' >
+      <VoltarSair flagVoltar={false} /> 
       <ul>
         {pages.map(page => (
           <li key={page.name} className='item-container' >
