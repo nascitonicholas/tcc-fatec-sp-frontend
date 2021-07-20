@@ -1,0 +1,25 @@
+$color-div-logo: #264653;
+$color-button-entrar: #0CD951;
+$color-text-primeiro-acesso: #264653;
+$color-text-esqueci-senha: #264653;
+
+
+.cor-div-logo {
+    background-color: $color-div-logo;
+    opacity: 40%
+    
+}
+
+.cor-primeiro-acesso {
+    color: $color-text-primeiro-acesso;
+}
+
+.cor-esqueci-senha{
+    color: $color-text-esqueci-senha;
+}
+
+.box-logo{
+
+    background-color: #fff;
+   
+}
