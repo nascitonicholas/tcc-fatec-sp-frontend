@@ -1,6 +1,6 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
-import VoltarSair from '../../shared/components/VoltarSair'
+import VoltarSair from '../../shared/components/VoltarSair';
+import CardPadrao from '../../shared/components/CardPadrao';
 import EmailImg from '../../assets/menu-principal/email.png';
 import ListaControleImg from '../../assets/menu-principal/lista-de-controle.png';
 import CartaoCreditoImg from '../../assets/menu-principal/cartao-de-credito.png';
@@ -42,19 +42,14 @@ const pages = [
 
 const MenuPrincipal = () => {
   
-  const history = useHistory();
+  
 
   return (
     <div className='menu-container' >
       <VoltarSair flagVoltar={false} /> 
       <ul>
         {pages.map(page => (
-          <li key={page.name} className='item-container' >
-            <button type="button" onClick={() => {history.push(page.url)}} >
-              <img src={page.image} alt={'Imagem descritiva: ' + page.name } />
-              <p>{page.description}</p>
-            </button>
-          </li>
+          <CardPadrao name={page.name} image={page.image} url={page.url} description={page.description} />
         ))}
       </ul>
     </div>

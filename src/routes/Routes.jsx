@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import MenuPrincipal from '../pages/menu/MenuPrincipal';
+import ReenvioProtocolo from '../pages/reenvio-protocolo/ReenvioProtocolo';
 
 const Routes = () => {
   return (
@@ -12,9 +13,9 @@ const Routes = () => {
         <Route path='/menu-principal' component={MenuPrincipal} />
         {/* <Route path='/meus-emails' component={MenuPrincipal}/>
         <Route path='/protocolo-rematricula' component={MenuPrincipal}/>
-        <Route path='/rematricula' component={MenuPrincipal}/>
-        <Route path='/reenvio-protocolo' component={MenuPrincipal}/>
-        <Route path='/matriculas-confirmadas' component={MenuPrincipal}/>
+      <Route path='/rematricula' component={MenuPrincipal}/>*/}
+        <Route path='/reenvio-protocolo' component={ReenvioProtocolo}/>
+       {/*} <Route path='/matriculas-confirmadas' component={MenuPrincipal}/>
         <Route path='/estrutura-curricular' component={MenuPrincipal}/>
         <Route path='/historico-disciplinar' component={MenuPrincipal}/>
         <Route path='/calendario-escolar' component={MenuPrincipal}/>
