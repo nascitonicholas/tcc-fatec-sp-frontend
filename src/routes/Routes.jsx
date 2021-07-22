@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import MenuPrincipal from '../pages/menu/MenuPrincipal';
 import ReenvioProtocolo from '../pages/reenvio-protocolo/ReenvioProtocolo';
+import AvaliacoesFinais from '../pages/avaliacoes-finais/AvaliacoesFinais';
 
 const Routes = () => {
   return (
@@ -19,9 +20,9 @@ const Routes = () => {
         <Route path='/estrutura-curricular' component={MenuPrincipal}/>
         <Route path='/historico-disciplinar' component={MenuPrincipal}/>
         <Route path='/calendario-escolar' component={MenuPrincipal}/>
-        <Route path='/grades-horarias' component={MenuPrincipal}/>
-        <Route path='/avaliacoes-finais' component={MenuPrincipal}/>
-        <Route path='/folha-prova' component={MenuPrincipal}/>
+    <Route path='/grades-horarias' component={MenuPrincipal}/>*/}
+        <Route path='/avaliacoes-finais' component={AvaliacoesFinais}/>
+       {/*} <Route path='/folha-prova' component={MenuPrincipal}/>
         <Route path='/plano-ensino' component={MenuPrincipal}/>
         <Route path='/ofertas-estagio' component={MenuPrincipal}/>
         <Route path='/contatos' component={MenuPrincipal}/>
