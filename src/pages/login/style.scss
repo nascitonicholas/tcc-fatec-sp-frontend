@@ -1,25 +1,164 @@
-$color-div-logo: #264653;
+$background-color: #264653;
 $color-button-entrar: #0CD951;
 $color-text-primeiro-acesso: #264653;
 $color-text-esqueci-senha: #264653;
 
+.grid {
+	display: grid;
+}
 
-.cor-div-logo {
-    background-color: $color-div-logo;
-    opacity: 40%
+/*4K-2560px*/
+@media screen and (min-width: 1440px) and (max-width: 2560px) {
     
+    .grid-template-columns {
+        height: 100%;
+	    grid-template-columns: 50% 50%;
+    }
+
+    .icone-aluno{
+        margin-top: 150px;
+        height: 150px;
+        width: 150px;
+        margin-left: 45%;
+    }
+
+    .col-1 .button{
+        margin-top: 20px;
+        margin-left: 40%;
+    }
+
+    .formulario .input-nrMatricula{
+        margin-top: 30px;
+        margin-left: 5%;
+    }
+
+    .formulario .input-password{
+        margin-top: 30px;
+        margin-left: 5%;
+    }
+
+    .formulario .form-controll-1{
+        display: flex;
+        width: 100ch;
+        flex: "wrap";
+    }
+
+    .formulario .form-controll-2{
+        display: flex;
+        width: 100ch;
+        flex: "wrap";
+        margin-top: 10px;
+    }
+
+    .button-and-checkbox .button-login{
+        width: 250px;
+        margin-top: 30px;
+        margin-left: 5%;
+        background-color: #0CD951;
+    }
+
+    .button-and-checkbox .button-login .titulo-button{
+        color:white;
+        font-size: 15px;
+    }
+
+    .button-and-checkbox .checkbox{
+        margin-top: 25px;
+        margin-left: 35%;
+    }
+
+    .box-text{
+        margin-top: 200px;
+        text-align: center;
+    }
+    
+    .cor-primeiro-acesso{
+        color: $color-text-primeiro-acesso;
+    }
+
+    .cor-esqueci-senha{
+        color: $color-text-esqueci-senha;
+    }
+
+    
+
+    .col-2 .logoFatec{
+        width: 40%;
+        margin-top: 38%;
+        margin-left: 25%;
+        opacity: 1;
+    }
 }
 
-.cor-primeiro-acesso {
-    color: $color-text-primeiro-acesso;
+/*Laptop L - 1440px*/
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+
+    .grid-template-columns {
+	    grid-template-columns: 50% 50%;
+    }
+
+    .icone-aluno{
+        margin-top: 150px;
+        width: 250px;
+    }
 }
 
-.cor-esqueci-senha{
-    color: $color-text-esqueci-senha;
+/*Laptop - 1024px*/
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+
+    .grid-template-columns {
+	    grid-template-columns: 512px 512px;
+    }
+
+    .icone-aluno{
+        margin-top: 50px;
+    }
 }
 
-.box-logo{
+/*Tablet - 768px*/
+@media screen and (min-width: 425px) and (max-width: 767px) {
 
-    background-color: #fff;
-   
+    .grid-template-columns {
+	    grid-template-columns: 767px 767px;
+    }
+
+    .col-2{
+        display: none;
+    }
+
+    .icone-aluno{
+        margin-top: 50px;
+    }
+}
+
+/*Mobile L - 425px*/
+@media screen and (min-width: 320px) and (max-width: 424px) {
+    
+    .grid-template-columns {
+	    grid-template-columns: 384px 0px;
+    }
+
+    .col-2{
+        display: none;
+    }
+
+    .icone-aluno{
+        margin-top: 30px;
+    }
+}
+
+/*Mobile S - 320px*/
+@media screen and (max-width: 320px) {
+
+    .grid-template-columns {
+	    grid-template-columns: 320px 0px;
+    }
+
+    .col-2{
+        display: none;
+    }
+
+    .icone-aluno{
+        margin-top: 30px;
+    }
 }
