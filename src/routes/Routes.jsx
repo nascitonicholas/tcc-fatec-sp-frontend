@@ -4,6 +4,7 @@ import MenuPrincipal from '../pages/menu/MenuPrincipal';
 import ReenvioProtocolo from '../pages/reenvio-protocolo/ReenvioProtocolo';
 import Calendario from '../pages/calendario/Calendario';
 import AvaliacoesFinais from '../pages/avaliacoes-finais/AvaliacoesFinais';
+import Contatos from '../pages/contatos/Contatos'
 
 const Routes = () => {
   return (
@@ -25,9 +26,10 @@ const Routes = () => {
         <Route path='/avaliacoes-finais' component={AvaliacoesFinais}/>
        {/*} <Route path='/folha-prova' component={MenuPrincipal}/>
         <Route path='/plano-ensino' component={MenuPrincipal}/>
-        <Route path='/ofertas-estagio' component={MenuPrincipal}/>
-        <Route path='/contatos' component={MenuPrincipal}/>
-        <Route path='/avisos' component={MenuPrincipal}/>
+  <Route path='/ofertas-estagio' component={MenuPrincipal}/>*/}
+        <Route path='/contatos' exact component={Contatos}/>
+        {/* <Route path='/contatos/detalhe-contato/:id' exact component={Contatos}/> */}
+        {/*<Route path='/avisos' component={MenuPrincipal}/>
         <Route path='/alterar-dados-pessoais' component={MenuPrincipal}/>
         <Route path='/alterar-senha' component={MenuPrincipal}/> */}
       </Switch>

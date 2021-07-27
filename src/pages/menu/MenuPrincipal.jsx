@@ -41,8 +41,6 @@ const pages = [
 ];
 
 const MenuPrincipal = () => {
-  
-  
 
   return (
     <div className='menu-container' >

@@ -1,0 +1,23 @@
+$color-principal: #264653;
+
+.contato-container {
+  margin: 10px 25px;
+}
+.contato-container a {
+  height: 50px;
+}
+
+.contato-container a:hover {
+  text-decoration: underline;
+  text-decoration-color: $color-principal;
+}
+
+.contato-container p {
+  height: 47px;
+  color: $color-principal;
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 25px;
+  margin: 0px;
+  margin-left: 10px;
+}
