@@ -1,0 +1,503 @@
+$background-color: #264653;
+$color-button-entrar: #0CD951;
+$color-text-primeiro-acesso: #264653;
+$color-text-esqueci-senha: #264653;
+$color-text-sao-paulo: #981a21;
+$color-text-fatec: #37515e;
+
+.grid {
+	display: grid;
+}
+
+.grid-template-columns {
+    height: 100%;
+    grid-template-columns: 50% 50%;
+}
+
+.icone-aluno{
+    margin-top: 150px;
+    height: 150px;
+    width: 150px;
+    margin-left: 45%;
+}
+
+.formulario .input-nrMatricula{
+    margin-top: 30px;
+    margin-left: 5%;
+}
+
+.formulario .form-controll-1{
+    width: 900ch;
+}
+
+.formulario .input-password{
+    margin-top: 30px;
+    margin-left: 5%;
+}
+
+.formulario .form-controll-2{
+    width: 100ch;
+    margin-top: 10px;
+}
+
+.col-1 .button{
+    margin-top: 20px;
+    margin-left: 40%;
+}
+
+.col-1 .button:hover{
+    display: none;
+}
+
+.button-and-checkbox .button-login{
+    width: 200px;
+    height: 50px;
+    margin-top: 30px;
+    margin-left: 30%;
+    background-color: #0CD951;
+}
+
+.button-and-checkbox .button-login:hover{
+    width: 200px;
+    height: 50px;
+    margin-top: 30px;
+    margin-left: 30%;
+    background-color: #0CD951;
+}
+
+.button-and-checkbox .button-login .titulo-button{
+    color:white;
+    font-size: 28px;
+    text-transform: capitalize;
+}
+
+.button-and-checkbox .checkbox{
+    margin-top: 25px;
+    margin-left: 10%;
+}
+
+.box-text{
+    margin-top: 200px;
+    margin-block-end: 143px;
+    text-align: center;
+}
+
+.primeiro-acesso{
+    color: $color-text-primeiro-acesso;
+    font-weight: bold;
+}
+
+.esqueci-senha{
+    color: $color-text-esqueci-senha;
+    font-weight: bold;
+}
+
+.col-2{
+    background-color: #dcdde1;
+}
+
+.col-2 .logoFatec{
+    width: 40%;
+    margin-top: 38%;
+    margin-left: 25%;
+}
+
+.col-2 .component-logoFatec .fatec{
+    text-align: center;
+    color: $color-text-fatec;
+    font-size: 150px;
+    margin-top: 30%;
+   
+}
+
+.col-2 .component-logoFatec .estado{
+    color: $color-text-sao-paulo;
+    font-size: 50px;
+    margin-top: -150px;
+    margin-left: 47%;
+    font-weight: bold;
+}
+
+/*4K-2560px*/
+@media screen and (min-width: 1440px) and (max-width: 2560px) {
+    
+
+    .icone-aluno{
+        margin-top: 80px;
+        margin-left: 45%;
+    }
+
+    .formulario .input-nrMatricula{
+        margin-top: 30px;
+        margin-left: 10%;
+    }
+    
+    .formulario .form-controll-1{
+        width: 90ch;
+    }
+    
+    .formulario .input-password{
+        margin-top: 30px;
+        margin-left: 10%;
+    }
+    
+    .formulario .form-controll-2{
+        width: 90ch;
+    }
+        
+    .box-text{
+        margin-top: 240px;
+        margin-block-end: 170px;
+        text-align: center;
+    }
+
+    .primeiro-acesso{
+        color: $color-text-primeiro-acesso;
+        font-weight: bold;
+        font-size: 20px;
+    }
+    
+    .esqueci-senha{
+        color: $color-text-esqueci-senha;
+        font-weight: bold;
+        font-size: 20px;
+    }
+    
+}
+
+/*Laptop L - 1440px*/
+@media screen and (min-width: 1024px) and (max-width: 1440px) {
+
+    .grid-template-columns {
+	    grid-template-columns: 50% 50%;
+    }
+
+    .icone-aluno{
+        margin-top: 80px;
+        margin-left: 40%;
+    }
+
+    .formulario .input-nrMatricula{
+        margin-left: 6%;
+    }
+
+    .formulario .form-controll-1{
+        width: 70ch;
+    }
+
+    .formulario .input-password{
+        margin-left: 6%;
+    }
+
+    .formulario .form-controll-2{
+        width: 70ch;
+    }
+
+    .button-and-checkbox .button-login{
+        margin-left: 20%;
+    }
+
+    .button-and-checkbox .button-login:hover{
+        margin-left: 20%;
+    }
+
+    .box-text{
+        margin-top: 110px;
+        margin-block-end: 118px;
+    }
+
+    .primeiro-acesso{
+        font-size: 20px;
+    }
+    
+    .esqueci-senha{
+        font-size: 20px;
+    }
+
+    .col-2 .component-logoFatec .fatec{
+        font-size: 110px;
+        margin-top: 35%;
+    }
+    
+    .col-2 .component-logoFatec .estado{
+        font-size: 40px;
+        margin-top: -120px;
+        margin-left: 45%;
+    }
+}
+
+/*Laptop - 1024px*/
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+    .grid-template-columns {
+	    grid-template-columns: 512px 512px;
+    }
+
+    .icone-aluno{
+        margin-top: 65px;
+        height: 110px;
+        width: 110px;
+    }
+
+    .formulario .input-nrMatricula{
+        margin-top: 30px;
+    }
+
+    .formulario .form-controll-1{
+        width: 50ch;
+    }
+
+    .formulario .input-password{
+        margin-top: 30px;
+    }
+
+    .formulario .form-controll-2{
+        width: 50ch;
+    }
+
+    .button-and-checkbox .button-login{
+        width: 170px;
+        height: 30px;
+        margin-left: 15%;
+    }
+
+    .button-and-checkbox .button-login:hover{
+        width: 170px;
+        height: 30px;
+        margin-left: 15%;
+    }
+
+    .button-and-checkbox .button-login .titulo-button{
+        font-size: 24px;
+    }
+
+    .box-text{
+        margin-top: 136px;
+        margin-block-end: 159px;
+    }
+
+    .primeiro-acesso{
+        font-size: 18px;
+    }
+    
+    .esqueci-senha{
+        font-size: 18px;
+    }
+
+    .col-2 .component-logoFatec .fatec{
+        font-size: 100px;
+        margin-top: 43%;
+       
+    }
+    
+    .col-2 .component-logoFatec .estado{
+        font-size: 30px;
+        margin-top: -107px;
+        margin-left: 48%;
+    }
+}
+
+/*Tablet - 768px*/
+@media screen and (min-width: 425px) and (max-width: 768px) {
+
+    .grid-template-columns {
+	    grid-template-columns: 384px 384px;
+    }
+
+    .icone-aluno{
+        margin-top: 85px;
+        height: 100px;
+        width: 100px;
+    }
+
+    .formulario .input-nrMatricula{
+        margin-left: 8%;
+    }
+
+    .formulario .form-controll-1{
+        width: 37ch;
+    }
+
+    .formulario .input-password{
+        margin-left: 8%;
+    }
+
+    .formulario .form-controll-2{
+        width: 37ch;
+        margin-top: 10px;
+    }
+
+    .button-and-checkbox .button-login{
+        width: 150px;
+        height: 25px;
+        margin-left: 10%;
+    }
+
+    .button-and-checkbox .button-login:hover{
+        width: 150px;
+        height: 25px;
+        margin-left: 10%;
+    }
+
+    .button-and-checkbox .button-login .titulo-button{
+        font-size: 20px;
+    }
+
+    .button-and-checkbox .checkbox{
+        margin-top: 28px;
+        margin-left: 8%;
+    }
+
+    .box-text{
+        margin-top: 128px;
+    }
+
+    .primeiro-acesso{
+        font-size: 16px;
+    }
+    
+    .esqueci-senha{
+        font-size: 16px;
+    }
+
+    .col-2 .component-logoFatec .fatec{
+        font-size: 80px;
+        margin-top: 60%;
+       
+    }
+    
+    .col-2 .component-logoFatec .estado{
+        font-size: 30px;
+        margin-top: -85px;
+    }
+    
+}
+
+/*Mobile L - 425px*/
+@media screen and (min-width: 320px) and (max-width: 425px) {
+    
+    .grid-template-columns {
+	    grid-template-columns: 100% 0%;
+    }
+
+    .col-2{
+        display: none;
+    }
+
+    .icone-aluno{
+        margin-top: 70px;
+        margin-left: 40%;
+        height: 100px;
+        width: 100px;
+    }
+
+    .formulario .input-nrMatricula{
+        margin-top: 20%;
+        margin-left: 10%;
+    }
+
+    .formulario .form-controll-1{
+        width: 40ch;
+    }
+
+    .formulario .input-password{
+        margin-left: 10%;
+    }
+
+    .formulario .form-controll-2{
+        width: 40ch;
+    }
+
+    .button-and-checkbox .button-login{
+        width: 150px;
+        height: 25px;
+        margin-top: 10%;
+        margin-left: 15%;
+    }
+
+    .button-and-checkbox .button-login:hover{
+        width: 150px;
+        height: 25px;
+        margin-top: 10%;
+        margin-left: 15%;
+    }
+
+    .button-and-checkbox .button-login .titulo-button{
+        font-size: 20px;
+    }
+
+    .button-and-checkbox .checkbox{
+        margin-top: 10%;
+        margin-left: 8%;
+    }
+
+    .box-text{
+        margin-top: 105px;
+    }
+   
+}
+
+/*Mobile S - 320px*/
+@media screen and (max-width: 320px) {
+
+    .grid-template-columns {
+	    grid-template-columns: 100% 0%;
+    }
+
+    .col-2{
+        display: none;
+    }
+
+    .icone-aluno{
+        margin-top: 70px;
+        margin-left: 40%;
+        height: 100px;
+        width: 100px;
+    }
+
+    .formulario .input-nrMatricula{
+        margin-top: 15%;
+        margin-left: 12%;
+    }
+
+    .formulario .form-controll-1{
+        width: 28ch;
+    }
+
+    .formulario .input-password{
+        margin-top: 15%;
+        margin-left: 12%;
+    }
+
+    .formulario .form-controll-2{
+        width: 28ch;
+    }
+
+    .button-and-checkbox .button-login{
+        width: 100px;
+        height: 20px;
+        margin-top: 10%;
+        margin-left: 13%;
+    }
+
+    .button-and-checkbox .button-login:hover{
+        width: 150px;
+        height: 25px;
+        margin-top: 10%;
+        margin-left: 13%;
+    }
+
+    .button-and-checkbox .button-login .titulo-button{
+        font-size: 16px;
+    }
+
+    .button-and-checkbox .checkbox{
+        margin-top: 10%;
+        margin-left: 6%;
+    }
+
+    .box-text{
+        align-items: center;
+        margin-top: 105px;
+    }
+}
