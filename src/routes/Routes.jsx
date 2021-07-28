@@ -27,8 +27,7 @@ const Routes = () => {
        {/*} <Route path='/folha-prova' component={MenuPrincipal}/>
         <Route path='/plano-ensino' component={MenuPrincipal}/>
   <Route path='/ofertas-estagio' component={MenuPrincipal}/>*/}
-        <Route path='/contatos' exact component={Contatos}/>
-        {/* <Route path='/contatos/detalhe-contato/:id' exact component={Contatos}/> */}
+        <Route path='/contatos' component={Contatos}/>
         {/*<Route path='/avisos' component={MenuPrincipal}/>
         <Route path='/alterar-dados-pessoais' component={MenuPrincipal}/>
         <Route path='/alterar-senha' component={MenuPrincipal}/> */}
