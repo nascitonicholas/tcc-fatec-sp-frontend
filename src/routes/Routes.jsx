@@ -4,14 +4,15 @@ import MenuPrincipal from '../pages/menu/MenuPrincipal';
 import ReenvioProtocolo from '../pages/reenvio-protocolo/ReenvioProtocolo';
 import Calendario from '../pages/calendario/Calendario';
 import AvaliacoesFinais from '../pages/avaliacoes-finais/AvaliacoesFinais';
+import EsqueciMinhaSenha from '../pages/esqueci-minha-senha/EsqueciMinhaSenha';
 
 const Routes = () => {
   return (
     <BrowserRouter>
       <Switch>
         {/* <Route path='/' exact component={MenuPrincipal}/>
-        <Route path='/cadastro' component={MenuPrincipal}/>
-        <Route path='/esqueci-minha-senha' component={MenuPrincipal}/> */}
+        <Route path='/cadastro' component={MenuPrincipal}/>*/
+        <Route path='/esqueci-minha-senha' component={EsqueciMinhaSenha}/>}
         <Route path='/menu-principal' component={MenuPrincipal} />
         {/* <Route path='/meus-emails' component={MenuPrincipal}/>
         <Route path='/protocolo-rematricula' component={MenuPrincipal}/>
