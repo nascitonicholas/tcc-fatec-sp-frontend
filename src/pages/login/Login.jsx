@@ -1,7 +1,5 @@
 import React from 'react';
-/*import  useState  from 'react';*/
 import { Link } from 'react-router-dom';
-/*import { useHistory} from 'react-router-dom';*/
 import Aluno from '../../assets/login/aluno.png';
 import './Login.scss'
 import OutlinedInput from "@material-ui/core/OutlinedInput";
