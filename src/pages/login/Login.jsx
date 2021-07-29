@@ -44,7 +44,7 @@ const Login = () => {
     }
 
     return (
-        <section class="container grid grid-template-columns">
+        <section className="container grid grid-template-columns">
             <form className='col-1'>
                 <img src={Aluno} className='icone-aluno' alt='Aluno' />
                 <div className='formulario'>
@@ -94,7 +94,6 @@ const Login = () => {
                             value="end"
                             control={<Checkbox color="default" />}
                             label="Lembrar-me"
-                            labelPlacement="Lembrar-me"
                             className='checkbox'
                         />
                     </div>
