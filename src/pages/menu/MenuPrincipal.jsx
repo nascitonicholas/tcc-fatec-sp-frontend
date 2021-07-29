@@ -47,7 +47,7 @@ const MenuPrincipal = () => {
       <VoltarSair flagVoltar={false} /> 
       <ul>
         {pages.map(page => (
-          <CardPadrao name={page.name} image={page.image} url={page.url} description={page.description} />
+          <CardPadrao name={page.name} image={page.image} url={page.url} key={page.name} description={page.description} />
         ))}
       </ul>
     </div>
