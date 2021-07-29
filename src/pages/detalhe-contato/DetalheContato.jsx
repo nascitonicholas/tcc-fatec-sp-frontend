@@ -1,7 +1,4 @@
-import React, { useEffect } from 'react';
-import { FaArrowRight } from 'react-icons/fa';
-import VoltarSair from '../../shared/components/VoltarSair';
-import './Contatos.scss';
+import React from 'react';
 
 const secoesContatos = [
   {id: '1', title: 'Secretaria Acadêmica', contatos:[{subtitle: 'Seção de Aluno', phone: '3322-2213', email: 'secaluno@fatecsp.br'}]},
@@ -14,27 +11,14 @@ const secoesContatos = [
   {id: '8', title: 'Secretaria Acadêmica', contatos:[{subtitle: 'Seção de Aluno', phone: '3322-2213', email: 'secaluno@fatecsp.br'}]},
   {id: '9', title: 'Secretaria Acadêmica', contatos:[{subtitle: 'Seção de Aluno', phone: '3322-2213', email: 'secaluno@fatecsp.br'}]},
 ]
-const Contatos = () => {
 
-  useEffect(() => {
-  //Lógica para c6amar a api e buscar a lista de contatos
-  })
+const DetalheContrato = () => {
 
   return (
-    <div className='flex flex-column' >
-      <VoltarSair flagVoltar={true} /> 
-      {
-        secoesContatos.map(secaoContato => (
-          <div className='contato-container' key={secaoContato.id} >
-            <a className='flex-row' href={'/detalhe-contato/' + secaoContato.id}>
-              <FaArrowRight size={20} color="#e1a546" />
-              <p>{secaoContato.title}</p>
-            </a>
-          </div>
-        ))
-      }
+    <div>
+      
     </div>
-  );
+  )
 }
 
-export default Contatos;
+export default DetalheContrato;
