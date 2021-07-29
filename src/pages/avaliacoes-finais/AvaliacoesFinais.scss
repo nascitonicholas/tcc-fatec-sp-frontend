@@ -1,0 +1,113 @@
+$background-theme-color-seg: #264653;
+
+.notas-container {
+  width: 1000px;
+  border: 2px solid $background-theme-color-seg;
+  border-radius: 5px;
+  margin: 15px;
+}
+
+.header-class {
+  background-color: $background-theme-color-seg;
+}
+
+.header-class div p {
+  color: #ffffff;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 20px;
+  margin: 15px;
+}
+
+.item-div {
+  width: 100%;
+}
+
+.nota-div {
+  height: 60px;
+}
+
+.nota-div p {
+  color: $background-theme-color-seg;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 20px;
+}
+
+.nota-div img {
+  height: 40px;
+  width: 40px;
+  margin-top: 5%;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .notas-container {
+    width: 500px;
+    margin: 10px;
+  }
+  .header-class div p {
+    font-size: 15px;
+    margin: 10px;
+  }
+  .nota-div {
+    height: 50px;
+  }
+
+  .nota-div p {
+    font-size: 15px;
+  }
+
+  .nota-div img {
+    height: 30px;
+    width: 30px;
+    margin-top: 9%;
+  }
+}
+
+@media screen and (min-width: 425px) and (max-width: 767px) {
+  .notas-container {
+    width: 300px;
+    margin: 10px;
+  }
+  .header-class div p {
+    font-size: 10px;
+    margin: 10px;
+  }
+  .nota-div {
+    height: 40px;
+  }
+
+  .nota-div p {
+    font-size: 10px;
+  }
+
+  .nota-div img {
+    height: 20px;
+    width: 20px;
+    margin-top: 15%;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 424px) {
+  .notas-container {
+    width: 200px;
+    margin: 10px;
+  }
+  .header-class div p {
+    font-size: 8px;
+    margin: 10px;
+  }
+  .nota-div {
+    height: 40px;
+  }
+
+  .nota-div p {
+    font-size: 8px;
+  }
+
+  .nota-div img {
+    height: 15px;
+    width: 15px;
+    margin-top: 25%;
+  }
+}
