@@ -2,14 +2,25 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
-import  Header  from './shared/components/Header';
-import  Footer  from './shared/components/Footer';
+import Header from './shared/components/Header';
+import Footer from './shared/components/Footer';
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
+
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Header />
-    <App />
-    <Footer />
-  </React.StrictMode>,
+  <Router>
+    <Switch>
+      <Route exact path="/">
+        <App />
+        <Footer />
+      </Route>
+      <Route exact path="/**">
+        <Header />
+        <App />
+        <Footer />
+      </Route>
+    </Switch>
+
+  </Router>,
   document.getElementById('root')
 );
