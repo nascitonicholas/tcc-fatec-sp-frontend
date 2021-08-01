@@ -14,23 +14,42 @@ const Header = () => {
     campus: localStorage.getItem('campusDoAluno')
   };
   var alunoLogado = localStorage.getItem('alunoLogado');
+  var tituloHeader = localStorage.getItem('tituloHeader')
+
+  
+  var alunoLogado = { 
+    nome: 'Wellington de Oliveira Carvalho', 
+    email: 'wellingtoncarvalho11@gmail.com',
+    curso: 'ADS',
+    periodo: 'Noite',
+    matricula: '18100721',
+    campus: 'SAO PAULO'
+  };
+
+  var aluno = { 
+    nome: 'Wellington de Oliveira Carvalho', 
+    email: 'wellingtoncarvalho11@gmail.com',
+    curso: 'Análise e Desenvolvimento de Sistemas',
+    periodo: 'NOITE',
+    matricula: '18100721',
+    campus: 'SAO PAULO'
+  };
+  
 
   return (
-    <header className='cor-header-footer' >
+    <header className='cor-header-footer header' >
       <div className='flex flex-justify-space-between flex-row' >
         <div className='container-logo background-theme' >
-          <img src={LogoFatec} alt='Logo Fatec' />
+          <img src={LogoFatec} alt='Logo Fatec' className='logoFatec' />
         </div>
         {
           alunoLogado && 
-          <div>
-            <div className='container-nome-email flex-column somente-pc' >
-              <div>
+          <div className='flex-row'> 
+            <div className='container-nome-email flex-column' >
                 <h1 className='texto-fundo'>{aluno.nome}</h1>
-                <p className='texto-fundo' >E-mail: {aluno.email}</p>
-              </div>
+                <p className='texto-fundo' >e-mail: {aluno.email}</p>
             </div>
-            <div className='flex-column somente-pc' >
+            <div className='container-curso-periodo flex-column' >
               <p>{aluno.curso} | {aluno.periodo}</p>
               <div className='flex-row flex-justify-space-between' >
                 <p>Matrícula: {aluno.matricula}</p>
@@ -41,12 +60,12 @@ const Header = () => {
         }
         {
           !alunoLogado &&
-          <div className='somente-pc' >
-            <h1>FATEC SP</h1>
+          <div>
+            <h1 className='tituloHeader'>{tituloHeader}</h1>
           </div>
         }
-        <div className='somente-pc' >
-          <img src={LogoCTPS} alt='Logo CTPS' />
+        <div>
+          <img src={LogoCTPS} alt='Logo CTPS' className='logoCTPS'/>
         </div>
       </div>
     </header>

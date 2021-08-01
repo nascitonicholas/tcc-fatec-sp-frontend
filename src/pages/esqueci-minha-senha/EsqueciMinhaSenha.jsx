@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import VoltarSair from '../../shared/components/VoltarSair';
+import React from 'react';
 import { Button } from '@material-ui/core';
 import './EsqueciMinhaSenha.scss'
 import TextField from "@material-ui/core/TextField";
@@ -7,6 +6,9 @@ import InputLabel from '@material-ui/core/InputLabel';
 
 
 const EsqueciMinhaSenha = () => {
+
+    localStorage.removeItem("tituloHeader");
+    localStorage.setItem('tituloHeader','Esqueci a minha senha')
 
     const [values, setValues] = React.useState({
         email: "",
@@ -29,7 +31,6 @@ const EsqueciMinhaSenha = () => {
 
     return (
         <form>
-            <VoltarSair flagVoltar={true} />
             <div className='flex flex-column flex-center' >
                 <div className='flex input-email'>
                     <InputLabel htmlFor="input-email" className='label-email'>

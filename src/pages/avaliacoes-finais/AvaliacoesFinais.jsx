@@ -16,6 +16,9 @@ const notasAluno = [
 
 const AvaliacoesFinais = () => {
 
+  localStorage.removeItem("tituloHeader");
+  localStorage.setItem('tituloHeader','Avaliações Finais')
+
   useEffect(() => {
     // Lógica para buscar o resultado do aluno e setar na variável notasAluno conforme exemplo
   });

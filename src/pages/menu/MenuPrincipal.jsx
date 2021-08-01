@@ -42,7 +42,7 @@ const pages = [
 
 const MenuPrincipal = () => {
   
-  
+  localStorage.removeItem("tituloHeader");
 
   return (
     <div className='menu-container' >
