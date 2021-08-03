@@ -16,7 +16,7 @@ const Header = () => {
   var alunoLogado = localStorage.getItem('alunoLogado');
 
   return (
-    <header className='cor-header-footer' >
+    <header className='background-color-segundary' >
       <div className='flex flex-justify-space-between flex-row' >
         <div className='container-logo background-theme' >
           <img src={LogoFatec} alt='Logo Fatec' />
@@ -42,7 +42,7 @@ const Header = () => {
         {
           !alunoLogado &&
           <div className='somente-pc' >
-            <h1>FATEC SP</h1>
+            <h1 className='secundary-color' >FATEC SP</h1>
           </div>
         }
         <div className='somente-pc' >

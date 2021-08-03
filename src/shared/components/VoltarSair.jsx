@@ -4,8 +4,9 @@ import { FiArrowLeft, FiLogOut } from 'react-icons/fi';
 import '../style/VoltarSair.scss'
 
 function VoltarSair ({ flagVoltar }) {
+
   return (
-    <div className='container flex flex-justify-space-between flex-wrap' >
+    <div className='container flex flex-justify-space-between flex-wrap'  >
       {
         flagVoltar &&
         <div className='voltar' >

@@ -1,0 +1,26 @@
+$color-green: #0fc14b;
+
+.ofertas-container h1 {
+  font-size: 25px;
+  margin-top: 50px;
+}
+
+.ofertas-container ol {
+  margin-top: 60px;
+}
+
+.ofertas-container ol li {
+  color: #264653;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.ofertas-container button {
+  height: 70px;
+  width: 460px;
+  background-color: $color-green;
+  border: 2px solid $color-green;
+  color: #fff;
+  font-size: 20px;
+  margin-top: 100px;
+}

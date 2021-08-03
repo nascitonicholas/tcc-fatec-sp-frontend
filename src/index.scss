@@ -27,7 +27,15 @@ p {
   word-wrap: break-word;
 }
 
-.cor-header-footer {
+.principal-color {
+  color: $principal-title-color;
+}
+
+.secundary-color {
+  color: $principal-title-color-seg;
+}
+
+.background-color-segundary {
   background-color: $background-theme-color-seg;
 }
 
