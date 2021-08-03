@@ -12,7 +12,6 @@ ReactDOM.render(
     <Switch>
       <Route exact path="/">
         <App />
-        <Footer />
       </Route>
       <Route exact path="/**">
         <Header />
