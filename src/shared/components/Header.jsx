@@ -14,30 +14,7 @@ const Header = () => {
     campus: localStorage.getItem('campusDoAluno')
   };
   var alunoLogado = localStorage.getItem('alunoLogado');
-  //var tituloHeader = localStorage.getItem('tituloHeader')
-
-  var tituloHeader = 'Menu Principal'
-
-  console.log(tituloHeader)
-
-  var alunoLogado = {
-    nome: 'Wellington de Oliveira Carvalho',
-    email: 'wellingtoncarvalho11@gmail.com',
-    curso: 'ADS',
-    periodo: 'Noite',
-    matricula: '18100721',
-    campus: 'SÃO PAULO'
-  };
-
-  var aluno = {
-    nome: 'Wellington de Oliveira Carvalho',
-    email: 'wellingtoncarvalho11@gmail.com',
-    curso: 'Análise e Desenvolvimento de Sistemas',
-    periodo: 'NOITE',
-    matricula: '18100721',
-    campus: 'SÃO PAULO'
-  };
-
+  var tituloHeader = localStorage.getItem('tituloHeader')
 
   return (
     <header className='cor-header-footer header' >
