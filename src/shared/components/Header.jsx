@@ -5,8 +5,8 @@ import '../style/Header.scss';
 
 const Header = () => {
 
-  var aluno = { 
-    nome: localStorage.getItem('nomeDoAluno'), 
+  var aluno = {
+    nome: localStorage.getItem('nomeDoAluno'),
     email: localStorage.getItem('emailDoAluno'),
     curso: localStorage.getItem('cursoDoAluno'),
     periodo: localStorage.getItem('periodoDoAluno'),
@@ -14,27 +14,30 @@ const Header = () => {
     campus: localStorage.getItem('campusDoAluno')
   };
   var alunoLogado = localStorage.getItem('alunoLogado');
-  var tituloHeader = localStorage.getItem('tituloHeader')
+  //var tituloHeader = localStorage.getItem('tituloHeader')
 
-  
-  var alunoLogado = { 
-    nome: 'Wellington de Oliveira Carvalho', 
+  var tituloHeader = 'Menu Principal'
+
+  console.log(tituloHeader)
+
+  var alunoLogado = {
+    nome: 'Wellington de Oliveira Carvalho',
     email: 'wellingtoncarvalho11@gmail.com',
     curso: 'ADS',
     periodo: 'Noite',
     matricula: '18100721',
-    campus: 'SAO PAULO'
+    campus: 'SÃO PAULO'
   };
 
-  var aluno = { 
-    nome: 'Wellington de Oliveira Carvalho', 
+  var aluno = {
+    nome: 'Wellington de Oliveira Carvalho',
     email: 'wellingtoncarvalho11@gmail.com',
     curso: 'Análise e Desenvolvimento de Sistemas',
     periodo: 'NOITE',
     matricula: '18100721',
-    campus: 'SAO PAULO'
+    campus: 'SÃO PAULO'
   };
-  
+
 
   return (
     <header className='cor-header-footer header' >
@@ -43,14 +46,14 @@ const Header = () => {
           <img src={LogoFatec} alt='Logo Fatec' className='logoFatec' />
         </div>
         {
-          alunoLogado && 
-          <div className='flex-row'> 
+          alunoLogado &&
+          <div className='flex-row'>
             <div className='container-nome-email flex-column' >
-                <h1 className='texto-fundo'>{aluno.nome}</h1>
-                <p className='texto-fundo' >e-mail: {aluno.email}</p>
+              <h1 className='nome-aluno texto-fundo'>{aluno.nome}</h1>
+              <p className='email-aluno texto-fundo' >e-mail: {aluno.email}</p>
             </div>
             <div className='container-curso-periodo flex-column' >
-              <p>{aluno.curso} | {aluno.periodo}</p>
+              <p className='curso-periodo'>{aluno.curso} | {aluno.periodo}</p>
               <div className='flex-row flex-justify-space-between' >
                 <p>Matrícula: {aluno.matricula}</p>
                 <p>Campus: {aluno.campus}</p>
@@ -58,14 +61,11 @@ const Header = () => {
             </div>
           </div>
         }
-        {
-          !alunoLogado &&
-          <div>
-            <h1 className='tituloHeader'>{tituloHeader}</h1>
-          </div>
-        }
+        <div className='container-titulo-pagina'>
+          <h1 className='tituloHeader'>{tituloHeader}</h1>
+        </div>
         <div>
-          <img src={LogoCTPS} alt='Logo CTPS' className='logoCTPS'/>
+          <img src={LogoCTPS} alt='Logo CTPS' className='logoCTPS' />
         </div>
       </div>
     </header>
