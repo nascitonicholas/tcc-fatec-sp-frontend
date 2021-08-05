@@ -25,21 +25,21 @@ const Header = () => {
         {
           alunoLogado &&
           <div className='flex-row'>
-            <div className='container-nome-email flex-column' >
-              <h1 className='nome-aluno texto-fundo'>{aluno.nome}</h1>
-              <p className='email-aluno texto-fundo' >e-mail: {aluno.email}</p>
+            <div className='container-nome-email flex-column ' >
+              <h1 className='nome-aluno font-white'>{aluno.nome}</h1>
+              <p className='email-aluno font-white' >e-mail: {aluno.email}</p>
             </div>
             <div className='container-curso-periodo flex-column' >
-              <p className='curso-periodo'>{aluno.curso} | {aluno.periodo}</p>
+              <p className='curso-periodo font-white'>{aluno.curso} | {aluno.periodo}</p>
               <div className='flex-row flex-justify-space-between' >
-                <p>Matrícula: {aluno.matricula}</p>
-                <p>Campus: {aluno.campus}</p>
+                <p className='font-white'>Matrícula: {aluno.matricula}</p>
+                <p className='font-white'>Campus: {aluno.campus}</p>
               </div>
             </div>
           </div>
         }
         <div className='container-titulo-pagina'>
-          <h1 className='tituloHeader'>{tituloHeader}</h1>
+          <h1 className='tituloHeader font-white'>{tituloHeader}</h1>
         </div>
         <div>
           <img src={LogoCTPS} alt='Logo CTPS' className='logoCTPS' />

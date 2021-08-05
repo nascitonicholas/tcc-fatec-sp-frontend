@@ -43,13 +43,14 @@ const pages = [
 const MenuPrincipal = () => {
   
   localStorage.removeItem("tituloHeader");
+  localStorage.setItem("tituloHeader","Menu Principal");
 
   return (
     <div className='menu-container' >
       <VoltarSair flagVoltar={false} /> 
       <ul>
         {pages.map(page => (
-          <CardPadrao name={page.name} image={page.image} url={page.url} description={page.description} />
+          <CardPadrao name={page.name} image={page.image} url={page.url} key={page.name} description={page.description} />
         ))}
       </ul>
     </div>
