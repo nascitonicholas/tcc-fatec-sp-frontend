@@ -13,7 +13,7 @@ ReactDOM.render(
       <Route exact path="/">
         <App />
       </Route>
-      <Route exact path="/**">
+      <Route exact path="/*">
         <Header />
         <App />
         <Footer />

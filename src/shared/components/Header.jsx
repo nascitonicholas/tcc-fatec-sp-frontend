@@ -5,16 +5,9 @@ import '../style/Header.scss';
 
 const Header = () => {
 
-  var aluno = {
-    nome: localStorage.getItem('nomeDoAluno'),
-    email: localStorage.getItem('emailDoAluno'),
-    curso: localStorage.getItem('cursoDoAluno'),
-    periodo: localStorage.getItem('periodoDoAluno'),
-    matricula: localStorage.getItem('matriculaDoAluno'),
-    campus: localStorage.getItem('campusDoAluno')
-  };
   var alunoLogado = localStorage.getItem('alunoLogado');
   var tituloHeader = localStorage.getItem('tituloHeader')
+  var aluno = JSON.parse(alunoLogado);
 
   return (
     <header className='cor-header-footer header' >
@@ -38,9 +31,13 @@ const Header = () => {
             </div>
           </div>
         }
-        <div className='container-titulo-pagina'>
-          <h1 className='tituloHeader font-white'>{tituloHeader}</h1>
-        </div>
+        {
+          !alunoLogado &&
+          <div className='container-titulo-pagina'>
+            <h1 className='tituloHeader font-white'>{tituloHeader}</h1>
+          </div>
+        }
+
         <div>
           <img src={LogoCTPS} alt='Logo CTPS' className='logoCTPS' />
         </div>
