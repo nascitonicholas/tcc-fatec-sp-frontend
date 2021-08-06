@@ -4,6 +4,9 @@ import './Calendario.scss';
 
 const Calendario = () => {
 
+  localStorage.removeItem("tituloHeader");
+  localStorage.setItem('tituloHeader','Calendário Escolar')
+
   return (
     <div className='flex flex-column'>
         <a href='https://fatec-app.s3.sa-east-1.amazonaws.com/CalendarioEscolar+(1).pdf' target='_blank' rel="noreferrer" download >

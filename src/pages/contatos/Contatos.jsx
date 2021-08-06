@@ -16,6 +16,9 @@ const secoesContatos = [
 ]
 const Contatos = () => {
 
+  localStorage.removeItem("tituloHeader");
+  localStorage.setItem('tituloHeader','Contatos')
+
   useEffect(() => {
   //Lógica para c6amar a api e buscar a lista de contatos
   })

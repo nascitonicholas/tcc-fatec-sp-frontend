@@ -68,21 +68,10 @@ p {
   width: 100%;
 }
 
+.flex-end{
+  align-items: flex-end;
+}
+
 .uppercase {
   text-transform: uppercase;
-}
-
-@media screen and (max-width: 425px) {
-  .somente-pc {
-    display: none;
-  }
-}
-
-@media screen and (min-width: 425px) and (max-width: 768px) {
-  .somente-pc {
-    display: none;
-  }
-}
-
-@media screen and (min-width: 1024px) {
 }
