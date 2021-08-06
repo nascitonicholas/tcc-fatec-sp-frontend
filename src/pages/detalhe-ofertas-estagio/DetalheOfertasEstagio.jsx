@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import './DetalheOfertasEstagio.scss';
 
 const DetalheOfertasEstagio = () => {
 
@@ -14,7 +15,7 @@ const DetalheOfertasEstagio = () => {
     <div>
       {
        vagas.map(vaga => (
-         <div>
+         <div className='vaga-container flex flex-column' >
            <p><strong>Data de vencimento: </strong>{vaga.dataVencimento}</p>
            <p><strong>Tipo: </strong>{vaga.tipo}</p>
            <p><strong>Número de vagas: </strong>{vaga.numeroVagas}</p>

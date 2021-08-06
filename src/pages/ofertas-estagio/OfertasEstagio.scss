@@ -24,3 +24,109 @@ $color-green: #0fc14b;
   font-size: 20px;
   margin-top: 100px;
 }
+
+@media screen and (min-width: 1440px) and (max-width: 2560px) {
+}
+
+/*Laptop L - 1440px*/
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+  .ofertas-container button {
+    height: 50px;
+    width: 300px;
+    font-size: 16px;
+  }
+}
+
+/*Laptop - 1024px*/
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .ofertas-container button {
+    height: 50px;
+    width: 300px;
+    font-size: 16px;
+    margin-top: 70px;
+  }
+}
+
+/*Tablet - 768px*/
+@media screen and (min-width: 425px) and (max-width: 767px) {
+  .ofertas-container h1 {
+    font-size: 16px;
+    margin-top: 50px;
+  }
+  .ofertas-container ol {
+    margin-top: 20px;
+  }
+  .ofertas-container ol li {
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  .ofertas-container button {
+    height: 50px;
+    width: 200px;
+    font-size: 14px;
+    margin-top: 50px;
+  }
+}
+
+/*Mobile L - 425px*/
+@media screen and (min-width: 375px) and (max-width: 424px) {
+  .ofertas-container h1 {
+    font-size: 14px;
+    margin-top: 50px;
+  }
+  .ofertas-container ol {
+    margin-top: 20px;
+  }
+  .ofertas-container ol li {
+    font-size: 12px;
+    margin-top: 10px;
+  }
+  .ofertas-container button {
+    height: 30px;
+    width: 150px;
+    font-size: 10px;
+    margin-top: 40px;
+  }
+}
+
+/*Mobile L - 375px*/
+@media screen and (max-width: 374px) {
+  .ofertas-container h1 {
+    font-size: 12px;
+    margin-top: 50px;
+  }
+  .ofertas-container ol {
+    margin-top: 20px;
+  }
+  .ofertas-container ol li {
+    font-size: 10px;
+    margin-top: 10px;
+  }
+  .ofertas-container button {
+    height: 20px;
+    width: 150px;
+    font-size: 10px;
+    margin-top: 20px;
+  }
+}
+
+/*Mobile S - 320px*/
+@media screen and (max-width: 320px) {
+  .ofertas-container h1 {
+    font-size: 12px;
+    margin-top: 50px;
+  }
+  .ofertas-container ol {
+    margin-top: 20px;
+  }
+  .ofertas-container ol li {
+    font-size: 10px;
+    margin-top: 10px;
+  }
+  .ofertas-container button {
+    height: 20px;
+    width: 150px;
+    font-size: 10px;
+    margin-top: 20px;
+  }
+}
