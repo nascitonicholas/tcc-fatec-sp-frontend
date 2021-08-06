@@ -41,6 +41,9 @@ const pages = [
 ];
 
 const MenuPrincipal = () => {
+  
+  localStorage.removeItem("tituloHeader");
+  localStorage.setItem("tituloHeader","Menu Principal");
 
   return (
     <div className='menu-container' >

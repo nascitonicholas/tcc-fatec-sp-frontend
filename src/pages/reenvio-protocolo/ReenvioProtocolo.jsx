@@ -4,6 +4,11 @@ import './ReenvioProtocolo.scss';
 
 const ReenvioProtocolo = () => {
 
+
+  window.localStorage.removeItem("tituloHeader");
+  //localStorage.removeItem("tituloHeader");
+  localStorage.setItem('tituloHeader','Reenvio e-mail de protocolo de rematrícula')
+
   useEffect(() => {
   //Lógica para chamar a api e reenviar o protocolo
   });

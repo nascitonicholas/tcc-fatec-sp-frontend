@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import Aluno from '../../assets/login/aluno.png';
 import './Login.scss'
 import OutlinedInput from "@material-ui/core/OutlinedInput";
@@ -15,6 +15,8 @@ import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 const Login = () => {
+
+    const history = useHistory();
 
     const [values, setValues] = React.useState({
         nrMatricula: "",
@@ -38,9 +40,24 @@ const Login = () => {
         event.preventDefault();
         localStorage.clear();
 
-        console.log(values)
+        /*Login Provisorio*/
+        const alunoLogado = {
+            nome: 'Fulano',
+            email: 'ciclano@gmail.com',
+            curso: 'Analise e Desenvolvimento de Sistemas',
+            periodo: 'Noite',
+            matricula: '18100548',
+            campus: 'SÃO PAULO'
+        }
+
+        localStorage.setItem('alunoLogado', JSON.stringify(alunoLogado))
 
         /*Api de Login*/
+
+        history.push('/menu-principal')
+        window.location.reload()
+
+
     }
 
     return (
@@ -87,7 +104,7 @@ const Login = () => {
                         </FormControl>
                     </div>
                     <div className='button-and-checkbox'>
-                        <Button  variant="contained"  className='button-login' onClick={handleSubmit}>
+                        <Button variant="contained" className='button-login' onClick={handleSubmit}>
                             <p className='titulo-button'>Entrar</p>
                         </Button>
                         <FormControlLabel
