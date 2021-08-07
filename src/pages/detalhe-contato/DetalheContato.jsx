@@ -21,7 +21,6 @@ const DetalheContrato = () => {
   const { id } = useParams();
 
   return (
-
     <div>
       <VoltarSair flagVoltar={true} /> 
       {
