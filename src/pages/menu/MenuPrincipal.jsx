@@ -11,7 +11,6 @@ import PortfolioImg from '../../assets/menu-principal/portfolio.png';
 import Calendario from '../../assets/menu-principal/calendario.png';
 import Rede from '../../assets/menu-principal/rede.png';
 import Boletim from '../../assets/menu-principal/boletim.png';
-import DocImg from '../../assets/menu-principal/doc.png';
 import PlanImg from '../../assets/menu-principal/business-plan.png';
 import EstagioImg from '../../assets/menu-principal/estagio.png';
 import ContatosImg from '../../assets/menu-principal/lista-de-contatos.png';

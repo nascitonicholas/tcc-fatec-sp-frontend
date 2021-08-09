@@ -1,11 +1,56 @@
 #destaque {
   font-size: 24px;
   line-height: 40px;
+  margin-top: 0px;
   text-align: center;
+}
+#destaque strong {
+  color: #ffffff;
 }
 .aviso-container {
   height: 10%;
   width: 90%;
   border-bottom: 1px solid #264653;
   margin: auto;
+}
+
+@media screen and (min-width: 1440px) and (max-width: 2560px) {
+}
+
+/*Laptop L - 1440px*/
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+}
+
+/*Laptop - 1024px*/
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .aviso-container h1 {
+    font-size: 25px;
+  }
+}
+
+/*Tablet - 768px*/
+@media screen and (min-width: 425px) and (max-width: 767px) {
+  .aviso-container h1 {
+    font-size: 20px;
+  }
+}
+
+/*Mobile L - 425px*/
+@media screen and (min-width: 375px) and (max-width: 424px) {
+  .aviso-container h1 {
+    font-size: 20px;
+  }
+}
+
+/*Mobile L - 375px*/
+@media screen and (max-width: 374px) {
+  .aviso-container h1 {
+    font-size: 18px;
+  }
+}
+/*Mobile S - 320px*/
+@media screen and (max-width: 320px) {
+  .aviso-container h1 {
+    font-size: 18px;
+  }
 }
