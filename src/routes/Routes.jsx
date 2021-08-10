@@ -9,12 +9,14 @@ import EsqueciMinhaSenha from '../pages/esqueci-minha-senha/EsqueciMinhaSenha';
 import Contatos from '../pages/contatos/Contatos';
 import DetalheContato from '../pages/detalhe-contato/DetalheContato';
 import PrimeiroAcesso from '../pages/primeiro-acesso/PrimeiroAcesso';
+import CadastroLoginSenha from '../pages/cadastro-login-senha/CadastroLoginSenha';
 
 const Routes = () => {
   return (
     <BrowserRouter>
       <Switch>
         <Route path='/primeiro-acesso' component={PrimeiroAcesso}/>
+        <Route path='/cadastro-login-senha' component={CadastroLoginSenha}/>
         <Route path='/esqueci-minha-senha' component={EsqueciMinhaSenha}/>
         <Route path='/' exact component={Login}/>
         {/* 

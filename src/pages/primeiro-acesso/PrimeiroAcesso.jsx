@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { Button } from '@material-ui/core';
 import TextField from "@material-ui/core/TextField";
 import InputLabel from '@material-ui/core/InputLabel';
@@ -7,8 +8,11 @@ import './PrimeiroAcesso.scss'
 
 const PrimeiroAcesso = () => {
 
+    const history = useHistory();
+
+
     localStorage.removeItem("tituloHeader");
-    localStorage.setItem('tituloHeader','Primeiro Acesso')
+    localStorage.setItem('tituloHeader', 'Primeiro Acesso')
 
     const [values, setValues] = React.useState({
         nome: "",
@@ -31,6 +35,8 @@ const PrimeiroAcesso = () => {
         console.log(values);
 
         /*Api realizar primeiro cadastro*/
+
+        history.push('/cadastro-login-senha')
     }
 
     return (
