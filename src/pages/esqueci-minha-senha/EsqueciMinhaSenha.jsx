@@ -32,7 +32,7 @@ const EsqueciMinhaSenha = () => {
     return (
         <form>
             <div className='flex flex-column flex-center' >
-                <div className='flex input-email'>
+                <div className='flex margin-top-input-text input-email'>
                     <InputLabel htmlFor="input-email" className='label-email'>
                         E-mail
                     </InputLabel>
