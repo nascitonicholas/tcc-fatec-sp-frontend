@@ -5,7 +5,7 @@ import './DetalheOfertasEstagio.scss';
 const DetalheOfertasEstagio = () => {
 
   const vagas = [
-    {dataVencimento: "21.04.2021", tipo: "Estágio", numeroVagas: "5", endereco: "Rua Domingos de Morais", horario: "A combinar", remuneracao: "A combinar - mensal", beneficios: "-", atividades: "Analista programador java jr", periodo: "7", conhecimentos: "Logica de programação, Java, SQL Server", linguas: "-", responsavel: "Carina", telefone: "(11) 5536-8999", email: "rh@autbank.com.br", observacao: "Interessados devem enviar curriculo até 29/03/2021."}
+    {id: 1, dataVencimento: "21.04.2021", tipo: "Estágio", numeroVagas: "5", endereco: "Rua Domingos de Morais", horario: "A combinar", remuneracao: "A combinar - mensal", beneficios: "-", atividades: "Analista programador java jr", periodo: "7", conhecimentos: "Logica de programação, Java, SQL Server", linguas: "-", responsavel: "Carina", telefone: "(11) 5536-8999", email: "rh@autbank.com.br", observacao: "Interessados devem enviar curriculo até 29/03/2021."}
   ]
 
   useEffect(() => {
@@ -17,7 +17,7 @@ const DetalheOfertasEstagio = () => {
       <VoltarSair flagVoltar={true} /> 
       {
        vagas.map(vaga => (
-         <div className='vaga-container flex flex-column' >
+         <div className='vaga-container flex flex-column' key={vaga.id} >
            <p><strong>Data de vencimento: </strong>{vaga.dataVencimento}</p>
            <p><strong>Tipo: </strong>{vaga.tipo}</p>
            <p><strong>Número de vagas: </strong>{vaga.numeroVagas}</p>
