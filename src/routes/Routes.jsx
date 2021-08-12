@@ -6,12 +6,9 @@ import ReenvioProtocolo from '../pages/reenvio-protocolo/ReenvioProtocolo';
 import EstruturaCurricular from '../pages/estrutura-curricular/EstruturaCurricular';
 import Calendario from '../pages/calendario/Calendario';
 import AvaliacoesFinais from '../pages/avaliacoes-finais/AvaliacoesFinais';
-<<<<<<< HEAD
 import SolicitacaoDocumentos from '../pages/solicitacao-documentos/SolicitacaoDocumentos';
-=======
 import OfertasEstagio from '../pages/ofertas-estagio/OfertasEstagio';
 import DetalheOfertasEstagio from '../pages/detalhe-ofertas-estagio/DetalheOfertasEstagio';
->>>>>>> development
 import EsqueciMinhaSenha from '../pages/esqueci-minha-senha/EsqueciMinhaSenha';
 import Contatos from '../pages/contatos/Contatos';
 import DetalheContato from '../pages/detalhe-contato/DetalheContato';

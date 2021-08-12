@@ -40,10 +40,10 @@ const SolicitacaoDocumentos = () => {
           }
         </div>
         <div className='mensagem-container flex flex-column' >
-          <h1>Caro(a) aluno(a):</h1>
-          <p>Faça o download do formulário de solicitação de documentos correspondente a seu curso/turno e envie para o e-mail: <strong>documentos@fatecsp.br</strong>.</p>
-          <p>Para a retirada de documentos solicitados via e-mail, é obrigatória a apresentação da cópia do e-mail de envio de solicitação.</p>
-          <p>O prazo para retirada de documentos é de <strong>10 (dez)</strong> dias úteis.</p>
+          <h1 className='secundary-color' >Caro(a) aluno(a):</h1>
+          <p className='secundary-color' >Faça o download do formulário de solicitação de documentos correspondente a seu curso/turno e envie para o e-mail: <strong>documentos@fatecsp.br</strong>.</p>
+          <p className='secundary-color' >Para a retirada de documentos solicitados via e-mail, é obrigatória a apresentação da cópia do e-mail de envio de solicitação.</p>
+          <p className='secundary-color' >O prazo para retirada de documentos é de <strong>10 (dez)</strong> dias úteis.</p>
         </div>
       </div>
     </div>
