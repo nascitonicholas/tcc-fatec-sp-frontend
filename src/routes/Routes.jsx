@@ -10,6 +10,7 @@ import DetalheOfertasEstagio from '../pages/detalhe-ofertas-estagio/DetalheOfert
 import EsqueciMinhaSenha from '../pages/esqueci-minha-senha/EsqueciMinhaSenha';
 import Contatos from '../pages/contatos/Contatos';
 import DetalheContato from '../pages/detalhe-contato/DetalheContato';
+import Avisos from '../pages/avisos/Avisos';
 
 const Routes = () => {
   return (
@@ -33,14 +34,13 @@ const Routes = () => {
         <Route path='/calendario-escolar' component={Calendario}/>
      {/*<Route path='/grades-horarias' component={MenuPrincipal}/>*/}
         <Route path='/avaliacoes-finais' component={AvaliacoesFinais}/>
-   {/*} <Route path='/folha-prova' component={MenuPrincipal}/>
-        <Route path='/plano-ensino' component={MenuPrincipal}/>*/}
+   {/*} <Route path='/plano-ensino' component={MenuPrincipal}/>*/}
         <Route path='/ofertas-estagio' exact component={OfertasEstagio}/>
         <Route path='/ofertas-estagio/detalhes-vagas' component={DetalheOfertasEstagio}/>
         <Route path='/contatos' exact component={Contatos}/>
         <Route path='/detalhe-contato/:id' component={DetalheContato}/>
-     {/*<Route path='/avisos' component={MenuPrincipal}/>
-        <Route path='/alterar-dados-pessoais' component={MenuPrincipal}/>
+        <Route path='/avisos' component={Avisos}/>
+     {/*<Route path='/alterar-dados-pessoais' component={MenuPrincipal}/>
         <Route path='/alterar-senha' component={MenuPrincipal}/> */}
       </Switch>
     </BrowserRouter>

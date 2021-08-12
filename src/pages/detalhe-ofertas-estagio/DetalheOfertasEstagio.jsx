@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import VoltarSair from '../../shared/components/VoltarSair';
 import './DetalheOfertasEstagio.scss';
 
 const DetalheOfertasEstagio = () => {
@@ -13,6 +14,7 @@ const DetalheOfertasEstagio = () => {
 
   return (
     <div>
+      <VoltarSair flagVoltar={true} /> 
       {
        vagas.map(vaga => (
          <div className='vaga-container flex flex-column' key={vaga.id} >
