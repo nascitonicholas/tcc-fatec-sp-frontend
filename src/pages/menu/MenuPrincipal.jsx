@@ -31,7 +31,7 @@ const pages = [
   {name: 'calendario', url: '/calendario-escolar', description: 'Calendário Escolar', image: Calendario},
   {name: 'gradeHoraria', url: '/grades-horarias', description: 'Grades Horárias', image: Rede},
   {name: 'avaliacaoFinal', url: '/avaliacoes-finais', description: 'Avaliações Finais', image: Boletim},
-  {name: 'folha', url: '/folha-prova', description: 'Folha de Prova', image: DocImg},
+  {name: 'solicitacao-documentos', url: '/solicitacao-documentos', description: 'Solicitação de Documentos', image: DocImg},
   {name: 'planoEnsino', url: '/plano-ensino', description: 'Plano de Ensino', image: PlanImg},
   {name: 'ofertasEstagio', url: '/ofertas-estagio', description: 'Ofertas de Estágio', image: EstagioImg},
   {name: 'contatos', url: '/contatos', description: 'Contatos', image: ContatosImg},

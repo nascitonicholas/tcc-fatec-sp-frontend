@@ -5,6 +5,7 @@ import Login from '../pages/login/Login';
 import ReenvioProtocolo from '../pages/reenvio-protocolo/ReenvioProtocolo';
 import Calendario from '../pages/calendario/Calendario';
 import AvaliacoesFinais from '../pages/avaliacoes-finais/AvaliacoesFinais';
+import SolicitacaoDocumentos from '../pages/solicitacao-documentos/SolicitacaoDocumentos';
 import EsqueciMinhaSenha from '../pages/esqueci-minha-senha/EsqueciMinhaSenha';
 import Contatos from '../pages/contatos/Contatos';
 import DetalheContato from '../pages/detalhe-contato/DetalheContato';
@@ -31,6 +32,7 @@ const Routes = () => {
         <Route path='/calendario-escolar' component={Calendario}/>
     {/*<Route path='/grades-horarias' component={MenuPrincipal}/>*/}
         <Route path='/avaliacoes-finais' component={AvaliacoesFinais}/>
+        <Route path='/solicitacao-documentos' component={SolicitacaoDocumentos}/>
        {/*} <Route path='/folha-prova' component={MenuPrincipal}/>
         <Route path='/plano-ensino' component={MenuPrincipal}/>
   <Route path='/ofertas-estagio' component={MenuPrincipal}/>*/}
