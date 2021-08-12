@@ -10,7 +10,7 @@ const Header = () => {
   var aluno = JSON.parse(alunoLogado);
 
   return (
-    <header className='cor-header-footer header' >
+    <header className='background-color-segundary' >
       <div className='flex flex-justify-space-between flex-row' >
         <div className='container-logo background-theme' >
           <img src={LogoFatec} alt='Logo Fatec' className='logoFatec' />

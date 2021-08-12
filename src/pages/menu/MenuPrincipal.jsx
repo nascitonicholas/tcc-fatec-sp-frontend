@@ -11,7 +11,6 @@ import PortfolioImg from '../../assets/menu-principal/portfolio.png';
 import Calendario from '../../assets/menu-principal/calendario.png';
 import Rede from '../../assets/menu-principal/rede.png';
 import Boletim from '../../assets/menu-principal/boletim.png';
-import DocImg from '../../assets/menu-principal/doc.png';
 import PlanImg from '../../assets/menu-principal/business-plan.png';
 import EstagioImg from '../../assets/menu-principal/estagio.png';
 import ContatosImg from '../../assets/menu-principal/lista-de-contatos.png';
@@ -31,7 +30,10 @@ const pages = [
   {name: 'calendario', url: '/calendario-escolar', description: 'Calendário Escolar', image: Calendario},
   {name: 'gradeHoraria', url: '/grades-horarias', description: 'Grades Horárias', image: Rede},
   {name: 'avaliacaoFinal', url: '/avaliacoes-finais', description: 'Avaliações Finais', image: Boletim},
+<<<<<<< HEAD
   {name: 'solicitacao-documentos', url: '/solicitacao-documentos', description: 'Solicitação de Documentos', image: DocImg},
+=======
+>>>>>>> development
   {name: 'planoEnsino', url: '/plano-ensino', description: 'Plano de Ensino', image: PlanImg},
   {name: 'ofertasEstagio', url: '/ofertas-estagio', description: 'Ofertas de Estágio', image: EstagioImg},
   {name: 'contatos', url: '/contatos', description: 'Contatos', image: ContatosImg},
