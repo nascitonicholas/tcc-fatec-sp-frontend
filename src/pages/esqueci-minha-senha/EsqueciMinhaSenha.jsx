@@ -1,8 +1,8 @@
 import React from 'react';
 import { Button } from '@material-ui/core';
-import './EsqueciMinhaSenha.scss'
 import TextField from "@material-ui/core/TextField";
 import InputLabel from '@material-ui/core/InputLabel';
+import './EsqueciMinhaSenha.scss'
 
 
 const EsqueciMinhaSenha = () => {

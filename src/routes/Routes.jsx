@@ -9,7 +9,7 @@ import EsqueciMinhaSenha from '../pages/esqueci-minha-senha/EsqueciMinhaSenha';
 import Contatos from '../pages/contatos/Contatos';
 import DetalheContato from '../pages/detalhe-contato/DetalheContato';
 import PrimeiroAcesso from '../pages/primeiro-acesso/PrimeiroAcesso';
-import CadastroLoginSenha from '../pages/cadastro-login-senha/CadastroLoginSenha';
+import CadastroLoginSenha from '../pages/cadastro-matricula-senha/CadastroMatriculaSenha';
 
 const Routes = () => {
   return (

@@ -7,7 +7,7 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import OutlinedInput from "@material-ui/core/OutlinedInput";
-import './CadastroLoginSenha.scss'
+import './CadastroMatriculaSenha.scss'
 
 
 
@@ -19,7 +19,7 @@ const CadastroLoginSenha = () => {
     const [values, setValues] = React.useState({
         login: "",
         senha: "",
-        confirmaSenha:""
+        confirmaSenha: ""
     });
 
     const handleChange = (prop) => (event) => {
@@ -30,7 +30,15 @@ const CadastroLoginSenha = () => {
         setValues({ ...values, showPassword: !values.showPassword });
     };
 
+    const handleClickShowConfirmPassword = () => {
+        setValues({ ...values, showConfirmPassword: !values.showConfirmPassword });
+    };
+
     const handleMouseDownPassword = (event) => {
+        event.preventDefault();
+    };
+
+    const handleMouseDownConfirmPassword = (event) => {
         event.preventDefault();
     };
 
@@ -46,10 +54,9 @@ const CadastroLoginSenha = () => {
     return (
         <form>
             <div className='flex flex-column flex-center'>
-
-                <div className='flex margin-top-input-text input-text-numericos'>
-                    <InputLabel htmlFor="nrMatricula" className='label-text-numericos'>
-                        Login
+                <div className='flex margin-top-input-text-senha input-text-numericos matricula'>
+                    <InputLabel htmlFor="nrMatricula" className='label-text-numericos matricula'>
+                        Matricula
                     </InputLabel>
                     <TextField
                         id="nrMatricula"
@@ -58,8 +65,8 @@ const CadastroLoginSenha = () => {
                         className='box-text-numericos'
                     />
                 </div>
-                <div className='flex input-text-numericos'>
-                    <InputLabel htmlFor="senha" className='label-text-numericos cpf'>
+                <div className='flex input-text senha'>
+                    <InputLabel htmlFor="senha" className='label-text senha'>
                         Senha
                     </InputLabel>
                     <OutlinedInput
@@ -79,27 +86,25 @@ const CadastroLoginSenha = () => {
                                 </IconButton>
                             </InputAdornment>
                         }
-
+                        className='box-text-senha'
                     />
                 </div>
-
-                <div className='flex input-text-numericos'>
-                    <InputLabel htmlFor="nrRG" className='label-text-numericos rg'>
+                <div className='flex input-text confirmarSenha'>
+                    <InputLabel htmlFor="confirmarSenha" className='label-text confirmarSenha'>
                         Confirmar Senha
                     </InputLabel>
                     <OutlinedInput
-                        id="nrRG"
-                        type={values.showPassword ? "text" : "password"}
-                        value={values.password}
+                        id="confirmarSenha"
+                        type={values.showConfirmPassword ? "text" : "password"}
+                        value={values.confirmaSenha}
                         onChange={handleChange("confirmaSenha")}
                         endAdornment={
                             <InputAdornment position="end">
-                                <IconButton
-                                    aria-label="toggle password visibility"
-                                    onClick={handleClickShowPassword}
-                                    onMouseDown={handleMouseDownPassword}
-                                    edge="end"
+                                <IconButton aria-label="Toggle password visibility" 
+                                onClick={handleClickShowConfirmPassword}
+                                onMouseDown={handleMouseDownConfirmPassword}
                                 >
+                                
                                     {values.showPassword ? <Visibility /> : <VisibilityOff />}
                                 </IconButton>
                             </InputAdornment>

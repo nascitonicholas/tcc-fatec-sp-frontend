@@ -43,7 +43,7 @@ const PrimeiroAcesso = () => {
         <form>
             <div className='flex flex-column flex-center'>
                 <div className='flex margin-top-input-text input-text'>
-                    <InputLabel htmlFor="nome" className='label-text nome'>
+                    <InputLabel htmlFor="nome" className='color-text label-text nome '>
                         Nome
                     </InputLabel>
                     <TextField

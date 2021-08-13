@@ -1,12 +1,12 @@
-$color-text: #264653;
+$form-text-color: #264653;
 
 
 .input-text .label-text{
-    color: $color-text;
+    color: $form-text-color;
     font-size: 35px;
     margin-right: 100px;
     margin-top: 13px;
-    margin-block-end: 2%;
+    margin-block-end: 2%;   
 }
 
 
@@ -19,7 +19,7 @@ $color-text: #264653;
 }
 
 .input-text-numericos .label-text-numericos{
-    color: $color-text;
+    color: $form-text-color;
     font-size: 35px;
     margin-top: 12px;
     margin-left: -355px;
