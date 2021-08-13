@@ -28,7 +28,7 @@ const Contatos = () => {
       <VoltarSair flagVoltar={true} /> 
       {
         secoesContatos.map(secaoContato => (
-          <LinkFlecha id={secaoContato.id} title={secaoContato.title} url={'/detalhe-contato/' + secaoContato.id} />
+          <LinkFlecha id={secaoContato.id} title={secaoContato.title} url={'/detalhe-contato/' + secaoContato.id} key={secaoContato.id} />
         ))
       }
     </div>
