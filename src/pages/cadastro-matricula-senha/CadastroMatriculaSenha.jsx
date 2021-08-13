@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from '@material-ui/core';
+import VoltarSair from '../../shared/components/VoltarSair';
 import TextField from "@material-ui/core/TextField";
 import InputLabel from '@material-ui/core/InputLabel';
 import IconButton from "@material-ui/core/IconButton";
@@ -14,10 +15,10 @@ import './CadastroMatriculaSenha.scss'
 const CadastroLoginSenha = () => {
 
     localStorage.removeItem("tituloHeader");
+    localStorage.removeItem("alunoLogado");
     localStorage.setItem('tituloHeader', 'Primeiro Acesso')
 
     const [values, setValues] = React.useState({
-        login: "",
         senha: "",
         confirmaSenha: ""
     });
@@ -53,6 +54,7 @@ const CadastroLoginSenha = () => {
 
     return (
         <form>
+            <VoltarSair flagVoltar={false} /> 
             <div className='flex flex-column flex-center'>
                 <div className='flex margin-top-input-text-senha input-text-numericos matricula'>
                     <InputLabel htmlFor="nrMatricula" className='label-text-numericos matricula'>
@@ -105,10 +107,11 @@ const CadastroLoginSenha = () => {
                                 onMouseDown={handleMouseDownConfirmPassword}
                                 >
                                 
-                                    {values.showPassword ? <Visibility /> : <VisibilityOff />}
+                                    {values.showConfirmPassword ? <Visibility /> : <VisibilityOff />}
                                 </IconButton>
                             </InputAdornment>
                         }
+                        className='box-text-confirmsenha'
 
                     />
                 </div>

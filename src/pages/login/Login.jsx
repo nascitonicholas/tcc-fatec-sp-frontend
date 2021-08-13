@@ -117,7 +117,7 @@ const Login = () => {
                 </div>
                 <div className='box-text'>
                     <ul>
-                        <a href='/esqueci-minha-senha' className='primeiro-acesso' >Primeiro Acesso</a>
+                        <a href='/cadastro-login-senha' className='primeiro-acesso' >Primeiro Acesso</a>
                     </ul>
                     <ul>
                         <a href='/esqueci-minha-senha' className='esqueci-senha'>Esqueci a minha senha</a>
