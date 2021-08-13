@@ -1,0 +1,57 @@
+.vaga-container {
+  height: 50%;
+  width: 80%;
+  margin: auto;
+  margin-top: 5%;
+  border-top: 2px solid #264653;
+  border-bottom: 2px solid #264653;
+}
+
+.vaga-container p {
+  color: #264653;
+  line-height: 5px;
+  margin-top: 10px;
+}
+
+.vaga-container p strong {
+  color: #264653;
+}
+
+@media screen and (min-width: 1440px) and (max-width: 2560px) {
+}
+
+/*Laptop L - 1440px*/
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+}
+
+/*Laptop - 1024px*/
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+}
+
+/*Tablet - 768px*/
+@media screen and (min-width: 425px) and (max-width: 767px) {
+  .vaga-container p {
+    font-size: 9px;
+  }
+}
+
+/*Mobile L - 425px*/
+@media screen and (min-width: 375px) and (max-width: 424px) {
+  .vaga-container p {
+    font-size: 8px;
+  }
+}
+
+/*Mobile L - 375px*/
+@media screen and (max-width: 374px) {
+  .vaga-container p {
+    font-size: 8px;
+  }
+}
+
+/*Mobile S - 320px*/
+@media screen and (max-width: 320px) {
+  .vaga-container p {
+    font-size: 8px;
+  }
+}
