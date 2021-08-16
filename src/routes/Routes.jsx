@@ -5,6 +5,7 @@ import Login from '../pages/login/Login';
 import ReenvioProtocolo from '../pages/reenvio-protocolo/ReenvioProtocolo';
 import EstruturaCurricular from '../pages/estrutura-curricular/EstruturaCurricular';
 import Calendario from '../pages/calendario/Calendario';
+import GradeHoraria from '../pages/grade-horaria/GradeHoraria';
 import AvaliacoesFinais from '../pages/avaliacoes-finais/AvaliacoesFinais';
 import SolicitacaoDocumentos from '../pages/solicitacao-documentos/SolicitacaoDocumentos';
 import OfertasEstagio from '../pages/ofertas-estagio/OfertasEstagio';
@@ -34,7 +35,7 @@ const Routes = () => {
         <Route path='/estrutura-curricular' component={EstruturaCurricular}/>
     {/*<Route path='/historico-disciplinar' component={MenuPrincipal}/>*/}
         <Route path='/calendario-escolar' component={Calendario}/>
-     {/*<Route path='/grades-horarias' component={MenuPrincipal}/>*/}
+        <Route path='/grades-horarias' component={GradeHoraria}/>
         <Route path='/avaliacoes-finais' component={AvaliacoesFinais}/>
         <Route path='/solicitacao-documentos' component={SolicitacaoDocumentos}/>
         <Route path='/ofertas-estagio' exact component={OfertasEstagio}/>

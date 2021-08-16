@@ -56,4 +56,4 @@ const EstruturaCurricular = () => {
   )
 }
 
-export default EstruturaCurricular
+export default EstruturaCurricular;
