@@ -18,19 +18,19 @@ const MatriculasConfirmadas = () => {
     <div>
       <VoltarSair flagVoltar={true} />
       <div className='flex flex-column flex-center' >
-        <h1>Abaixo estão as suas disciplinas deste semestre</h1>
-        <div className='matricula-container flex flex-row flex-justify-space-between flex-justify-center' >
+        <h1 id='titulo-fixo' >Abaixo estão as suas disciplinas deste semestre</h1>
+        <div className='matricula-container flex-row flex-justify-space-between flex-justify-center' >
           <div className='materias-container flex flex-column' >
             {
               matriculas.map(matricula => (
-                <div className='item-matricula background-color-segundary flex flex-row' key={matricula.id} >
+                <div className='item-matricula background-color-segundary flex-row' key={matricula.id} >
                   <h1 className='secundary-color' >{matricula.codigoMateria}</h1>
                   <p className='secundary-color' >{matricula.nomeProfessor}</p>
                 </div>
               ))
             }
           </div>
-          <div className='somente-pc flex flex-row' >
+          <div className='somente-pc flex-row' >
             <div className='flex flex-column'>
                 <a href='/historico-disciplinar' rel="noreferrer" >
                   <button type="button">
