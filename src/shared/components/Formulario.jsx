@@ -1,15 +1,16 @@
-import React from 'react';
-//import { useHistory } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useHistory,useLocation  } from 'react-router-dom';
 import TextField from "@material-ui/core/TextField";
 import InputLabel from '@material-ui/core/InputLabel';
 import InputMask from "react-input-mask";
+import { Button } from '@material-ui/core';
 
 import '../style/Formulario.scss';
 
 
 const Formulario = () => {
 
-    //const history = useHistory();
+    const history = useHistory();
 
     const [values, setValues] = React.useState({
         nome: "",
@@ -35,21 +36,34 @@ const Formulario = () => {
 
     });
 
+    useEffect(() => {
+        /*API para buscar dados do aluno*/
+    })
+
     const handleChange = (prop) => (event) => {
         setValues({ ...values, [prop]: event.target.value });
     };
 
-    /*
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         localStorage.clear();
 
         console.log(values);
 
-       
-        history.push('/menu-principal')
+
+
     };
-    */
+
+    const ChangeTituloButton = () => {
+        const  location = useLocation();
+
+        if(location.pathname === '/cadastro'){
+            return 'Salvar';
+        }
+        return 'Alterar';
+    }
+
 
     return (
         <form>
@@ -72,6 +86,17 @@ const Formulario = () => {
                         onChange={handleChange("nrMatricula")}
                         variant="outlined"
                         className='box-text-numeros width40ch'
+                    />
+                </div>
+                <div className='flex input-text email'>
+                    <InputLabel htmlFor="email" className='color-text label-text-nome-mae '>
+                        E-mail
+                    </InputLabel>
+                    <TextField
+                        id="email"
+                        onChange={handleChange("email")}
+                        variant="outlined"
+                        className='box-text-nome width60ch'
                     />
                 </div>
                 <div className='flex input-text pais'>
@@ -197,26 +222,96 @@ const Formulario = () => {
                         />}
                     </InputMask>
                 </div>
-                <InputLabel className='color-text label-text-numeros '>
-                    Endereço
-                </InputLabel>
-                <div aria-label='ass' className='flex input-text endereco'>
-                    <InputLabel htmlFor="nrCelular" className='color-text label-text-numeros '>
+                <div className='flex input-text endereco'>
+                    <InputLabel htmlFor="tipoEndereco" className='color-text label-text-numeros '>
                         Tipo
                     </InputLabel>
+                    <TextField
+                        id="tipoEndereco"
+                        variant="outlined"
+                        onChange={handleChange("tipoEndereco")}
+                        className='box-text-numeros width30ch'
+                    />
+                    <InputLabel htmlFor="logradouro" className='color-text label-text-numeros '>
+                        Logradouro
+                    </InputLabel>
+                    <TextField
+                        id="logradouro"
+                        variant="outlined"
+                        onChange={handleChange("logradouro")}
+                        className='box-text-numeros width40ch'
+                    />
+                    <InputLabel htmlFor="nrEndereco" className='color-text label-text-numeros '>
+                        Nº
+                    </InputLabel>
+                    <TextField
+                        id="nrEndereco"
+                        variant="outlined"
+                        onChange={handleChange("nrEndereco")}
+                        className='box-text-numeros width15'
+                    />
+
+                </div>
+                <div className='flex input-text bairro-complemento'>
+                    <InputLabel htmlFor="complemento" className='color-text label-text-numeros '>
+                        Complemento
+                    </InputLabel>
+                    <TextField
+                        id="complemento"
+                        variant="outlined"
+                        onChange={handleChange("complemento")}
+                        className='box-text-numeros width70ch'
+                    />
+                    <InputLabel htmlFor="bairro" className='color-text label-text-numeros '>
+                        Bairro
+                    </InputLabel>
+                    <TextField
+                        id="bairro"
+                        variant="outlined"
+                        onChange={handleChange("bairro")}
+                        className='box-text-numeros width70ch'
+                    />
+                </div>
+                <div className='flex input-text cep'>
+                    <InputLabel htmlFor="municipio" className='color-text label-text-numeros '>
+                        Munícipio
+                    </InputLabel>
+                    <TextField
+                        id="municipio"
+                        variant="outlined"
+                        onChange={handleChange("municipio")}
+                        className='box-text-numeros width70ch'
+                    />
+                    <InputLabel htmlFor="estado" className='color-text label-text-numeros '>
+                        Estado
+                    </InputLabel>
+                    <TextField
+                        id="estado"
+                        variant="outlined"
+                        onChange={handleChange("estado")}
+                        className='box-text-numeros width40ch'
+                    />
+                    <InputLabel htmlFor="cep" className='color-text label-text-numeros '>
+                        CEP
+                    </InputLabel>
                     <InputMask
-                        mask="(99) 99999-9999"
-                        onChange={handleChange("nrCelular")}
+                        mask="99999-999"
+                        onChange={handleChange("cep")}
                         disabled={false}
                         maskChar=" "
                     >
                         {() => <TextField
-                            id="nrCelular"
+                            id="cep"
                             variant="outlined"
                             className='box-text-numeros width30ch'
                         />}
                     </InputMask>
                 </div>
+            </div>
+            <div className='container-button'>
+                <Button variant="contained" className='button-salvar' onClick={handleSubmit}>
+                    <p className='titulo-button'>{ChangeTituloButton()}</p>
+                </Button>
             </div>
         </form>
     )

@@ -39,8 +39,8 @@ $size: 30px;
 }
 
 
-.width40ch{
-    width: 40ch;
+.width15{
+    width: 15ch;
 }
 
 .width20{
@@ -54,6 +54,24 @@ $size: 30px;
 
 .width30ch{
     width: 30ch;
+}
+
+
+.width40ch{
+    width: 40ch;
+}
+
+
+.width60ch{
+    width: 60ch;
+}
+
+.width70ch{
+    width: 70ch;
+}
+
+.email{
+    margin-left: -500px;
 }
 
 .pais{
@@ -85,4 +103,16 @@ $size: 30px;
 
 .eleitorais{
     margin-left: -155px;
+}
+
+.endereco{
+    margin-left: -710px;
+}
+
+.bairro-complemento{
+    margin-left: -300px;
+}
+
+.cep{
+    margin-left: -190px;
 }
