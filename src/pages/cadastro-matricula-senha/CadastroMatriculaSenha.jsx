@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { Button } from '@material-ui/core';
 import VoltarSair from '../../shared/components/VoltarSair';
 import TextField from "@material-ui/core/TextField";
@@ -17,6 +18,8 @@ const CadastroLoginSenha = () => {
     localStorage.removeItem("tituloHeader");
     localStorage.removeItem("alunoLogado");
     localStorage.setItem('tituloHeader', 'Primeiro Acesso')
+
+    const history = useHistory();
 
     const [values, setValues] = React.useState({
         senha: "",
@@ -48,6 +51,8 @@ const CadastroLoginSenha = () => {
         localStorage.clear();
 
         console.log(values);
+
+        history.push('/cadastro');
 
         /*Api realizar primeiro cadastro*/
     }

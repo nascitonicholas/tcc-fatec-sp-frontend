@@ -1,0 +1,88 @@
+$form-text-color: #264653;
+$size: 30px;
+
+
+.text-color{
+    color: $form-text-color;
+}
+
+.margin-top{
+    margin-top: 2%;
+}
+
+.margin-labels{
+    margin-top: 1%;
+}
+
+.input-text .nome{
+    color: $form-text-color;
+    font-size: $size;
+    margin-left: -200px;
+    margin-right: 15px;
+    margin-top: 13px;
+    margin-block-end: 2%;   
+}
+
+
+.input-text .box-text-nome{
+    width: 100ch;
+}
+
+
+.input-text .label-text-numeros{
+    color: $form-text-color;
+    font-size: $size;
+    margin-left: 80px;
+    margin-right: 15px;
+    margin-top: 13px;
+    margin-block-end: 2%;  
+}
+
+
+.width40ch{
+    width: 40ch;
+}
+
+.width20{
+    width: 20ch;
+}
+
+.width25ch{
+    width: 25ch;
+}
+
+
+.width30ch{
+    width: 30ch;
+}
+
+.pais{
+    margin-left: -390px;
+}
+
+
+.input-text .label-text-nome-mae{
+    color: $form-text-color;
+    font-size: $size;
+    margin-left: -330px;
+    margin-right: 50px;
+    margin-top: 13px;
+    margin-block-end: 3%;   
+}
+
+.input-text .label-text-nome-pai{
+    color: $form-text-color;
+    font-size: $size;
+    margin-left: -330px;
+    margin-right: 70px;
+    margin-top: 13px;
+    margin-block-end: 2%;   
+}
+
+.cpfrg{
+    margin-left: -320px;
+}
+
+.eleitorais{
+    margin-left: -155px;
+}

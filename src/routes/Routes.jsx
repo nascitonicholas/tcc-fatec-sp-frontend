@@ -19,7 +19,7 @@ const Routes = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path='/primeiro-acesso' component={PrimeiroAcesso}/>
+        <Route path='/cadastro' component={PrimeiroAcesso}/>
         <Route path='/cadastro-login-senha' component={CadastroLoginSenha}/>
         <Route path='/esqueci-minha-senha' component={EsqueciMinhaSenha}/>
         <Route path='/' exact component={Login}/>
