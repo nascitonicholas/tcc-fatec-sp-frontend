@@ -1,0 +1,91 @@
+.sucesso-container {
+  width: 80%;
+  margin: 100px auto;
+}
+
+.sucesso-container h1 {
+  color: #0d983c;
+  font-size: 32px;
+  text-align: center;
+}
+
+@media screen and (min-width: 1440px) and (max-width: 2560px) {
+}
+
+/*Laptop L - 1440px*/
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+  .sucesso-container {
+    margin: 50px auto;
+  }
+  .sucesso-container h1 {
+    font-size: 28px;
+  }
+  .sucesso-container img {
+    height: 200px;
+  }
+}
+
+/*Laptop - 1024px*/
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .sucesso-container {
+    margin: 50px auto;
+  }
+  .sucesso-container h1 {
+    font-size: 24px;
+  }
+  .sucesso-container img {
+    height: 150px;
+  }
+}
+
+/*Tablet - 768px*/
+@media screen and (min-width: 425px) and (max-width: 767px) {
+  .sucesso-container {
+    margin: 20px auto;
+  }
+  .sucesso-container h1 {
+    font-size: 14px;
+  }
+  .sucesso-container img {
+    height: 100px;
+  }
+}
+
+/*Mobile L - 425px*/
+@media screen and (min-width: 375px) and (max-width: 424px) {
+  .sucesso-container {
+    margin: 20px auto;
+  }
+  .sucesso-container h1 {
+    font-size: 14px;
+  }
+  .sucesso-container img {
+    height: 100px;
+  }
+}
+
+/*Mobile L - 375px*/
+@media screen and (max-width: 374px) {
+  .sucesso-container {
+    margin: 20px auto;
+  }
+  .sucesso-container h1 {
+    font-size: 12px;
+  }
+  .sucesso-container img {
+    height: 75px;
+  }
+}
+
+/*Mobile S - 320px*/
+@media screen and (max-width: 320px) {
+  .sucesso-container {
+    margin: 20px auto;
+  }
+  .sucesso-container h1 {
+    font-size: 12px;
+  }
+  .sucesso-container img {
+    height: 75px;
+  }
+}
