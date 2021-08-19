@@ -3,9 +3,12 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import MenuPrincipal from '../pages/menu/MenuPrincipal';
 import Login from '../pages/login/Login';
 import ReenvioProtocolo from '../pages/reenvio-protocolo/ReenvioProtocolo';
+import MatriculasConfirmadas from '../pages/matriculas-confirmadas/MatriculasConfirmadas';
 import EstruturaCurricular from '../pages/estrutura-curricular/EstruturaCurricular';
 import Calendario from '../pages/calendario/Calendario';
+import GradeHoraria from '../pages/grade-horaria/GradeHoraria';
 import AvaliacoesFinais from '../pages/avaliacoes-finais/AvaliacoesFinais';
+import SolicitacaoDocumentos from '../pages/solicitacao-documentos/SolicitacaoDocumentos';
 import OfertasEstagio from '../pages/ofertas-estagio/OfertasEstagio';
 import DetalheOfertasEstagio from '../pages/detalhe-ofertas-estagio/DetalheOfertasEstagio';
 import EsqueciMinhaSenha from '../pages/esqueci-minha-senha/EsqueciMinhaSenha';
@@ -24,21 +27,18 @@ const Routes = () => {
         <Route path='/cadastro-login-senha' component={CadastroLoginSenha}/>
         <Route path='/esqueci-minha-senha' component={EsqueciMinhaSenha}/>
         <Route path='/' exact component={Login}/>
-        {/* 
-        <Route path='/cadastro' component={MenuPrincipal}/>
-        <Route path='/esqueci-minha-senha' component={MenuPrincipal}/> */}
         <Route path='/menu-principal' component={MenuPrincipal} />
     {/* <Route path='/meus-emails' component={MenuPrincipal}/>
         <Route path='/protocolo-rematricula' component={MenuPrincipal}/>
         <Route path='/rematricula' component={MenuPrincipal}/>*/}
         <Route path='/reenvio-protocolo' component={ReenvioProtocolo}/>
-       {/*} <Route path='/matriculas-confirmadas' component={MenuPrincipal}/>*/}
+        <Route path='/matriculas-confirmadas' component={MatriculasConfirmadas}/>
         <Route path='/estrutura-curricular' component={EstruturaCurricular}/>
     {/*<Route path='/historico-disciplinar' component={MenuPrincipal}/>*/}
         <Route path='/calendario-escolar' component={Calendario}/>
-     {/*<Route path='/grades-horarias' component={MenuPrincipal}/>*/}
+        <Route path='/grades-horarias' component={GradeHoraria}/>
         <Route path='/avaliacoes-finais' component={AvaliacoesFinais}/>
-   {/*} <Route path='/plano-ensino' component={MenuPrincipal}/>*/}
+        <Route path='/solicitacao-documentos' component={SolicitacaoDocumentos}/>
         <Route path='/ofertas-estagio' exact component={OfertasEstagio}/>
         <Route path='/ofertas-estagio/detalhes-vagas' component={DetalheOfertasEstagio}/>
         <Route path='/contatos' exact component={Contatos}/>

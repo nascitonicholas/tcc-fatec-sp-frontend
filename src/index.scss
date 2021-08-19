@@ -76,7 +76,7 @@ p {
   width: 100%;
 }
 
-.flex-end{
+.flex-end {
   align-items: flex-end;
 }
 
@@ -90,4 +90,9 @@ p {
 
 .margin-top-input-text-senha{
   margin-top: 12%;
+}
+@media screen and (max-width: 1023px) {
+  .somente-pc {
+    display: none;
+  }
 }

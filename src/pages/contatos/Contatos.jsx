@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { FaArrowRight } from 'react-icons/fa';
 import VoltarSair from '../../shared/components/VoltarSair';
+import LinkFlecha from '../../shared/components/LinkFlecha';
 import './Contatos.scss';
 
 const secoesContatos = [
@@ -28,12 +28,7 @@ const Contatos = () => {
       <VoltarSair flagVoltar={true} /> 
       {
         secoesContatos.map(secaoContato => (
-          <div className='contato-container' key={secaoContato.id} >
-            <a className='flex-row' href={'/detalhe-contato/' + secaoContato.id}>
-              <FaArrowRight size={20} color="#e1a546" />
-              <p>{secaoContato.title}</p>
-            </a>
-          </div>
+          <LinkFlecha id={secaoContato.id} title={secaoContato.title} url={'/detalhe-contato/' + secaoContato.id} key={secaoContato.id} />
         ))
       }
     </div>

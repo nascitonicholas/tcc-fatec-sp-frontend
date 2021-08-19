@@ -6,19 +6,19 @@ const CardPadrao = ({ name, image, url, description }) => {
 
   const history = useHistory();
   const location = useLocation();
-  const flagEstruturaCurrilcar = location.pathname === '/estrutura-curricular'? true : false;
+  const flagMenuPrincipal = location.pathname === '/menu-principal'? true : false;
 
   return (
     <li key={name} className='item-container' >
       {
-        !flagEstruturaCurrilcar &&
+        flagMenuPrincipal &&
         <button type="button" onClick={() => {history.push(url)}} >
           <img src={image} alt={'Imagem descritiva: ' + name } />
           <p>{description}</p>
         </button>
       }
       {
-        flagEstruturaCurrilcar &&
+        !flagMenuPrincipal &&
         <a href={url} target='_blank' rel="noreferrer" >
           <button type="button" >
             <img src={image} alt={'Imagem descritiva: ' + name } />
