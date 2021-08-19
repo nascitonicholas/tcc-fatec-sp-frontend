@@ -44,8 +44,7 @@ const Routes = () => {
         <Route path='/contatos' exact component={Contatos}/>
         <Route path='/detalhe-contato/:id' component={DetalheContato}/>
         <Route path='/avisos' component={Avisos}/>
-     {/*<Route path='/alterar-dados-pessoais' component={MenuPrincipal}/>
-        <Route path='/alterar-senha' component={MenuPrincipal}/> */}
+        <Route path='/alterar-senha' component={CadastroLoginSenha}/>
       </Switch>
     </BrowserRouter>
 
