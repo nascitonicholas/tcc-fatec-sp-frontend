@@ -6,6 +6,7 @@ import Login from '../pages/login/Login';
 import ReenvioProtocolo from '../pages/reenvio-protocolo/ReenvioProtocolo';
 import MatriculasConfirmadas from '../pages/matriculas-confirmadas/MatriculasConfirmadas';
 import EstruturaCurricular from '../pages/estrutura-curricular/EstruturaCurricular';
+import HistoricoDisciplinar from '../pages/historico-disciplinar/HistoricoDisciplinar';
 import Calendario from '../pages/calendario/Calendario';
 import GradeHoraria from '../pages/grade-horaria/GradeHoraria';
 import AvaliacoesFinais from '../pages/avaliacoes-finais/AvaliacoesFinais';
@@ -35,7 +36,7 @@ const Routes = () => {
         <Route path='/reenvio-protocolo' component={ReenvioProtocolo}/>
         <Route path='/matriculas-confirmadas' component={MatriculasConfirmadas}/>
         <Route path='/estrutura-curricular' component={EstruturaCurricular}/>
-    {/*<Route path='/historico-disciplinar' component={MenuPrincipal}/>*/}
+        <Route path='/historico-disciplinar' component={HistoricoDisciplinar}/> 
         <Route path='/calendario-escolar' component={Calendario}/>
         <Route path='/grades-horarias' component={GradeHoraria}/>
         <Route path='/avaliacoes-finais' component={AvaliacoesFinais}/>
