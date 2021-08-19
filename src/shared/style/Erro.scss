@@ -1,0 +1,74 @@
+.erro-container {
+  height: 100%;
+  align-content: space-between;
+}
+
+.erro-container h1 {
+  color: #d9180c;
+  font-size: 32px;
+  margin: 30px 0px;
+  text-align: center;
+}
+
+@media screen and (min-width: 1440px) and (max-width: 2560px) {
+}
+
+/*Laptop L - 1440px*/
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+  .erro-container h1 {
+    font-size: 30px;
+  }
+  .erro-container img {
+    height: 250px;
+  }
+}
+
+/*Laptop - 1024px*/
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .erro-container h1 {
+    font-size: 28px;
+  }
+  .erro-container img {
+    height: 150px;
+  }
+}
+
+/*Tablet - 768px*/
+@media screen and (min-width: 425px) and (max-width: 767px) {
+  .erro-container h1 {
+    font-size: 22px;
+  }
+  .erro-container img {
+    height: 100px;
+  }
+}
+
+/*Mobile L - 425px*/
+@media screen and (min-width: 375px) and (max-width: 424px) {
+  .erro-container h1 {
+    font-size: 18px;
+  }
+  .erro-container img {
+    height: 100px;
+  }
+}
+
+/*Mobile L - 375px*/
+@media screen and (max-width: 374px) {
+  .erro-container h1 {
+    font-size: 16px;
+  }
+  .erro-container img {
+    height: 75px;
+  }
+}
+
+/*Mobile S - 320px*/
+@media screen and (max-width: 320px) {
+  .erro-container h1 {
+    font-size: 16px;
+  }
+  .erro-container img {
+    height: 75px;
+  }
+}
