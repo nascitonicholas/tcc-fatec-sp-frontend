@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import MenuPrincipal from '../pages/menu/MenuPrincipal';
+import RequisicaoRematricula from '../pages/requisicao-rematricula/RequisicaoRematricula';
 import Login from '../pages/login/Login';
 import ReenvioProtocolo from '../pages/reenvio-protocolo/ReenvioProtocolo';
 import MatriculasConfirmadas from '../pages/matriculas-confirmadas/MatriculasConfirmadas';
@@ -29,8 +30,8 @@ const Routes = () => {
         <Route path='/' exact component={Login}/>
         <Route path='/menu-principal' component={MenuPrincipal} />
     {/* <Route path='/meus-emails' component={MenuPrincipal}/>
-        <Route path='/protocolo-rematricula' component={MenuPrincipal}/>
-        <Route path='/rematricula' component={MenuPrincipal}/>*/}
+        <Route path='/protocolo-rematricula' component={MenuPrincipal}/>*/}
+        <Route path='/rematricula' component={RequisicaoRematricula}/>
         <Route path='/reenvio-protocolo' component={ReenvioProtocolo}/>
         <Route path='/matriculas-confirmadas' component={MatriculasConfirmadas}/>
         <Route path='/estrutura-curricular' component={EstruturaCurricular}/>
