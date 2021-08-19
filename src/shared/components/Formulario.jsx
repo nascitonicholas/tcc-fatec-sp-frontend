@@ -117,68 +117,69 @@ const Formulario = () => {
     return (
         <form>
             <VoltarSair flagVoltar={ChangeFlagVoltaSair()} />
-            <div className='flex flex-column flex-center'>
-                <div className='flex input-text '>
-                    <InputLabel htmlFor="nome" className='color-text nome'>
+            <div className='formulario'>
+                <div className='formulario'>
+                    <InputLabel htmlFor="nome" className='label'>
                         Nome
                     </InputLabel>
                     <TextField
                         id="nome"
                         onChange={handleChange("nome")}
                         variant="outlined"
-                        className='box-text-nome width100ch'
+                        className='input'
                         size='small'
                     />
-                    <InputLabel htmlFor="nrMatricula" className='color-text label-text-numeros '>
+                    <InputLabel htmlFor="nrMatricula" className='label'>
                         Matricula
                     </InputLabel>
                     <TextField
                         id="nrMatricula"
                         onChange={handleChange("nrMatricula")}
                         variant="outlined"
-                        className='box-text-numeros width40ch'
+                        className='input'
                         size='small'
                     />
                 </div>
-                <div className='flex input-text'>
-                    <InputLabel htmlFor="email" className='color-text label-text-email '>
+                <div className='formulario'>
+                    <InputLabel htmlFor="email" className='label'>
                         E-mail
                     </InputLabel>
                     <TextField
                         id="email"
                         onChange={handleChange("email")}
                         variant="outlined"
-                        className='box-text-email width60ch'
+                        className='input'
                         size='small'
                     />
                 </div>
-                <div className='flex input-text pais'>
-                    <InputLabel htmlFor="nomeMae" className='color-text label-text-nome-mae '>
+                <div className='formulario'>
+                    <InputLabel htmlFor="nomeMae" className='label'>
                         Nome da Mãe
                     </InputLabel>
                     <TextField
                         id="nomeMae"
                         onChange={handleChange("nomeMae")}
                         variant="outlined"
-                        className='box-text'
+                        className='input'
                         size='small'
                     />
-                </div>
-                <div className='flex input-text pais'>
-                    <InputLabel htmlFor="nomePai" className='color-text label-text-nome-pai '>
+                    <InputLabel htmlFor="nomePai" className='label'>
                         Nome do Pai
                     </InputLabel>
                     <TextField
                         id="nomePai"
                         onChange={handleChange("nomePai")}
                         variant="outlined"
-                        className='box-text'
+                        className='input'
                         size='small'
                     />
                 </div>
+                <div className='formulario'>
+                    
+                </div>
 
-                <div className='flex input-text cpfrg margin-labels'>
-                    <InputLabel htmlFor="nrCPF" className='color-text label-text-numeros '>
+                <div className='formulario'>
+                    <InputLabel htmlFor="nrCPF" className='label'>
                         CPF
                     </InputLabel>
                     <InputMask
@@ -196,7 +197,7 @@ const Formulario = () => {
                         }
                     </InputMask>
 
-                    <InputLabel htmlFor="nrRG" className='color-text label-text-numeros '>
+                    <InputLabel htmlFor="nrRG" className='label'>
                         RG
                     </InputLabel>
                     <InputMask
@@ -208,24 +209,24 @@ const Formulario = () => {
                         {() => <TextField
                             id="nrRG"
                             variant="outlined"
-                            className='box-text-numeros width20ch'
+                            className='input'
                             size='small'
                         />
                         }
                     </InputMask>
-                    <InputLabel htmlFor="nrCertificadoMilitar" className='color-text label-text-numeros '>
+                    <InputLabel htmlFor="nrCertificadoMilitar" className='label'>
                         Certificado Militar
                     </InputLabel>
                     <TextField
                         id="nrCertificadoMilitar"
                         onChange={handleChange("nrCertificadoMilitar")}
                         variant="outlined"
-                        className='box-text-numeros width30ch'
+                        className='input'
                         size='small'
                     />
                 </div>
-                <div className='flex input-text eleitorais'>
-                    <InputLabel htmlFor="nrTituloEleitor" className='color-text label-text-numeros '>
+                <div className='formulario'>
+                    <InputLabel htmlFor="nrTituloEleitor" className='label'>
                         Titulo de Eleitor
                     </InputLabel>
                     <InputMask
@@ -237,21 +238,21 @@ const Formulario = () => {
                         {() => <TextField
                             id="nrTituloEleitor"
                             variant="outlined"
-                            className='box-text-numeros width25ch'
+                            className='input'
                             size='small'
                         />}
                     </InputMask>
-                    <InputLabel htmlFor="nrZona" className='color-text label-text-numeros '>
+                    <InputLabel htmlFor="nrZona" className='label'>
                         Zona
                     </InputLabel>
                     <TextField
                         id="nrZona"
                         onChange={handleChange("nrZona")}
                         variant="outlined"
-                        className='box-text-numeros width25ch'
+                        className='input'
                         size='small'
                     />
-                    <InputLabel htmlFor="nrTelefone" className='color-text label-text-numeros '>
+                    <InputLabel htmlFor="nrTelefone" className='label'>
                         Telefone
                     </InputLabel>
                     <InputMask
@@ -263,11 +264,11 @@ const Formulario = () => {
                         {() => <TextField
                             id="nrTelefone"
                             variant="outlined"
-                            className='box-text-numeros width20ch'
+                            className='input'
                             size='small'
                         />}
                     </InputMask>
-                    <InputLabel htmlFor="nrCelular" className='color-text label-text-numeros '>
+                    <InputLabel htmlFor="nrCelular" className='label'>
                         Celular
                     </InputLabel>
                     <InputMask
@@ -279,22 +280,23 @@ const Formulario = () => {
                         {() => <TextField
                             id="nrCelular"
                             variant="outlined"
-                            className='box-text-numeros width20ch'
+                            className='input'
                             size='small'
                         />}
                     </InputMask>
                 </div>
-                <div className='flex input-text endereco'>
-                    <InputLabel htmlFor="tipoEndereco" className='color-text label-text-numeros '>
+                <div className='formulario'>
+                    <InputLabel htmlFor="tipoEndereco" className='label'>
                         Tipo
                     </InputLabel>
                     <TextField
                         id="tipoEndereco"
                         variant="outlined"
                         select
+                        value={values.tipoEndereco}
                         onChange={handleChange("tipoEndereco")}
                         helperText="Selecione o tipo de endereço"
-                        className='box-text-numeros width30ch'
+                        className='input'
                         size='small'
                     >
                         {tiposEndereco.map((option) => (
@@ -303,70 +305,71 @@ const Formulario = () => {
                             </MenuItem>
                         ))}
                     </TextField>
-                    <InputLabel htmlFor="logradouro" className='color-text label-text-numeros '>
+                    <InputLabel htmlFor="logradouro" className='label'>
                         Logradouro
                     </InputLabel>
                     <TextField
                         id="logradouro"
                         variant="outlined"
                         onChange={handleChange("logradouro")}
-                        className='box-text-numeros width40ch'
+                        className='input'
                         size='small'
                     />
-                    <InputLabel htmlFor="nrEndereco" className='color-text label-text-numeros '>
+                    <InputLabel htmlFor="nrEndereco" className='label'>
                         Nº
                     </InputLabel>
                     <TextField
                         id="nrEndereco"
                         variant="outlined"
                         onChange={handleChange("nrEndereco")}
-                        className='box-text-numeros width15'
+                        className='input'
                         size='small'
                     />
                 </div>
-                <div className='flex input-text bairro-complemento'>
-                    <InputLabel htmlFor="complemento" className='color-text label-text-numeros '>
+                <div className='formulario'>
+                    <InputLabel htmlFor="complemento" className='label'>
                         Complemento
                     </InputLabel>
                     <TextField
                         id="complemento"
                         variant="outlined"
                         onChange={handleChange("complemento")}
-                        className='box-text-numeros width70ch'
+                        className='input'
                         size='small'
                     />
-                    <InputLabel htmlFor="bairro" className='color-text label-text-numeros '>
+                    <InputLabel htmlFor="bairro" className='label'>
                         Bairro
                     </InputLabel>
                     <TextField
                         id="bairro"
                         variant="outlined"
                         onChange={handleChange("bairro")}
-                        className='box-text-numeros width70ch'
+                        className='input'
                         size='small'
                     />
                 </div>
-                <div className='flex input-text cep'>
-                    <InputLabel htmlFor="municipio" className='color-text label-text-numeros '>
+                <div className='formulario'>
+                    <InputLabel htmlFor="municipio" className='label'>
                         Munícipio
                     </InputLabel>
                     <TextField
                         id="municipio"
                         variant="outlined"
                         onChange={handleChange("municipio")}
-                        className='box-text-numeros width70ch'
+                        className='input'
                         size='small'
                     />
-                    <InputLabel htmlFor="estado" className='color-text label-text-numeros '>
+                    <InputLabel htmlFor="estado" className='label'>
                         Estado
                     </InputLabel>
                     <TextField
                         id="estado"
                         variant="outlined"
                         select
+                        value={values.estado}
                         helperText="Selecione o estado"
                         onChange={handleChange("estado")}
-                        className='box-text-numeros width40ch'
+                        className='input'
                         size='small'
                     >
                         {estados.map((option) => (
@@ -387,7 +390,7 @@ const Formulario = () => {
                         {() => <TextField
                             id="cep"
                             variant="outlined"
-                            className='box-text-numeros width30ch'
+                            className='input'
                             size='small'
                         />}
                     </InputMask>

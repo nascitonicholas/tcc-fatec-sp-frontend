@@ -1,130 +1,79 @@
-$form-text-color: #264653;
+$text-color: #264653;
 $size: 25px;
 
-
-.text-color{
-    color: $form-text-color;
+.text-color {
+    color: $text-color;
 }
 
-.margin-top{
-    margin-top: 0%;
+.formulario {
+    margin-left: 20px;
+    display: flex;
+    width: 98%;
+    flex-wrap: wrap;
 }
 
-.margin-labels{
-    margin-top: 0%;
+.formulario .input {
+    margin-top: 5px;
+    margin: 5px;
+    width: 100%;
+    flex-basis: 150px;
+    flex-grow: 5;
 }
 
-
-.width15{
-    width: 15ch;
+.formulario .label {
+    margin: 5px;
+    color: $text-color;
 }
 
-.width20{
-    width: 20ch;
+/*4K-2560px*/
+@media screen and (min-width: 1441px) and (max-width: 2559px) {
+
+    .formulario .input {
+        flex-basis: 100px;
+    }
 }
 
-.width25ch{
-    width: 25ch;
+/*Laptop L - 1440px*/
+@media screen and (min-width: 1024px) and (max-width: 1440px) {
+    .formulario .input {
+        flex-basis: 100px;
+    }
 }
 
-.width30ch{
-    width: 30ch;
+/*Laptop - 1024px*/
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+
+    .formulario .input {
+        flex-basis: 90px;
+    }
 }
 
-.width40ch{
-    width: 40ch;
+/*Tablet - 768px*/
+@media screen and (min-width: 425px) and (max-width: 767px) {
+
+    .formulario .input {
+        flex-basis: 80px;
+    }
 }
 
-.width60ch{
-    width: 60ch;
+/*Mobile L - 425px*/
+@media screen and (min-width: 375px) and (max-width: 424px) {
+
+    
 }
 
-.width70ch{
-    width: 70ch;
+/*Mobile L - 375px*/
+@media screen and (max-width: 374px) {
+
+    .formulario .input {
+        flex-basis: 10px;
+    }
 }
 
-.width100{
-    width: 100ch;
-}
+/*Mobile S - 320px*/
+@media screen and (max-width: 320px) {
 
-.input-text .nome{
-    color: $form-text-color;
-    font-size: $size;
-    margin-left: -210px;
-}
-
-.input-text .box-text-nome{
-    width: 100ch;
-    margin-left: 35px;
-}
-
-.input-text .label-text-email{
-    color: $form-text-color;
-    font-size: $size;
-    margin-left: -765px;
-    margin-top: 10px;
-    margin-block-end: 6%;   
-}
-
-.input-text .box-text-email{
-    width: 100ch;
-    margin-left: 135px;
-}
-
-
-.input-text .label-text-nome-mae{
-    color: $form-text-color;
-    font-size: $size;
-    margin-left: -330px;
-    margin-right: 50px;
-    margin-top: 13px;
-    margin-block-end: 3%;   
-}
-
-.input-text .label-text-nome-pai{
-    color: $form-text-color;
-    font-size: $size;
-    margin-left: -330px;
-    margin-right: 60px;
-    margin-top: 13px;
-    margin-block-end: 3%;   
-}
-
-
-.pais{
-    margin-left: -23%;
-}
-
-
-.input-text .label-text-numeros{
-    color: $form-text-color;
-    font-size: $size;
-    margin-left: 80px;
-    margin-right: 15px;
-    margin-top: 10px;
-    margin-block-end: 2%;  
-}
-
-.cpfrg{
-    margin-left: -740px;
-}
-
-.eleitorais{
-    margin-left: -340px;
-}
-
-.endereco{
-    margin-left: -780px;
-}
-
-.bairro-complemento{
-    margin-left: -370px;
-}
-
-.cep{
-    margin-left: -260px;
-}
-
-.marginButton{
-    margin-top: 10px;
+    .formulario .input {
+        flex-basis: 80px;
+    }
 }
