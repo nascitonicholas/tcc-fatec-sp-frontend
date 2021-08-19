@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { FiArrowLeft, FiLogOut } from 'react-icons/fi';
 import '../style/VoltarSair.scss'
 
@@ -10,17 +9,17 @@ function VoltarSair ({ flagVoltar }) {
       {
         flagVoltar &&
         <div className='voltar' >
-          <Link className="back-link" to="/menu-principal">
+          <a className="back-link" href="/menu-principal">
             <FiArrowLeft size={32} color="#264653" />
             <p>Voltar para o menu principal</p>
-          </Link>
+          </a>
         </div>
       }
       <div className='sair' >
-        <Link className="back-link" to="/">
+        <a className="back-link" href="/">
           <FiLogOut size={24} color="#D9180C" />
           <p>Sair</p>
-        </Link>
+        </a>
       </div>
     </div>
   );

@@ -1,7 +1,6 @@
 import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import Aluno from '../../assets/login/aluno.png';
-import './Login.scss'
 import OutlinedInput from "@material-ui/core/OutlinedInput";
 import TextField from "@material-ui/core/TextField";
 import InputLabel from '@material-ui/core/InputLabel';
@@ -13,6 +12,7 @@ import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import { Button } from '@material-ui/core';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import './Login.scss'
 
 const Login = () => {
 
@@ -38,7 +38,7 @@ const Login = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        localStorage.clear();
+        //localStorage.clear();
 
         /*Login Provisorio*/
         const alunoLogado = {
@@ -117,10 +117,10 @@ const Login = () => {
                 </div>
                 <div className='box-text'>
                     <ul>
-                        <Link to='/cadastro' className='primeiro-acesso'>Primeiro Acesso</Link>
+                        <a href='/cadastro-login-senha' className='primeiro-acesso' >Primeiro Acesso</a>
                     </ul>
                     <ul>
-                        <Link to='/esqueci-minha-senha' className='esqueci-senha'>Esqueci a minha senha</Link>
+                        <a href='/esqueci-minha-senha' className='esqueci-senha'>Esqueci a minha senha</a>
                     </ul>
                 </div>
             </form>

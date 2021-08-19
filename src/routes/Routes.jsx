@@ -15,13 +15,17 @@ import DetalheOfertasEstagio from '../pages/detalhe-ofertas-estagio/DetalheOfert
 import EsqueciMinhaSenha from '../pages/esqueci-minha-senha/EsqueciMinhaSenha';
 import Contatos from '../pages/contatos/Contatos';
 import DetalheContato from '../pages/detalhe-contato/DetalheContato';
+import Formulario from '../pages/primeiro-acesso/PrimeiroAcesso';
+import CadastroLoginSenha from '../pages/cadastro-matricula-senha/CadastroMatriculaSenha';
 import Avisos from '../pages/avisos/Avisos';
 
 const Routes = () => {
   return (
     <BrowserRouter>
       <Switch>
-        {/*<Route path='/cadastro' component={MenuPrincipal}/>*/}
+        <Route path='/cadastro' component={Formulario}/>
+        <Route path='/alterar-dados-pessoais' component={Formulario}/>
+        <Route path='/cadastro-login-senha' component={CadastroLoginSenha}/>
         <Route path='/esqueci-minha-senha' component={EsqueciMinhaSenha}/>
         <Route path='/' exact component={Login}/>
         <Route path='/menu-principal' component={MenuPrincipal} />
