@@ -1,8 +1,8 @@
 import React from 'react';
 import { Button } from '@material-ui/core';
-import './EsqueciMinhaSenha.scss'
 import TextField from "@material-ui/core/TextField";
 import InputLabel from '@material-ui/core/InputLabel';
+import './EsqueciMinhaSenha.scss'
 
 
 const EsqueciMinhaSenha = () => {
@@ -32,7 +32,7 @@ const EsqueciMinhaSenha = () => {
     return (
         <form>
             <div className='flex flex-column flex-center' >
-                <div className='flex input-email'>
+                <div className='flex margin-top-input-text input-email'>
                     <InputLabel htmlFor="input-email" className='label-email'>
                         E-mail
                     </InputLabel>

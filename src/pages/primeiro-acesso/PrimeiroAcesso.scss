@@ -1,0 +1,90 @@
+$form-text-color: #264653;
+
+
+.input-text .label-text{
+    color: $form-text-color;
+    font-size: 35px;
+    margin-right: 100px;
+    margin-top: 13px;
+    margin-block-end: 2%;   
+}
+
+
+.input-text .nome{
+    margin-right: 105px;
+}
+
+.input-text .box-text{
+    width: 100ch;
+}
+
+.input-text-numericos .label-text-numericos{
+    color: $form-text-color;
+    font-size: 35px;
+    margin-top: 12px;
+    margin-left: -355px;
+   
+}
+
+
+.input-text-numericos .cpf{
+    margin-top: 12px;
+    margin-right: 80px;
+    margin-left: -279px;
+   
+}
+
+
+.input-text-numericos .rg{
+    margin-top: 12px;
+    margin-right: 95px;
+    margin-left: -355px;
+   
+}
+
+.input-text-numericos .box-text-numericos{
+    width: 60ch;
+    margin-left: 55px;
+    margin-block-end: 3%;
+}
+
+
+
+.input-text .nomeMae{
+    margin-right: 38px;
+    margin-left: -9px;
+}
+
+
+.input-text .nomePai{
+    margin-right: 55px;
+    margin-left: -9px;
+}
+
+
+
+.container-button{
+    margin-top: 7%;
+    margin-left: 15%;
+    align-items: center;
+}
+
+.container-button .button-salvar{
+    width: 100px;
+    height: 50px;
+    margin-left: 40%;
+    background-color: #0CD951;
+}
+
+.container-button .button-salvar:hover{
+    width: 100px;
+    height: 50px;
+    margin-left: 40%;
+    background-color: #0CD951;
+}
+
+.container-button .button-salvar .titulo-button{
+    color:white;
+    font-size: 20px;
+    text-transform: capitalize;
+}
