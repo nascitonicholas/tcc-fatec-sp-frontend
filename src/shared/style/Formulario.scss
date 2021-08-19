@@ -5,14 +5,14 @@ $size: 25px;
     color: $text-color;
 }
 
-.formulario {
+.form {
     margin-left: 20px;
     display: flex;
     width: 98%;
     flex-wrap: wrap;
 }
 
-.formulario .input {
+.form .input {
     margin-top: 5px;
     margin: 5px;
     width: 100%;
@@ -20,7 +20,7 @@ $size: 25px;
     flex-grow: 5;
 }
 
-.formulario .label {
+.form .label {
     margin: 5px;
     color: $text-color;
 }
@@ -28,14 +28,14 @@ $size: 25px;
 /*4K-2560px*/
 @media screen and (min-width: 1441px) and (max-width: 2559px) {
 
-    .formulario .input {
+    .form .input {
         flex-basis: 100px;
     }
 }
 
 /*Laptop L - 1440px*/
 @media screen and (min-width: 1024px) and (max-width: 1440px) {
-    .formulario .input {
+    .form .input {
         flex-basis: 100px;
     }
 }
@@ -43,7 +43,7 @@ $size: 25px;
 /*Laptop - 1024px*/
 @media screen and (min-width: 768px) and (max-width: 1023px) {
 
-    .formulario .input {
+    .form .input {
         flex-basis: 90px;
     }
 }
@@ -51,7 +51,7 @@ $size: 25px;
 /*Tablet - 768px*/
 @media screen and (min-width: 425px) and (max-width: 767px) {
 
-    .formulario .input {
+    .form .input {
         flex-basis: 80px;
     }
 }
@@ -65,7 +65,7 @@ $size: 25px;
 /*Mobile L - 375px*/
 @media screen and (max-width: 374px) {
 
-    .formulario .input {
+    .form .input {
         flex-basis: 10px;
     }
 }
@@ -73,7 +73,7 @@ $size: 25px;
 /*Mobile S - 320px*/
 @media screen and (max-width: 320px) {
 
-    .formulario .input {
+    .form .input {
         flex-basis: 80px;
     }
 }

@@ -117,8 +117,8 @@ const Formulario = () => {
     return (
         <form>
             <VoltarSair flagVoltar={ChangeFlagVoltaSair()} />
-            <div className='formulario'>
-                <div className='formulario'>
+            <div className='form'>
+                <div className='form'>
                     <InputLabel htmlFor="nome" className='label'>
                         Nome
                     </InputLabel>
@@ -140,7 +140,7 @@ const Formulario = () => {
                         size='small'
                     />
                 </div>
-                <div className='formulario'>
+                <div className='form'>
                     <InputLabel htmlFor="email" className='label'>
                         E-mail
                     </InputLabel>
@@ -152,7 +152,7 @@ const Formulario = () => {
                         size='small'
                     />
                 </div>
-                <div className='formulario'>
+                <div className='form'>
                     <InputLabel htmlFor="nomeMae" className='label'>
                         Nome da Mãe
                     </InputLabel>
@@ -174,11 +174,11 @@ const Formulario = () => {
                         size='small'
                     />
                 </div>
-                <div className='formulario'>
+                <div className='form'>
                     
                 </div>
 
-                <div className='formulario'>
+                <div className='form'>
                     <InputLabel htmlFor="nrCPF" className='label'>
                         CPF
                     </InputLabel>
@@ -225,7 +225,7 @@ const Formulario = () => {
                         size='small'
                     />
                 </div>
-                <div className='formulario'>
+                <div className='form'>
                     <InputLabel htmlFor="nrTituloEleitor" className='label'>
                         Titulo de Eleitor
                     </InputLabel>
@@ -285,7 +285,7 @@ const Formulario = () => {
                         />}
                     </InputMask>
                 </div>
-                <div className='formulario'>
+                <div className='form'>
                     <InputLabel htmlFor="tipoEndereco" className='label'>
                         Tipo
                     </InputLabel>
@@ -326,7 +326,7 @@ const Formulario = () => {
                         size='small'
                     />
                 </div>
-                <div className='formulario'>
+                <div className='form'>
                     <InputLabel htmlFor="complemento" className='label'>
                         Complemento
                     </InputLabel>
@@ -348,7 +348,7 @@ const Formulario = () => {
                         size='small'
                     />
                 </div>
-                <div className='formulario'>
+                <div className='form'>
                     <InputLabel htmlFor="municipio" className='label'>
                         Munícipio
                     </InputLabel>
