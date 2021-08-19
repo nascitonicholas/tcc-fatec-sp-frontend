@@ -76,10 +76,16 @@ p {
   width: 100%;
 }
 
-.flex-end{
+.flex-end {
   align-items: flex-end;
 }
 
 .uppercase {
   text-transform: uppercase;
+}
+
+@media screen and (max-width: 1023px) {
+  .somente-pc {
+    display: none;
+  }
 }
