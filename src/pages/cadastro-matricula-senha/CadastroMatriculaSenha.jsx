@@ -25,8 +25,11 @@ const CadastroLoginSenha = () => {
     const flagMenuPrincipal = location.pathname === '/cadastro-login-senha' ? true : false;
     const tituloButton = flagMenuPrincipal === true ? 'Salvar' : 'Alterar';
     const [values, setValues] = React.useState({
+        nrMatricula: "",
         senha: "",
-        confirmaSenha: ""
+        confirmaSenha: "",
+        oldSenha: "",
+        newSenha: ""
     });
 
     const handleChange = (prop) => (event) => {
@@ -53,9 +56,17 @@ const CadastroLoginSenha = () => {
         event.preventDefault();
         localStorage.clear();
 
-        console.log(values);
+        if(flagMenuPrincipal){
+            /*Chamada Api de Cadastrar*/
 
-        history.push('/cadastro');
+            /*Sucesso - Pagina Seguinte de Cadastro*/
+            history.push('/cadastro');
+
+        }else{
+            /*Chamada Api de Alterar*/
+        }
+
+       
 
         /*Api realizar primeiro cadastro*/
     }
@@ -84,12 +95,12 @@ const CadastroLoginSenha = () => {
                     !flagMenuPrincipal &&
                     <div className='item item1'>
 
-                        <InputLabel htmlFor="nrMatricula" className='labeltext'>
+                        <InputLabel htmlFor="oldSenha" className='labeltext'>
                             Senha Antiga
                         </InputLabel>
                         <TextField
-                            id="nrMatricula"
-                            onChange={handleChange("nrMatricula")}
+                            id="oldSenha"
+                            onChange={handleChange("oldSenha")}
                             variant="outlined"
                             className='input-text'
                         />
@@ -125,14 +136,14 @@ const CadastroLoginSenha = () => {
                 {
                     !flagMenuPrincipal &&
                     <div className='item'>
-                        <InputLabel htmlFor="senha" className='labeltext'>
+                        <InputLabel htmlFor="newSenha" className='labeltext'>
                             Nova Senha
                         </InputLabel>
                         <OutlinedInput
-                            id="senha"
+                            id="newSenha"
                             type={values.showPassword ? "text" : "password"}
                             value={values.senha}
-                            onChange={handleChange("senha")}
+                            onChange={handleChange("newSenha")}
                             endAdornment={
                                 <InputAdornment position="end">
                                     <IconButton
