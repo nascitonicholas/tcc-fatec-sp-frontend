@@ -1,37 +1,33 @@
-.input-text-numericos .label-text-numericos {
-   margin-left: -340px;
-    margin-right: 0px;
+$text-color: #264653;
+$size: 25px;
+
+.containerfather {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
 }
 
-.input-text-numericos .box-text-numericos{
-    width: 50ch;
-}
-
-.input-text-numericos .box-text-numericos {
-    margin-left: 165px;
-}
-
-
-.input-text .label-text{
-    margin-right: 210px;
-    margin-left: -340px;
-}
-
-.input-text .box-text-senha {
-    margin-block-end: 5%;
+.item {
+    width: 500px;
+    display: flex;
+    align-items: center;
+    margin-block-end: 10px;
 }
 
 
-.input-text .confirmarSenha {
-    margin-block-end: 2%;
-    margin-right: 40px;
-    margin-left: -338px;
+.item .labeltext {
+    margin: 20px;
+    color: $text-color;
+    font-size: $size;
+    align-items: center;
 }
 
-.input-text .box-text-senha{
-    width: 50ch;
+.item1{
+    margin-top: 10%;
+}
+.item1 .input-text{
+    width: 100ch;
 }
 
-.input-text .box-text-confirmsenha{
-    width: 50ch;
-}
+
