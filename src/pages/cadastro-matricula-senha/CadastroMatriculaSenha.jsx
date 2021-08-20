@@ -23,7 +23,7 @@ const CadastroLoginSenha = () => {
 
     const location = useLocation();
     const flagMenuPrincipal = location.pathname === '/cadastro-login-senha' ? true : false;
-    const tituloButton = flagMenuPrincipal ? 'Salvar' : 'Alterar';
+    const tituloButton = flagMenuPrincipal === true ? 'Salvar' : 'Alterar';
     const [values, setValues] = React.useState({
         senha: "",
         confirmaSenha: ""
@@ -63,155 +63,149 @@ const CadastroLoginSenha = () => {
     return (
         <form>
             <VoltarSair flagVoltar={false} />
-            <div className='flex flex-column flex-center'>
-                <div className='flex margin-top-input-text-senha input-text-numericos matricula'>
+            <div className='containerfather'>
 
-                    {
-                        flagMenuPrincipal &&
-                        <section>
-                            <InputLabel htmlFor="nrMatricula" className='label-text-numericos matricula'>
-                                Matricula
-                            </InputLabel>
-                            <TextField
-                                id="nrMatricula"
-                                onChange={handleChange("nrMatricula")}
-                                variant="outlined"
-                                className='box-text-numericos'
-                            />
-                        </section>
-                    }
-                    {
-                        !flagMenuPrincipal &&
-                        <section>
-                            <InputLabel htmlFor="nrMatricula" className='label-text-numericos matricula'>
-                                Senha Antiga
-                            </InputLabel>
-                            <TextField
-                                id="nrMatricula"
-                                onChange={handleChange("nrMatricula")}
-                                variant="outlined"
-                                className='box-text-numericos'
-                            />
-                        </section>
-                    }
-                </div>
-                <div className='flex input-text senha'>
-                    {
-                        flagMenuPrincipal &&
-                        <section>
-                            <InputLabel htmlFor="senha" className='label-text senha'>
-                                Senha
-                            </InputLabel>
-                            <OutlinedInput
-                                id="senha"
-                                type={values.showPassword ? "text" : "password"}
-                                value={values.senha}
-                                onChange={handleChange("senha")}
-                                endAdornment={
-                                    <InputAdornment position="end">
-                                        <IconButton
-                                            aria-label="toggle password visibility"
-                                            onClick={handleClickShowPassword}
-                                            onMouseDown={handleMouseDownPassword}
-                                            edge="end"
-                                        >
-                                            {values.showPassword ? <Visibility /> : <VisibilityOff />}
-                                        </IconButton>
-                                    </InputAdornment>
-                                }
-                                className='box-text-senha'
-                            />
-                        </section>
-                    }
-                    {
-                        !flagMenuPrincipal &&
-                        <section>
-                            <InputLabel htmlFor="senha" className='label-text senha'>
-                                Nova Senha
-                            </InputLabel>
-                            <OutlinedInput
-                                id="senha"
-                                type={values.showPassword ? "text" : "password"}
-                                value={values.senha}
-                                onChange={handleChange("senha")}
-                                endAdornment={
-                                    <InputAdornment position="end">
-                                        <IconButton
-                                            aria-label="toggle password visibility"
-                                            onClick={handleClickShowPassword}
-                                            onMouseDown={handleMouseDownPassword}
-                                            edge="end"
-                                        >
-                                            {values.showPassword ? <Visibility /> : <VisibilityOff />}
-                                        </IconButton>
-                                    </InputAdornment>
-                                }
-                                className='box-text-senha'
-                            />
-                        </section>
-                    }
+                {
+                    flagMenuPrincipal &&
+                    <div className='item item1'>
 
+                        <InputLabel htmlFor="nrMatricula" className='labeltext'>
+                            Matricula
+                        </InputLabel>
+                        <TextField
+                            id="nrMatricula"
+                            onChange={handleChange("nrMatricula")}
+                            variant="outlined"
+                            className='input-text'
+                        />
+                    </div>
+                }
+                {
+                    !flagMenuPrincipal &&
+                    <div className='item item1'>
 
-                </div>
-                <div className='flex input-text confirmarSenha'>
+                        <InputLabel htmlFor="nrMatricula" className='labeltext'>
+                            Senha Antiga
+                        </InputLabel>
+                        <TextField
+                            id="nrMatricula"
+                            onChange={handleChange("nrMatricula")}
+                            variant="outlined"
+                            className='input-text'
+                        />
+                    </div>
+                }
+                {
+                    flagMenuPrincipal &&
+                    <div className='item'>
+                        <InputLabel htmlFor="senha" className='labeltext'>
+                            Senha
+                        </InputLabel>
+                        <OutlinedInput
+                            id="senha"
+                            type={values.showPassword ? "text" : "password"}
+                            value={values.senha}
+                            onChange={handleChange("senha")}
+                            endAdornment={
+                                <InputAdornment position="end">
+                                    <IconButton
+                                        aria-label="toggle password visibility"
+                                        onClick={handleClickShowPassword}
+                                        onMouseDown={handleMouseDownPassword}
+                                        edge="end"
+                                    >
+                                        {values.showPassword ? <Visibility /> : <VisibilityOff />}
+                                    </IconButton>
+                                </InputAdornment>
+                            }
+                            className='input-text'
+                        />
+                    </div>
+                }
+                {
+                    !flagMenuPrincipal &&
+                    <div className='item'>
+                        <InputLabel htmlFor="senha" className='labeltext'>
+                            Nova Senha
+                        </InputLabel>
+                        <OutlinedInput
+                            id="senha"
+                            type={values.showPassword ? "text" : "password"}
+                            value={values.senha}
+                            onChange={handleChange("senha")}
+                            endAdornment={
+                                <InputAdornment position="end">
+                                    <IconButton
+                                        aria-label="toggle password visibility"
+                                        onClick={handleClickShowPassword}
+                                        onMouseDown={handleMouseDownPassword}
+                                        edge="end"
+                                    >
+                                        {values.showPassword ? <Visibility /> : <VisibilityOff />}
+                                    </IconButton>
+                                </InputAdornment>
+                            }
+                            className='input-text'
+                        />
+                    </div>
+                }
 
-                    {
-                        flagMenuPrincipal &&
-                        <section>
-                            <InputLabel htmlFor="confirmarSenha" className='label-text confirmarSenha'>
-                                Confirmar Senha
-                            </InputLabel>
-                            <OutlinedInput
-                                id="confirmarSenha"
-                                type={values.showConfirmPassword ? "text" : "password"}
-                                value={values.confirmaSenha}
-                                onChange={handleChange("confirmaSenha")}
-                                endAdornment={
-                                    <InputAdornment position="end">
-                                        <IconButton aria-label="Toggle password visibility"
-                                            onClick={handleClickShowConfirmPassword}
-                                            onMouseDown={handleMouseDownConfirmPassword}
-                                        >
+                {
+                    flagMenuPrincipal &&
+                    <div className='item item3'>
 
-                                            {values.showConfirmPassword ? <Visibility /> : <VisibilityOff />}
-                                        </IconButton>
-                                    </InputAdornment>
-                                }
-                                className='box-text-confirmsenha'
+                        <InputLabel htmlFor="confirmarSenha" className='labeltext'>
+                            Confirmar Senha
+                        </InputLabel>
+                        <OutlinedInput
+                            id="confirmarSenha"
+                            type={values.showConfirmPassword ? "text" : "password"}
+                            value={values.confirmaSenha}
+                            onChange={handleChange("confirmaSenha")}
+                            endAdornment={
+                                <InputAdornment position="end">
+                                    <IconButton aria-label="Toggle password visibility"
+                                        onClick={handleClickShowConfirmPassword}
+                                        onMouseDown={handleMouseDownConfirmPassword}
+                                    >
 
-                            />
-                        </section>
-                    }
-                    {
-                        !flagMenuPrincipal &&
-                        <section>
-                            <InputLabel htmlFor="confirmarSenha" className='label-text confirmarSenha'>
-                                Confirmar Nova Senha
-                            </InputLabel>
-                            <OutlinedInput
-                                id="confirmarSenha"
-                                type={values.showConfirmPassword ? "text" : "password"}
-                                value={values.confirmaSenha}
-                                onChange={handleChange("confirmaSenha")}
-                                endAdornment={
-                                    <InputAdornment position="end">
-                                        <IconButton aria-label="Toggle password visibility"
-                                            onClick={handleClickShowConfirmPassword}
-                                            onMouseDown={handleMouseDownConfirmPassword}
-                                        >
+                                        {values.showConfirmPassword ? <Visibility /> : <VisibilityOff />}
+                                    </IconButton>
+                                </InputAdornment>
+                            }
+                            className='input-text'
 
-                                            {values.showConfirmPassword ? <Visibility /> : <VisibilityOff />}
-                                        </IconButton>
-                                    </InputAdornment>
-                                }
-                                className='box-text-confirmsenha'
+                        />
+                    </div>
+                }
+                {
+                    !flagMenuPrincipal &&
+                    <div className='item item3'>
 
-                            />
-                        </section>
-                    }
+                        <InputLabel htmlFor="confirmarSenha" className='labeltext'>
+                            Confirmar Senha
+                        </InputLabel>
+                        <OutlinedInput
+                            id="confirmarSenha"
+                            type={values.showConfirmPassword ? "text" : "password"}
+                            value={values.confirmaSenha}
+                            onChange={handleChange("confirmaSenha")}
+                            endAdornment={
+                                <InputAdornment position="end">
+                                    <IconButton aria-label="Toggle password visibility"
+                                        onClick={handleClickShowConfirmPassword}
+                                        onMouseDown={handleMouseDownConfirmPassword}
+                                    >
 
+                                        {values.showConfirmPassword ? <Visibility /> : <VisibilityOff />}
+                                    </IconButton>
+                                </InputAdornment>
+                            }
+                            className='input-text'
 
-                </div>
+                        />
+                    </div>
+                }
             </div>
             <div className='container-button'>
                 <Button variant="contained" className='button-salvar' onClick={handleSubmit}>
