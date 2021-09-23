@@ -1,16 +1,19 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import VoltarSair from '../../shared/components/VoltarSair';
+import {apiVagas} from '../../services/api';
 import './DetalheOfertasEstagio.scss';
 
 const DetalheOfertasEstagio = () => {
 
-  const vagas = [
-    {id: 1, dataVencimento: "21.04.2021", tipo: "Estágio", numeroVagas: "5", endereco: "Rua Domingos de Morais", horario: "A combinar", remuneracao: "A combinar - mensal", beneficios: "-", atividades: "Analista programador java jr", periodo: "7", conhecimentos: "Logica de programação, Java, SQL Server", linguas: "-", responsavel: "Carina", telefone: "(11) 5536-8999", email: "rh@autbank.com.br", observacao: "Interessados devem enviar curriculo até 29/03/2021."}
-  ]
+  const [vagas, setVagas] = useState([]);
 
   useEffect(() => {
-  //Lógica para c6amar a api e buscar a lista de contatos
-  })
+    apiVagas.get('lista-vagas').then(response => {
+      console.log(response);
+      setVagas(response.data.data);
+    });
+    console.log(vagas);
+  }, [vagas])
 
   return (
     <div>
@@ -18,9 +21,9 @@ const DetalheOfertasEstagio = () => {
       {
        vagas.map(vaga => (
          <div className='vaga-container flex flex-column' key={vaga.id} >
-           <p><strong>Data de vencimento: </strong>{vaga.dataVencimento}</p>
+           <p><strong>Data de vencimento: </strong>{vaga.data_vencimento}</p>
            <p><strong>Tipo: </strong>{vaga.tipo}</p>
-           <p><strong>Número de vagas: </strong>{vaga.numeroVagas}</p>
+           <p><strong>Número de vagas: </strong>{vaga.numero_vagas}</p>
            <p><strong>Endereço: </strong>{vaga.endereco}</p>
            <p><strong>Horário: </strong>{vaga.horario}</p>
            <p><strong>Remuneração: </strong>{vaga.remuneracao}</p>

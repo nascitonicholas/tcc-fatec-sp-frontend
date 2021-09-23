@@ -1,8 +1,37 @@
 import axios from 'axios';
 
-const apiContatos = axios.create({
-  baseURL: 'http://18.228.118.20:8003',
-  //baseURL: 'http://localhost:8003',
+const dominio = 'http://tcc-fatec-lb-1458827984.sa-east-1.elb.amazonaws.com';
+
+export const apiAvisos = axios.create({
+  baseURL: dominio + ':80',
 });
 
-export default apiContatos;
+export const apiBd = axios.create({
+  baseURL: dominio + ':81',
+});
+
+export const apiBdContatos = axios.create({
+  baseURL: dominio + ':82',
+});
+
+export const apiContatos = axios.create({
+  baseURL: dominio + ':83',
+});
+
+export const apiHistoricos = axios.create({
+  baseURL: dominio + ':84',
+});
+
+export const apiMatriculas = axios.create({
+  baseURL: dominio + ':85',
+});
+
+export const apiUser = axios.create({
+  baseURL: dominio + ':86',
+});
+
+export const apiVagas = axios.create({
+  baseURL: dominio + ':8007',
+});
+
+export default apiAvisos;
