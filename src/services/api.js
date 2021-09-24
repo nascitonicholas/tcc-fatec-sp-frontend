@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const dominio = 'http://tcc-fatec-lb-1458827984.sa-east-1.elb.amazonaws.com';
+const dominio = 'https://api.tccfatec.evshosting.net';
 
 export const apiAvisos = axios.create({
   baseURL: dominio + ':80',
