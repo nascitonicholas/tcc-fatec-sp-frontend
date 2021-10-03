@@ -12,16 +12,19 @@ import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import { Button } from '@material-ui/core';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import {apiUser} from '../../services/api';
 import './Login.scss'
 
 const Login = () => {
 
     const history = useHistory();
+    window.localStorage.clear();
 
     const [values, setValues] = React.useState({
         nrMatricula: "",
         password: "",
-        showPassword: false
+        showPassword: false,
+        error:""
     });
 
     const handleChange = (prop) => (event) => {
@@ -38,26 +41,39 @@ const Login = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        //localStorage.clear();
 
-        /*Login Provisorio*/
-        const alunoLogado = {
-            nome: 'Fulano',
-            email: 'ciclano@gmail.com',
-            curso: 'Analise e Desenvolvimento de Sistemas',
-            periodo: 'Noite',
-            matricula: '18100548',
-            campus: 'SÃO PAULO'
+        const data = {
+            nrMatricula:values.nrMatricula,
+            senha:values.password
         }
 
-        localStorage.setItem('alunoLogado', JSON.stringify(alunoLogado))
+        if(!data.nrMatricula || !data.senha){
+            setValues({ ...values, error : "Preencha matrícula e senha para continuar!"})
+        }
+        else{
 
-        /*Api de Login*/
+            try{
 
-        history.push('/menu-principal')
-        window.location.reload()
-
-
+                const response = await apiUser.post('/usuario/login', data)
+                const usuarioLogado = response.data.data;
+                const alunoLogado = {
+                    nome: usuarioLogado.nome,
+                    email: usuarioLogado.email,
+                    curso: usuarioLogado.curso.nome,
+                    periodo: usuarioLogado.turno.nome,
+                    matricula: usuarioLogado.nrMatricula,
+                    campus: 'SÃO PAULO'
+                }
+        
+                localStorage.setItem('alunoLogado', JSON.stringify(alunoLogado))
+    
+                history.push('/menu-principal')
+                window.location.reload()
+    
+            }catch (error){
+                setValues({ ...values, error : error.response.data.message})
+            }
+        }
     }
 
     return (
@@ -103,6 +119,7 @@ const Login = () => {
                             />
                         </FormControl>
                     </div>
+                    {values.error && <p className="flex flex-justify-center msg_error">{values.error}</p>}
                     <div className='button-and-checkbox'>
                         <Button variant="contained" className='button-login' onClick={handleSubmit}>
                             <p className='titulo-button'>Entrar</p>
