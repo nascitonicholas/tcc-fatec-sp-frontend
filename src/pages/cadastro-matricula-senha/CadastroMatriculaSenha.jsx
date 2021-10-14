@@ -10,6 +10,7 @@ import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import OutlinedInput from "@material-ui/core/OutlinedInput";
 import './CadastroMatriculaSenha.scss'
+import { apiUser } from '../../services/api';
 
 
 
@@ -29,7 +30,9 @@ const CadastroLoginSenha = () => {
         senha: "",
         confirmaSenha: "",
         oldSenha: "",
-        newSenha: ""
+        newSenha: "",
+        error: "",
+        httpStatusResponse: 0
     });
 
     const handleChange = (prop) => (event) => {
@@ -56,19 +59,53 @@ const CadastroLoginSenha = () => {
         event.preventDefault();
         localStorage.clear();
 
-        if(flagMenuPrincipal){
-            /*Chamada Api de Cadastrar*/
 
-            /*Sucesso - Pagina Seguinte de Cadastro*/
-            history.push('/cadastro');
 
-        }else{
+        if (flagMenuPrincipal) {
+
+            const data = {
+                nrMatricula: values.nrMatricula,
+                senha: values.senha,
+                confirmaSenha: values.confirmaSenha
+            }
+
+            if (!data.nrMatricula) {
+                setValues({ ...values, error: "Preencha matrícula continuar" })
+            }
+            else {
+
+                try {
+                    const response = await apiUser.get('/usuario/' + data.nrMatricula)
+                    values.httpStatusResponse = response.status;
+                } catch (error) {
+                    values.httpStatusResponse = 404;
+                }
+
+                if (values.httpStatusResponse === 200) {
+                    setValues({ ...values, error: "Usuário já cadastrado no sistema. Por favor realizar login" })
+                }
+
+                else if (!data.senha) {
+                    setValues({ ...values, error: "Necessário informar senha para continuar" })
+                }
+
+                else if (!data.confirmaSenha) {
+                    setValues({ ...values, error: "Necessário confirmar senha para continuar" })
+                }
+                else if (data.senha !== data.confirmaSenha) {
+                    setValues({ ...values, error: "As senhas diferem. Por favor verificar" })
+                }
+                else {
+                    localStorage.setItem('dadosMatriculaSenha', JSON.stringify(data))
+                    history.push('/cadastro');
+                }
+            }
+
+
+
+        } else {
             /*Chamada Api de Alterar*/
         }
-
-       
-
-        /*Api realizar primeiro cadastro*/
     }
 
     return (
@@ -189,6 +226,7 @@ const CadastroLoginSenha = () => {
                         />
                     </div>
                 }
+
                 {
                     !flagMenuPrincipal &&
                     <div className='item item3'>
@@ -218,6 +256,7 @@ const CadastroLoginSenha = () => {
                     </div>
                 }
             </div>
+            {values.error && <p className="flex flex-justify-center msg_error">{values.error}</p>}
             <div className='container-button'>
                 <Button variant="contained" className='button-salvar' onClick={handleSubmit}>
                     <p className='titulo-button'>{tituloButton}</p>

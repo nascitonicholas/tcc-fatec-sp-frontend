@@ -14,6 +14,8 @@ const Formulario = () => {
 
     const location = useLocation();
 
+    const dadosMatriculaSenha = JSON.parse(localStorage.getItem('dadosMatriculaSenha'))
+    
     /*Provisorio - Buscar via Api*/
     const tiposEndereco = [
         {
@@ -55,7 +57,8 @@ const Formulario = () => {
     const [values, setValues] = React.useState({
         nome: "",
         email: "",
-        nrMatricula: "",
+        senha: dadosMatriculaSenha.senha,
+        nrMatricula: dadosMatriculaSenha.nrMatricula,
         nomeMae: "",
         nomePai: "",
         nrCPF: "",
@@ -76,6 +79,9 @@ const Formulario = () => {
 
     });
 
+
+    console.log(values)
+
     useEffect(() => {
 
     })
@@ -94,9 +100,6 @@ const Formulario = () => {
             console.log('Chamando API para Alterar Dados')
         }
         console.log(values);
-
-
-
     };
 
     const ChangeTituloButton = () => {
