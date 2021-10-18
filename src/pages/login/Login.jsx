@@ -13,6 +13,7 @@ import { Button } from '@material-ui/core';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import {apiUser} from '../../services/api';
+import Usuario from '../../models/Usuario';
 import './Login.scss'
 
 const Login = () => {
@@ -56,21 +57,15 @@ const Login = () => {
 
                 const response = await apiUser.post('/usuario/login', data)
                 const usuarioLogado = response.data.data;
-                const alunoLogado = {
-                    nome: usuarioLogado.nome,
-                    email: usuarioLogado.email,
-                    curso: usuarioLogado.curso.nome,
-                    periodo: usuarioLogado.turno.nome,
-                    matricula: usuarioLogado.nrMatricula,
-                    campus: 'SÃO PAULO'
-                }
-        
-                localStorage.setItem('alunoLogado', JSON.stringify(alunoLogado))
+                var alunoLogado = new Usuario(usuarioLogado.nome, usuarioLogado.email, "CURSO", "PERIODO", usuarioLogado.matricula, "SÃO PAULO");
+                
+                localStorage.setItem('alunoLogado', JSON.stringify(alunoLogado));
     
                 history.push('/menu-principal')
                 window.location.reload()
     
             }catch (error){
+                console.log(error)
                 setValues({ ...values, error : error.response.data.message})
             }
         }

@@ -57,9 +57,12 @@ const CadastroLoginSenha = () => {
         localStorage.clear();
 
         if(flagMenuPrincipal){
-            /*Chamada Api de Cadastrar*/
-
-            /*Sucesso - Pagina Seguinte de Cadastro*/
+           
+            const dadosMatriculaSenha = {
+                nrMatricula:values.nrMatricula,
+                senha:values.senha
+            }
+            localStorage.setItem('dadosMatriculaSenha', JSON.stringify(dadosMatriculaSenha));
             history.push('/cadastro');
 
         }else{

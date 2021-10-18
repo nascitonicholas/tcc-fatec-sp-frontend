@@ -6,6 +6,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import InputMask from "react-input-mask";
 import { Button } from '@material-ui/core';
+import { apiBd } from '../../services/api';
 
 import '../style/Formulario.scss';
 
@@ -14,7 +15,8 @@ const Formulario = () => {
 
     const location = useLocation();
 
-    /*Provisorio - Buscar via Api*/
+    var passo1 = JSON.parse(localStorage.getItem('dadosMatriculaSenha'));
+
     const tiposEndereco = [
         {
             key: '1',
@@ -30,32 +32,29 @@ const Formulario = () => {
         }
     ]
 
-    /*Provisorio - Buscar via API*/
+    async function carregaCursos() {
+        try {
+            const response = await apiBd.get('/cursos');
+            setValues({ ...values, lista_cursos: response.data.data})
+        } catch (error) {
 
-    const estados = [
-        {
-            key:'1',
-            value:'São Paulo'
-        },
-        {
-            key:'2',
-            value:'Rio de Janeiro'
-        },
-        {
-            key:'3',
-            value:'Minas Gerais'
-        },
-        {
-            key:'4',
-            value:'Espirito Santo'
-        },
+        }
+    }
 
-    ]
+    async function carregaEstados(){
+        const response = await apiBd.get('/enderecos/estados');
+        setValues({ ...values, lista_estados: response.data.data})
+    }
+
+    
+    
 
     const [values, setValues] = React.useState({
         nome: "",
         email: "",
-        nrMatricula: "",
+        nrMatricula: passo1.nrMatricula,
+        curso: "",
+        turno: "",
         nomeMae: "",
         nomePai: "",
         nrCPF: "",
@@ -72,30 +71,63 @@ const Formulario = () => {
         bairro: "",
         municipio: "",
         estado: "",
-        cep: ""
+        cep: "",
+        lista_cursos:[{}],
+        lista_estados:[{}]
 
     });
 
+    
     useEffect(() => {
 
-    })
+        //carregaCursos();
+    }, []);
+
+   
 
     const handleChange = (prop) => (event) => {
         setValues({ ...values, [prop]: event.target.value });
     };
 
-
     const handleSubmit = async (event) => {
         event.preventDefault();
-        localStorage.clear();
+
         if (location.pathname === '/cadastro') {
-            console.log('Chamando API para Cadastro')
+
+            const endereco = {
+                tipo_endereco: values.tipoEndereco,
+                logradouro: values.logradouro,
+                numero: values.nrEndereco,
+                complemento: values.complemento,
+                bairro: values.bairro,
+                municipio: values.municipio,
+                estado: values.estado,
+                cep: values.cep
+            }
+
+            try {
+
+                /*Cadastra o endereço*/
+                const body = {
+                    lista_enderecos: [endereco]
+                }
+
+                const response = await apiBd.post('/enderecos', body);
+                const idEndereco = response.data.data[0].id_endereco;
+
+                /*Cadastra o Usuário*/
+
+
+
+
+            } catch (error) {
+                alert(error)
+            }
+
+
         } else {
             console.log('Chamando API para Alterar Dados')
         }
-        console.log(values);
-
-
 
     };
 
@@ -133,12 +165,34 @@ const Formulario = () => {
                         Matricula
                     </InputLabel>
                     <TextField
+                        value={values.nrMatricula}
                         id="nrMatricula"
                         onChange={handleChange("nrMatricula")}
                         variant="outlined"
                         className='input'
                         size='small'
                     />
+                    <InputLabel htmlFor="curso" className='label'>
+                        Curso
+                    </InputLabel>
+                    <TextField
+
+                        id="curso"
+                        variant="outlined"
+                        select
+                        value={values.curso}
+                        helperText="Selecione o curso"
+                        onChange={handleChange("curso")}
+                        className='input'
+                        size='small'
+                    >
+                     {values.lista_cursos.map((option) => (
+                            <MenuItem key={option.id} value={option.nome}>
+                                {option.nome}
+                            </MenuItem>
+                        ))}
+
+                    </TextField>
                 </div>
                 <div className='form'>
                     <InputLabel htmlFor="email" className='label'>
@@ -175,7 +229,7 @@ const Formulario = () => {
                     />
                 </div>
                 <div className='form'>
-                    
+
                 </div>
 
                 <div className='form'>
@@ -372,9 +426,9 @@ const Formulario = () => {
                         className='input'
                         size='small'
                     >
-                        {estados.map((option) => (
-                            <MenuItem key={option.key} value={option.value}>
-                                {option.value}
+                        {values.lista_estados.map((option) => (
+                            <MenuItem key={option.id} value={option.nome}>
+                                {option.nome}
                             </MenuItem>
                         ))}
                     </TextField>
