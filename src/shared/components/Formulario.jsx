@@ -10,8 +10,7 @@ import { apiBd } from '../../services/api';
 
 import '../style/Formulario.scss';
 
-
-const Formulario = () => {
+const Formulario = (cursos) => {
 
     const location = useLocation();
 
@@ -31,23 +30,6 @@ const Formulario = () => {
             value: 'Cobrança',
         }
     ]
-
-    async function carregaCursos() {
-        try {
-            const response = await apiBd.get('/cursos');
-            setValues({ ...values, lista_cursos: response.data.data})
-        } catch (error) {
-
-        }
-    }
-
-    async function carregaEstados(){
-        const response = await apiBd.get('/enderecos/estados');
-        setValues({ ...values, lista_estados: response.data.data})
-    }
-
-    
-    
 
     const [values, setValues] = React.useState({
         nome: "",
@@ -72,25 +54,23 @@ const Formulario = () => {
         municipio: "",
         estado: "",
         cep: "",
-        lista_cursos:[{}],
-        lista_estados:[{}]
+        lista_cursos: [],
+        lista_estados: []
 
     });
 
-    
-    useEffect(() => {
 
-        //carregaCursos();
-    }, []);
-
-   
+    function carregaEstados() {
+        const response = apiBd.get('/enderecos/estados');
+        setValues({ ...values, lista_estados: response.data.data })
+    }
 
     const handleChange = (prop) => (event) => {
         setValues({ ...values, [prop]: event.target.value });
     };
 
     const handleSubmit = async (event) => {
-        event.preventDefault();
+        //event.preventDefault();
 
         if (location.pathname === '/cadastro') {
 
@@ -186,11 +166,15 @@ const Formulario = () => {
                         className='input'
                         size='small'
                     >
-                     {values.lista_cursos.map((option) => (
-                            <MenuItem key={option.id} value={option.nome}>
-                                {option.nome}
-                            </MenuItem>
-                        ))}
+
+                        {
+                            cursos.map((option) => (
+                                <MenuItem key={option.id} value={option.nome}>
+                                    {option.nome}
+                                </MenuItem>
+                            ))
+                        }
+
 
                     </TextField>
                 </div>
