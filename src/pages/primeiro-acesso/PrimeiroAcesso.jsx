@@ -3,34 +3,31 @@ import Formulario from '../../shared/components/Formulario';
 import { apiBd } from '../../services/api';
 import './PrimeiroAcesso.scss'
 
-var values = []
-
-async function carregaCursos() {
-    await apiBd.get('/cursos').then(res => {
-        values = res.data.data;
-    })
-}
-
 
 const PrimeiroAcesso = () => {
-
-
-    //const [values, setValues] = React.useState([])
-
-   
-
-    
-    carregaCursos()
-
-    console.log(values)
 
     localStorage.removeItem("tituloHeader");
     localStorage.setItem('tituloHeader', 'Primeiro Acesso')
 
-    
+    const [cursos, setCursos] = React.useState([]);
+    const [estados, setEstados] = React.useState([]);
+
+    async function carregaCursos() {
+        const res = await apiBd.get('/cursos');
+        setCursos(res.data.data)
+    }
+
+    async function carregaEstados() {
+        await apiBd.get('/enderecos/estados').then(res => {
+            setEstados(res.data.data)
+        });
+    }
+
+    carregaCursos() 
+    carregaEstados() 
 
     return (
-        <Formulario cursos={values}/>
+        <Formulario cursos={cursos} estados={estados} />
     )
 }
 

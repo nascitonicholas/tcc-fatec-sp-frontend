@@ -10,7 +10,8 @@ import { apiBd } from '../../services/api';
 
 import '../style/Formulario.scss';
 
-const Formulario = (cursos) => {
+
+function Formulario ({cursos, estados})  {
 
     const location = useLocation();
 
@@ -53,24 +54,16 @@ const Formulario = (cursos) => {
         bairro: "",
         municipio: "",
         estado: "",
-        cep: "",
-        lista_cursos: [],
-        lista_estados: []
+        cep: ""
 
     });
-
-
-    function carregaEstados() {
-        const response = apiBd.get('/enderecos/estados');
-        setValues({ ...values, lista_estados: response.data.data })
-    }
 
     const handleChange = (prop) => (event) => {
         setValues({ ...values, [prop]: event.target.value });
     };
 
     const handleSubmit = async (event) => {
-        //event.preventDefault();
+        event.preventDefault();
 
         if (location.pathname === '/cadastro') {
 
@@ -410,7 +403,7 @@ const Formulario = (cursos) => {
                         className='input'
                         size='small'
                     >
-                        {values.lista_estados.map((option) => (
+                        {estados.map((option) => (
                             <MenuItem key={option.id} value={option.nome}>
                                 {option.nome}
                             </MenuItem>
