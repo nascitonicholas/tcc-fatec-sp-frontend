@@ -9,6 +9,7 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import OutlinedInput from "@material-ui/core/OutlinedInput";
+import { apiBd } from '../../services/api';
 import './CadastroMatriculaSenha.scss'
 
 
@@ -29,7 +30,8 @@ const CadastroLoginSenha = () => {
         senha: "",
         confirmaSenha: "",
         oldSenha: "",
-        newSenha: ""
+        newSenha: "",
+        error: ""
     });
 
     const handleChange = (prop) => (event) => {
@@ -56,22 +58,43 @@ const CadastroLoginSenha = () => {
         event.preventDefault();
         localStorage.clear();
 
-        if(flagMenuPrincipal){
-           
-            const dadosMatriculaSenha = {
-                nrMatricula:values.nrMatricula,
-                senha:values.senha
-            }
-            localStorage.setItem('dadosMatriculaSenha', JSON.stringify(dadosMatriculaSenha));
-            history.push('/cadastro');
 
-        }else{
+
+        if (flagMenuPrincipal) {
+
+            if (!values.nrMatricula || !values.senha) {
+                setValues({ ...values, error: "Preencha matrícula e senha para continuar!" })
+            }
+            else if (!values.confirmaSenha) {
+                setValues({ ...values, error: "Necessário confirmar a senha para continuar!" })
+            }
+            else if (values.senha !== values.confirmaSenha) {
+                setValues({ ...values, error: "As senhas diferem. Por favor verificar!" })
+            }
+            else {
+
+                try {
+                    const response = await apiBd.get('/usuarios/' + values.nrMatricula);
+                    console.log(response)
+                    if (response.status === 200) {
+                        setValues({ ...values, error: "Usuário já cadastro. Realizar Login!" })
+                    }
+                } catch (error) {
+                    
+                }
+
+                const dadosMatriculaSenha = {
+                    nrMatricula: values.nrMatricula,
+                    senha: values.senha
+                }
+                localStorage.setItem('dadosMatriculaSenha', JSON.stringify(dadosMatriculaSenha));
+                history.push('/cadastro');
+            }
+
+        } else {
             /*Chamada Api de Alterar*/
         }
 
-       
-
-        /*Api realizar primeiro cadastro*/
     }
 
     return (
@@ -191,7 +214,9 @@ const CadastroLoginSenha = () => {
 
                         />
                     </div>
+
                 }
+                {values.error && <p className="flex flex-justify-center msg_error">{values.error}</p>}
                 {
                     !flagMenuPrincipal &&
                     <div className='item item3'>

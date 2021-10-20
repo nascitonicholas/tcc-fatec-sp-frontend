@@ -24,9 +24,9 @@ const Header = () => {
             </div>
             <div className='container-curso-periodo flex-column' >
               <p className='curso-periodo font-white'>{aluno.curso} | {aluno.periodo}</p>
-              <div className='flex-row flex-justify-space-between' >
-                <p className='font-white'>Matrícula: {aluno.matricula}</p>
-                <p className='font-white'>Campus: {aluno.campus}</p>
+              <div className='flex flex-row ' >
+                <p className='font-white'>Matrícula:{aluno.matricula}</p>
+                <p className='font-white'>Campus:{aluno.campus}</p>
               </div>
             </div>
           </div>

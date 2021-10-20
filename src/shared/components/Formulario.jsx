@@ -1,18 +1,20 @@
-import React, { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import {React,  useEffect, useState}  from 'react';
+import { useLocation,useHistory } from 'react-router-dom';
 import VoltarSair from './VoltarSair';
 import TextField from "@material-ui/core/TextField";
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import InputMask from "react-input-mask";
 import { Button } from '@material-ui/core';
-import { apiBd } from '../../services/api';
+import { apiBd,apiUser } from '../../services/api';
+import Usuario from '../../models/Usuario';
 
 import '../style/Formulario.scss';
 
 
-function Formulario ({cursos, estados})  {
+function Formulario() {
 
+    const history = useHistory();
     const location = useLocation();
 
     var passo1 = JSON.parse(localStorage.getItem('dadosMatriculaSenha'));
@@ -32,10 +34,11 @@ function Formulario ({cursos, estados})  {
         }
     ]
 
-    const [values, setValues] = React.useState({
+    const [values, setValues] = useState({
         nome: "",
         email: "",
         nrMatricula: passo1.nrMatricula,
+        senha: passo1.senha,
         curso: "",
         turno: "",
         nomeMae: "",
@@ -58,9 +61,43 @@ function Formulario ({cursos, estados})  {
 
     });
 
+    const [cursos, setCursos] = useState([]);
+
+    const [estados, setEstados] = useState([]);
+
+    const [turnos, setTurnos] = useState([]);
+
     const handleChange = (prop) => (event) => {
         setValues({ ...values, [prop]: event.target.value });
     };
+
+
+    useEffect( async () => {
+
+        try {
+            const response = await apiBd.get('/cursos');
+            setCursos(response.data.data)
+        } catch (error) {
+            console.log(error)
+        }
+
+        try {
+            const response = await apiBd.get('/enderecos/estados');
+            setEstados(response.data.data)
+        } catch (error) {
+            console.log(error)
+        }
+
+        try{
+            const response = await apiBd.get('/turnos');
+            setTurnos(response.data.data);
+        }catch (error) {
+            console.log(error)
+        }
+
+
+    }, []);
+
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -74,7 +111,7 @@ function Formulario ({cursos, estados})  {
                 complemento: values.complemento,
                 bairro: values.bairro,
                 municipio: values.municipio,
-                estado: values.estado,
+                id_estado: values.estado,
                 cep: values.cep
             }
 
@@ -86,12 +123,37 @@ function Formulario ({cursos, estados})  {
                 }
 
                 const response = await apiBd.post('/enderecos', body);
-                const idEndereco = response.data.data[0].id_endereco;
+                var response_id_endereco = response.data.data[0].id_endereco;
 
-                /*Cadastra o Usuário*/
+                /*Cadastrar Usuário*/
 
+                const data = {
+                    nrMatricula: values.nrMatricula,
+                    nome: values.nome,
+                    email: values.email,
+                    senha: values.senha,
+                    cpf: values.nrCPF,
+                    rg: values.nrRG,
+                    certificadoMilitar: values.nrCertificadoMilitar,
+                    numeroTitulo: values.nrTituloEleitor,
+                    zonaTitulo: values.nrZona,
+                    telefone: values.nrTelefone,
+                    celular: values.nrCelular,
+                    id_endereco: response_id_endereco,
+                    id_curso: values.curso,
+                    id_turno: values.turno
+                }
 
+                const res = await apiUser.post('/usuario/cadastrar', data);
 
+                const user = res.data.data;
+
+                var alunoLogado = new Usuario(user.nome, user.email, user.curso.nome, user.turno.nome, user.nrMatricula, "FATEC SÃO PAULO", user.tokenAutenticacao);
+
+                localStorage.setItem('alunoLogado', JSON.stringify(alunoLogado));
+
+                history.push('/menu-principal');
+                window.location.reload();
 
             } catch (error) {
                 alert(error)
@@ -162,13 +224,36 @@ function Formulario ({cursos, estados})  {
 
                         {
                             cursos.map((option) => (
-                                <MenuItem key={option.id} value={option.nome}>
+                                <MenuItem key={option.id} value={option.id}>
                                     {option.nome}
                                 </MenuItem>
                             ))
                         }
 
 
+                    </TextField>
+                    <InputLabel htmlFor="turno" className='label'>
+                        Período
+                    </InputLabel>
+                    <TextField
+
+                        id="curso"
+                        variant="outlined"
+                        select
+                        value={values.turno}
+                        helperText="Selecione o período"
+                        onChange={handleChange("turno")}
+                        className='input'
+                        size='small'
+                    >
+
+                        {
+                            turnos.map((option) => (
+                                <MenuItem key={option.id} value={option.id}>
+                                    {option.nome}
+                                </MenuItem>
+                            ))
+                        }
                     </TextField>
                 </div>
                 <div className='form'>
@@ -404,7 +489,7 @@ function Formulario ({cursos, estados})  {
                         size='small'
                     >
                         {estados.map((option) => (
-                            <MenuItem key={option.id} value={option.nome}>
+                            <MenuItem key={option.id} value={option.id}>
                                 {option.nome}
                             </MenuItem>
                         ))}
