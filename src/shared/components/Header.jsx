@@ -2,12 +2,12 @@ import React from 'react';
 import LogoFatec from '../../assets/logoFatec.png';
 import LogoCTPS from '../../assets/logoCTPS.png';
 import '../style/Header.scss';
+import Usuario from '../../models/Usuario';
 
 const Header = () => {
 
-  var alunoLogado = localStorage.getItem('alunoLogado');
+  var aluno = Usuario.getUsuario();
   var tituloHeader = localStorage.getItem('tituloHeader')
-  var aluno = JSON.parse(alunoLogado);
 
   return (
     <header className='background-color-segundary' >
@@ -16,7 +16,7 @@ const Header = () => {
           <img src={LogoFatec} alt='Logo Fatec' className='logoFatec' />
         </div>
         {
-          alunoLogado &&
+          aluno &&
           <div className='flex-row'>
             <div className='container-nome-email flex-column ' >
               <h1 className='nome-aluno font-white'>{aluno.nome}</h1>
@@ -24,15 +24,15 @@ const Header = () => {
             </div>
             <div className='container-curso-periodo flex-column' >
               <p className='curso-periodo font-white'>{aluno.curso} | {aluno.periodo}</p>
-              <div className='flex-row flex-justify-space-between' >
-                <p className='font-white'>Matrícula: {aluno.matricula}</p>
-                <p className='font-white'>Campus: {aluno.campus}</p>
+              <div className='flex flex-row ' >
+                <p className='font-white'>Matrícula:{aluno.matricula}</p>
+                <p className='font-white'>Campus:{aluno.campus}</p>
               </div>
             </div>
           </div>
         }
         {
-          !alunoLogado &&
+          !aluno &&
           <div className='container-titulo-pagina'>
             <h1 className='tituloHeader font-white'>{tituloHeader}</h1>
           </div>

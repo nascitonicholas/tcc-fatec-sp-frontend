@@ -9,7 +9,7 @@ const PrimeiroAcesso = () => {
     localStorage.setItem('tituloHeader', 'Primeiro Acesso')
 
     return (
-        <Formulario />
+        <Formulario/>
     )
 }
 
