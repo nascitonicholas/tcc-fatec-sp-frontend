@@ -9,4 +9,8 @@ export default class Usuario {
         this.campus = campus;
         this.token = token;
     }
+
+    static getUsuario() {
+        return JSON.parse(localStorage.getItem('alunoLogado'));
+    }
 }
