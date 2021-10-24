@@ -1,36 +1,27 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import Usuario from '../../models/Usuario';
 import VoltarSair from '../../shared/components/VoltarSair';
+import { apiHistoricos } from '../../services/api';
 import './HistoricoDisciplinar.scss';
 
 const HistoricoDisciplinar = () => {
 
-  const alunoLogado = localStorage.getItem('alunoLogado');
-  const aluno = JSON.parse(alunoLogado);
-  const historicos = [
-    {disciplina: '1741', nomeDisciplina: 'MATEMATICA DISCRETA', conclusao: '2018/01', media: '5.5', conceito: '', semestre: '1'},
-    {disciplina: '1742', nomeDisciplina: 'MATEMATICA DISCRETA', conclusao: '2018/01', media: '7.5', conceito: '', semestre: '1'},
-    {disciplina: '6943', nomeDisciplina: 'ARQUITETURA E ORGANIZACAO DE COMPUTADORES', conclusao: '2018/01', media: '10.0', conceito: '', semestre: '1'},
-    {disciplina: '6944', nomeDisciplina: 'ARQUITETURA E ORGANIZACAO DE COMPUTADORES', conclusao: '2018/01', media: '10.0', conceito: '', semestre: '1'},
-    {disciplina: '6945', nomeDisciplina: 'ARQUITETURA E ORGANIZACAO DE COMPUTADORES', conclusao: '2018/01', media: '10.0', conceito: '', semestre: '1'},
-    {disciplina: '6946', nomeDisciplina: 'PROGRAMACAO EM MICROINFORMATICA', conclusao: '2018/01', media: '', conceito: 'D', semestre: '1'},
-    {disciplina: '6947', nomeDisciplina: 'PROGRAMACAO EM MICROINFORMATICA', conclusao: '2018/01', media: '', conceito: 'D', semestre: '1'},
-    {disciplina: '6948', nomeDisciplina: 'PROGRAMACAO EM MICROINFORMATICA', conclusao: '2018/01', media: '', conceito: 'D', semestre: '1'},
-    {disciplina: '6949', nomeDisciplina: 'PROGRAMACAO EM MICROINFORMATICA', conclusao: '2018/01', media: '', conceito: 'D', semestre: '1'},
-    {disciplina: '1710', nomeDisciplina: 'MATEMATICA DISCRETA', conclusao: '2018/01', media: '7.5', conceito: '', semestre: '1'},
-    {disciplina: '1711', nomeDisciplina: 'MATEMATICA DISCRETA', conclusao: '2018/01', media: '7.5', conceito: '', semestre: '1'},
-    {disciplina: '1712', nomeDisciplina: 'MATEMATICA DISCRETA', conclusao: '2018/01', media: '7.5', conceito: '', semestre: '1'},
-    {disciplina: '1713', nomeDisciplina: 'MATEMATICA DISCRETA', conclusao: '2018/01', media: '7.5', conceito: '', semestre: '1'},
-    {disciplina: '1714', nomeDisciplina: 'MATEMATICA DISCRETA', conclusao: '2018/01', media: '7.5', conceito: '', semestre: '1'},
-    {disciplina: '1715', nomeDisciplina: 'MATEMATICA DISCRETA', conclusao: '2018/01', media: '7.5', conceito: '', semestre: '1'},
-    {disciplina: '1716', nomeDisciplina: 'MATEMATICA DISCRETA', conclusao: '2018/01', media: '7.5', conceito: '', semestre: '1'},
-  ]
+  const alunoLogado = Usuario.getUsuario();
+  const [historicos, setHistoricos] = useState([]);
+  
+  useEffect(() => {
+    apiHistoricos.get('notas/' + alunoLogado.matricula).then(response => {
+      console.log(response);
+      setHistoricos(response.data.data);
+    });
+    console.log(historicos);
+  }, [])
 
   return (
     <div>
       <VoltarSair flagVoltar={true} />
       <div className='dados-historico-container flex flex-column' >
-        <h1><strong>Nome:</strong> {aluno.nome} | <strong>RA:</strong> {aluno.matricula}</h1>
-        <h1><strong>Prazo máximo para conclusão curso:</strong> {aluno.prazo}</h1>
+        <h1><strong>Nome:</strong> {alunoLogado.nome} | <strong>RA:</strong> {alunoLogado.matricula}</h1>
       </div>
       <div className='flex flex-column flex-center full-width' >
         <div className='historico-container header-class flex-row flex-center' >

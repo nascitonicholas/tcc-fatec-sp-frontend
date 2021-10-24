@@ -1,26 +1,26 @@
-import React,  { useEffect } from 'react';
+import React,  { useEffect, useState } from 'react';
+import { apiHistoricos } from '../../services/api';
+import Usuario from '../../models/Usuario';
 import VoltarSair from '../../shared/components/VoltarSair';
 import Aprovado from '../../assets/avaliacoes-finais/verificar.png';
 import Reprovado from '../../assets/avaliacoes-finais/rejeitar.png';
 import './AvaliacoesFinais.scss';
 
-const notasAluno = [
-  { disciplina: 'ITE 002', faltas: '4', professor: 'Walter Yogui Ferreira', nota: '9,6' },
-  { disciplina: 'ITE 003', faltas: '2', professor: 'Walter Yogui Ferreira', nota: '9,6' },
-  { disciplina: 'ISA 002', faltas: '0', professor: 'Walter Yogui Ferreira', nota: '8,4' },
-  { disciplina: 'AGO 006', faltas: '0', professor: 'Walter Yogui Ferreira', nota: '7,3' },
-  { disciplina: 'ILP 590', faltas: '0', professor: 'Walter Yogui Ferreira', nota: '10' },
-  { disciplina: 'IRC 008', faltas: '6', professor: 'Walter Yogui Ferreira', nota: '5,2' },
-];
-
+const alunoLogado = Usuario.getUsuario();
 
 const AvaliacoesFinais = () => {
 
   localStorage.removeItem("tituloHeader");
-  localStorage.setItem('tituloHeader','Avaliações Finais')
+  localStorage.setItem('tituloHeader','Avaliações Finais');
+
+  const [notasAluno, setNotasAluno] = useState([]); 
 
   useEffect(() => {
-    // Lógica para buscar o resultado do aluno e setar na variável notasAluno conforme exemplo
+    apiHistoricos.get('notas/semestre-atual/' + alunoLogado.matricula).then(response => {
+      console.log(response);
+      setNotasAluno(response.data.data);
+    });
+    console.log(notasAluno);
   });
 
   return (
@@ -37,7 +37,7 @@ const AvaliacoesFinais = () => {
         <div className='flex flex-column flex-center' >
           {
             notasAluno.map(nota => (
-              <div className='notas-container flex-row' key={nota.disciplina} >
+              <div className='notas-container flex-row' key={nota.id} >
                 <div className='item-div nota-div flex flex-justify-center' ><p>{nota.disciplina}</p></div>
                 <div className='item-div nota-div flex flex-justify-center' ><p>{nota.faltas}</p></div>
                 <div className='item-div nota-div flex flex-justify-center' ><p>{nota.professor}</p></div>
