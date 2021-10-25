@@ -1,18 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { apiMatriculas } from '../../services/api';
+import Usuario from '../../models/Usuario';
 import VoltarSair from '../../shared/components/VoltarSair';
 import { FiDownload } from 'react-icons/fi';
 import './MatriculasConfirmadas.scss';
 
 const MatriculasConfirmadas = () => {
 
-  const matriculas = [
-    {id: 1, codigoMateria:'ITE 002', nomeProfessor:'Walter Yogui Ferreira'},
-    {id: 2, codigoMateria:'ITE 003', nomeProfessor:'Edgard da Silva'},
-    {id: 3, codigoMateria:'ISA 002', nomeProfessor:'Edmea Veiga'},
-    {id: 4, codigoMateria:'AGO 006', nomeProfessor:'Edgard da Silva'},
-    {id: 5, codigoMateria:'ILP 590', nomeProfessor:'Marcelo Aoki Sakamoto'},
-    {id: 6, codigoMateria:'IRC 008', nomeProfessor:'Arnaldo Pereira Castro'},
-  ]
+  const [matriculas, setMatriculas] = useState([]);
+  const alunoLogado = Usuario.getUsuario();
+
+  useEffect(() => {
+    apiMatriculas.get('matriculas/semestre-atual/' + alunoLogado.matricula).then(response => {
+      console.log(response);
+      setMatriculas(response.data.data);
+    });
+    console.log(matriculas);
+  }, [])
 
   return (
     <div>
