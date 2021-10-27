@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
-import { isAuthenticated } from './Auth';
+//import { isAuthenticated } from './Auth';
 import MenuPrincipal from '../pages/menu/MenuPrincipal';
 import MeusEmails from '../pages/meus-emails/MeusEmail';
 import RequisicaoRematricula from '../pages/requisicao-rematricula/RequisicaoRematricula';
@@ -22,6 +22,7 @@ import Formulario from '../pages/primeiro-acesso/PrimeiroAcesso';
 import CadastroLoginSenha from '../pages/cadastro-matricula-senha/CadastroMatriculaSenha';
 import Avisos from '../pages/avisos/Avisos';
 
+/*
 const PrivateRoute = ({ component: Component, ...rest }) => {
   return (
     <Routes
@@ -32,7 +33,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
         <Redirect to={{ pathname: '/', state: { from: props.location } }} />
       )} />
   );
-}
+}*/
 
 const Routes = () => {
   return (

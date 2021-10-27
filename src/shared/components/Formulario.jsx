@@ -1,12 +1,12 @@
-import {React,  useEffect, useState}  from 'react';
-import { useLocation,useHistory } from 'react-router-dom';
+import { React, useEffect, useState } from 'react';
+import { useLocation, useHistory } from 'react-router-dom';
 import VoltarSair from './VoltarSair';
 import TextField from "@material-ui/core/TextField";
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import InputMask from "react-input-mask";
 import { Button } from '@material-ui/core';
-import { apiBd,apiUser } from '../../services/api';
+import { apiBd, apiUser } from '../../services/api';
 import Usuario from '../../models/Usuario';
 
 import '../style/Formulario.scss';
@@ -34,11 +34,12 @@ function Formulario() {
         }
     ]
 
+
     const [values, setValues] = useState({
         nome: "",
         email: "",
-        nrMatricula: passo1.nrMatricula,
-        senha: passo1.senha,
+        nrMatricula: "",
+        senha: "",
         curso: "",
         turno: "",
         nomeMae: "",
@@ -72,7 +73,7 @@ function Formulario() {
     };
 
 
-    useEffect( async () => {
+    useEffect(async () => {
 
         try {
             const response = await apiBd.get('/cursos');
@@ -88,10 +89,10 @@ function Formulario() {
             console.log(error)
         }
 
-        try{
+        try {
             const response = await apiBd.get('/turnos');
             setTurnos(response.data.data);
-        }catch (error) {
+        } catch (error) {
             console.log(error)
         }
 
@@ -124,6 +125,15 @@ function Formulario() {
 
                 const response = await apiBd.post('/enderecos', body);
                 var response_id_endereco = response.data.data[0].id_endereco;
+
+                var passo1 = JSON.parse(localStorage.getItem('dadosMatriculaSenha'));
+
+                /*
+                if (passo1 != null && passo1 !== undefined) {
+                    values.nrMatricula = passo1.nrMatricula,
+                    values.senha = passo1.senha
+                }*/
+
 
                 /*Cadastrar Usuário*/
 
@@ -161,7 +171,38 @@ function Formulario() {
 
 
         } else {
-            console.log('Chamando API para Alterar Dados')
+
+            const body = {
+                nrMatricula: values.nrMatricula,
+                nome: values.nome,
+                email: values.email,
+                senha: values.senha,
+                cpf: values.nrCPF,
+                rg: values.nrRG,
+                certificadoMilitar: values.nrCertificadoMilitar,
+                numeroTitulo: values.nrTituloEleitor,
+                zonaTitulo: values.nrZona,
+                telefone: values.nrTelefone,
+                celular: values.nrCelular,
+                id_curso: values.curso,
+                id_turno: values.turno,
+                endereco: {
+                    tipo_endereco: values.tipoEndereco,
+                    logradouro: values.logradouro,
+                    numero: values.nrEndereco,
+                    complemento: values.complemento,
+                    bairro: values.bairro,
+                    municipio: values.municipio,
+                    id_estado: values.estado,
+                    cep: values.cep
+                }
+            }
+
+            const res = await apiUser.put('/usuario/cadastrar', body);
+
+            console.log(res)
+
+
         }
 
     };

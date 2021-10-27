@@ -9,15 +9,13 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import OutlinedInput from "@material-ui/core/OutlinedInput";
-import { apiBd } from '../../services/api';
+import { apiBd, apiUser } from '../../services/api';
+import Usuario from '../../models/Usuario';
 import './CadastroMatriculaSenha.scss'
-
-
 
 const CadastroLoginSenha = () => {
 
     localStorage.removeItem("tituloHeader");
-    localStorage.removeItem("alunoLogado");
     localStorage.setItem('tituloHeader', 'Primeiro Acesso')
 
     const history = useHistory();
@@ -31,7 +29,8 @@ const CadastroLoginSenha = () => {
         confirmaSenha: "",
         oldSenha: "",
         newSenha: "",
-        error: ""
+        error: "",
+        messageSucesso: ""
     });
 
     const handleChange = (prop) => (event) => {
@@ -46,6 +45,10 @@ const CadastroLoginSenha = () => {
         setValues({ ...values, showConfirmPassword: !values.showConfirmPassword });
     };
 
+    const handleClickShowPasswordOld = () => {
+        setValues({ ...values, showOldSenha: !values.showOldSenha });
+    }
+
     const handleMouseDownPassword = (event) => {
         event.preventDefault();
     };
@@ -54,10 +57,12 @@ const CadastroLoginSenha = () => {
         event.preventDefault();
     };
 
+    const handleMouseDownPasswordOld = (event) => {
+        event.preventDefault();
+    }
+
     const handleSubmit = async (event) => {
         event.preventDefault();
-        localStorage.clear();
-
 
 
         if (flagMenuPrincipal) {
@@ -80,7 +85,7 @@ const CadastroLoginSenha = () => {
                         setValues({ ...values, error: "Usuário já cadastro. Realizar Login!" })
                     }
                 } catch (error) {
-                    
+
                 }
 
                 const dadosMatriculaSenha = {
@@ -92,7 +97,41 @@ const CadastroLoginSenha = () => {
             }
 
         } else {
-            /*Chamada Api de Alterar*/
+
+
+            if (values.oldSenha === null || values.oldSenha === "") {
+                setValues({ ...values, error: "Necessário prencher a senha atual!" })
+            }
+            else if (values.newSenha === null || values.newSenha === "") {
+                setValues({ ...values, error: "Necessário preencher a nova senha desejada!" })
+            }
+            else if (values.confirmaSenha === null || values.confirmaSenha === "") {
+                setValues({ ...values, error: "Necessário confirmar a senha para continuar!" })
+            }
+            else if (values.newSenha !== values.confirmaSenha) {
+                setValues({ ...values, error: "As senhas diferem. Por favor verificar!" })
+            }
+            else {
+                var aluno = Usuario.getUsuario();
+
+                const data = {
+                    nrMatricula: aluno.matricula,
+                    senha_atual: values.oldSenha,
+                    nova_senha: values.newSenha
+                }
+
+                try {
+                    const response = await apiUser.put('/usuario/atualizarpassword', data);
+
+                    alert("Senha Atualizada com Sucesso")
+
+                    history.push('/menu-principal')
+
+                } catch (error) {
+
+                    setValues({ ...values, error: "Senha atual incorreta!" })
+                }
+            }
         }
 
     }
@@ -122,12 +161,25 @@ const CadastroLoginSenha = () => {
                     <div className='item item1'>
 
                         <InputLabel htmlFor="oldSenha" className='labeltext'>
-                            Senha Antiga
+                            Senha Atual
                         </InputLabel>
-                        <TextField
+                        <OutlinedInput
                             id="oldSenha"
+                            type={values.showOldSenha ? "text" : "password"}
+                            value={values.oldSenha}
                             onChange={handleChange("oldSenha")}
-                            variant="outlined"
+                            endAdornment={
+                                <InputAdornment position="end">
+                                    <IconButton
+                                        aria-label="toggle password visibility"
+                                        onClick={handleClickShowPasswordOld}
+                                        onMouseDown={handleMouseDownPasswordOld}
+                                        edge="end"
+                                    >
+                                        {values.showOldSenha ? <Visibility /> : <VisibilityOff />}
+                                    </IconButton>
+                                </InputAdornment>
+                            }
                             className='input-text'
                         />
                     </div>
@@ -168,7 +220,7 @@ const CadastroLoginSenha = () => {
                         <OutlinedInput
                             id="newSenha"
                             type={values.showPassword ? "text" : "password"}
-                            value={values.senha}
+                            value={values.newSenha}
                             onChange={handleChange("newSenha")}
                             endAdornment={
                                 <InputAdornment position="end">
@@ -216,7 +268,7 @@ const CadastroLoginSenha = () => {
                     </div>
 
                 }
-                {values.error && <p className="flex flex-justify-center msg_error">{values.error}</p>}
+
                 {
                     !flagMenuPrincipal &&
                     <div className='item item3'>
@@ -251,6 +303,8 @@ const CadastroLoginSenha = () => {
                     <p className='titulo-button'>{tituloButton}</p>
                 </Button>
             </div>
+            {values.error && <p className="flex flex-justify-center msg_error">{values.error}</p>}
+            {values.messageSucesso && <p className="flex flex-justify-center msg_error">{values.messageSucesso}</p>}
         </form>
 
 
