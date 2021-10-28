@@ -57,7 +57,7 @@ const Login = () => {
 
                 const response = await apiUser.post('/usuario/login', data)
                 const usuarioLogado = response.data.data;
-                var alunoLogado = new Usuario(usuarioLogado.nome, usuarioLogado.email, usuarioLogado.curso.nome, usuarioLogado.turno.nome, usuarioLogado.nrMatricula, "FATEC SÃO PAULO", usuarioLogado.tokenAutenticacao);
+                var alunoLogado = new Usuario(usuarioLogado.nome, usuarioLogado.email, usuarioLogado.curso.nome, usuarioLogado.turno.nome, usuarioLogado.nrMatricula, "FATEC SÃO PAULO", usuarioLogado.email_pessoal, usuarioLogado.tokenAutenticacao);
                 
                 localStorage.setItem('alunoLogado', JSON.stringify(alunoLogado));
     

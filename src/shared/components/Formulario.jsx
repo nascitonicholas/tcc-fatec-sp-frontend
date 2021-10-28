@@ -18,6 +18,7 @@ function Formulario() {
     const location = useLocation();
 
     var passo1 = JSON.parse(localStorage.getItem('dadosMatriculaSenha'));
+    var aluno = Usuario.getUsuario();
 
     const tiposEndereco = [
         {
@@ -35,9 +36,51 @@ function Formulario() {
     ]
 
 
+
+    const [cursos, setCursos] = useState([]);
+
+    const [estados, setEstados] = useState([]);
+
+    const [turnos, setTurnos] = useState([]);
+
+    const [alunoApi, setAlunoApi] = useState({});
+
+    useEffect(async () => {
+
+        try {
+            const response = await apiBd.get('/cursos');
+            console.log(response)
+            setCursos(response.data.data)
+        } catch (error) {
+        }
+
+        try {
+            const response = await apiBd.get('/enderecos/estados');
+            setEstados(response.data.data)
+        } catch (error) {
+
+        }
+
+        try {
+            const response = await apiBd.get('/turnos');
+            setTurnos(response.data.data);
+        } catch (error) {
+
+        }
+
+        try {
+            const response = await apiUser.get('usuario/' + aluno.matricula);
+            setAlunoApi(response.data.data);
+        } catch (error) {
+
+        }
+
+    }, []);
+
     const [values, setValues] = useState({
         nome: "",
         email: "",
+        email_pessoal: "",
         nrMatricula: "",
         senha: "",
         curso: "",
@@ -62,42 +105,11 @@ function Formulario() {
 
     });
 
-    const [cursos, setCursos] = useState([]);
-
-    const [estados, setEstados] = useState([]);
-
-    const [turnos, setTurnos] = useState([]);
+    console.log(alunoApi)
 
     const handleChange = (prop) => (event) => {
         setValues({ ...values, [prop]: event.target.value });
     };
-
-
-    useEffect(async () => {
-
-        try {
-            const response = await apiBd.get('/cursos');
-            setCursos(response.data.data)
-        } catch (error) {
-            console.log(error)
-        }
-
-        try {
-            const response = await apiBd.get('/enderecos/estados');
-            setEstados(response.data.data)
-        } catch (error) {
-            console.log(error)
-        }
-
-        try {
-            const response = await apiBd.get('/turnos');
-            setTurnos(response.data.data);
-        } catch (error) {
-            console.log(error)
-        }
-
-
-    }, []);
 
 
     const handleSubmit = async (event) => {
@@ -141,7 +153,10 @@ function Formulario() {
                     nrMatricula: values.nrMatricula,
                     nome: values.nome,
                     email: values.email,
+                    email_pessoal: values.email_pessoal,
                     senha: values.senha,
+                    nome_mae: values.nomeMae,
+                    nome_pai: values.nomePai,
                     cpf: values.nrCPF,
                     rg: values.nrRG,
                     certificadoMilitar: values.nrCertificadoMilitar,
@@ -158,7 +173,7 @@ function Formulario() {
 
                 const user = res.data.data;
 
-                var alunoLogado = new Usuario(user.nome, user.email, user.curso.nome, user.turno.nome, user.nrMatricula, "FATEC SÃO PAULO", user.tokenAutenticacao);
+                var alunoLogado = new Usuario(user.nome, user.email, user.curso.nome, user.turno.nome, user.nrMatricula, "FATEC SÃO PAULO", user.emailPessoal, user.tokenAutenticacao);
 
                 localStorage.setItem('alunoLogado', JSON.stringify(alunoLogado));
 
@@ -177,6 +192,8 @@ function Formulario() {
                 nome: values.nome,
                 email: values.email,
                 senha: values.senha,
+                nome_mae: values.nomeMae,
+                nome_pai: values.nomePai,
                 cpf: values.nrCPF,
                 rg: values.nrRG,
                 certificadoMilitar: values.nrCertificadoMilitar,
@@ -308,6 +325,19 @@ function Formulario() {
                         className='input'
                         size='small'
                     />
+                    <InputLabel htmlFor="email_pessoal" className='label'>
+                        E-mail Pessoal
+                    </InputLabel>
+                    <TextField
+                        id="email_pessoal"
+                        onChange={handleChange("emailPessoal")}
+                        variant="outlined"
+                        className='input'
+                        size='small'
+                    />
+                </div>
+                <div className='form'>
+
                 </div>
                 <div className='form'>
                     <InputLabel htmlFor="nomeMae" className='label'>
