@@ -43,8 +43,6 @@ function Formulario() {
 
     const [turnos, setTurnos] = useState([]);
 
-    const [alunoApi, setAlunoApi] = useState({});
-
     useEffect(async () => {
 
         try {
@@ -68,44 +66,35 @@ function Formulario() {
 
         }
 
-        try {
-            const response = await apiUser.get('usuario/' + aluno.matricula);
-            setAlunoApi(response.data.data);
-        } catch (error) {
-
-        }
-
     }, []);
 
     const [values, setValues] = useState({
-        nome: "",
-        email: "",
-        email_pessoal: "",
-        nrMatricula: "",
+        nome: (!aluno? "" : aluno.nome),
+        email: (!aluno? "" :  aluno.email),
+        email_pessoal: (!aluno? "" : aluno.emailPessoal),
+        nrMatricula: (!aluno? "" : aluno.matricula),
         senha: "",
-        curso: "",
-        turno: "",
-        nomeMae: "",
-        nomePai: "",
-        nrCPF: "",
-        nrRG: "",
-        nrCertificadoMilitar: "",
-        nrTituloEleitor: "",
-        nrZona: "",
-        nrTelefone: "",
-        nrCelular: "",
-        tipoEndereco: "",
-        logradouro: "",
-        nrEndereco: "",
-        complemento: "",
-        bairro: "",
-        municipio: "",
-        estado: "",
-        cep: ""
+        curso: (!aluno? "" : aluno.idCurso),
+        turno: (!aluno? "" : aluno.idPeriodo),
+        nomeMae: (!aluno? "" : aluno.nomeMae),
+        nomePai: (!aluno? "" : aluno.nomePai),
+        nrCPF: (!aluno? "" : aluno.cpf),
+        nrRG: (!aluno? "" : aluno.rg),
+        nrCertificadoMilitar: (!aluno? "" : aluno.nrCertificado),
+        nrTituloEleitor: (!aluno? "" : aluno.numeroTitulo),
+        nrZona: (!aluno? "" : aluno.zonaTitulo),
+        nrTelefone: (!aluno? "" : aluno.telefone),
+        nrCelular: (!aluno? "" : aluno.celular),
+        tipoEndereco: (!aluno? "" : aluno.tipoEendereco),
+        logradouro: (!aluno? "" : aluno.logradouro),
+        nrEndereco: (!aluno? "" : aluno.numero),
+        complemento: (!aluno? "" : aluno.complemento),
+        bairro: (!aluno? "" : aluno.bairro),
+        municipio: (!aluno? "" : aluno.municipio),
+        estado: (!aluno? "" : aluno.estado),
+        cep: (!aluno? "" : aluno.cep)
 
     });
-
-    console.log(alunoApi)
 
     const handleChange = (prop) => (event) => {
         setValues({ ...values, [prop]: event.target.value });
@@ -130,7 +119,6 @@ function Formulario() {
 
             try {
 
-                /*Cadastra o endereço*/
                 const body = {
                     lista_enderecos: [endereco]
                 }
@@ -138,23 +126,12 @@ function Formulario() {
                 const response = await apiBd.post('/enderecos', body);
                 var response_id_endereco = response.data.data[0].id_endereco;
 
-                var passo1 = JSON.parse(localStorage.getItem('dadosMatriculaSenha'));
-
-                /*
-                if (passo1 != null && passo1 !== undefined) {
-                    values.nrMatricula = passo1.nrMatricula,
-                    values.senha = passo1.senha
-                }*/
-
-
-                /*Cadastrar Usuário*/
-
                 const data = {
-                    nrMatricula: values.nrMatricula,
+                    nrMatricula: passo1.nrMatricula,
                     nome: values.nome,
                     email: values.email,
                     email_pessoal: values.email_pessoal,
-                    senha: values.senha,
+                    senha: passo1.senha,
                     nome_mae: values.nomeMae,
                     nome_pai: values.nomePai,
                     cpf: values.nrCPF,
@@ -169,16 +146,43 @@ function Formulario() {
                     id_turno: values.turno
                 }
 
+
                 const res = await apiUser.post('/usuario/cadastrar', data);
 
                 const user = res.data.data;
-
-                var alunoLogado = new Usuario(user.nome, user.email, user.curso.nome, user.turno.nome, user.nrMatricula, "FATEC SÃO PAULO", user.emailPessoal, user.tokenAutenticacao);
+                var alunoLogado = new Usuario(
+                    user.nome,
+                    user.email,
+                    user.curso.nome,
+                    user.curso.id,
+                    user.turno.nome,
+                    user.turno.id,
+                    user.nrMatricula,
+                    "FATEC SÃO PAULO",
+                    user.email_pessoal,
+                    user.nome_mae,
+                    user.nome_pai,
+                    user.cpf,
+                    user.rg,
+                    user.certificadoMilitar,
+                    user.numeroTitulo,
+                    user.zonaTitulo,
+                    user.telefone,
+                    user.celular,
+                    user.enderecos[0].tipo_endereco,
+                    user.enderecos[0].logradouro,
+                    user.enderecos[0].numero,
+                    user.enderecos[0].complemento,
+                    user.enderecos[0].bairro,
+                    user.enderecos[0].municipio,
+                    user.enderecos[0].estado.id,
+                    user.enderecos[0].cep,
+                    user.tokenAutenticacao);
 
                 localStorage.setItem('alunoLogado', JSON.stringify(alunoLogado));
 
-                history.push('/menu-principal');
-                window.location.reload();
+                history.push('/menu-principal')
+                window.location.reload()
 
             } catch (error) {
                 alert(error)
@@ -192,6 +196,7 @@ function Formulario() {
                 nome: values.nome,
                 email: values.email,
                 senha: values.senha,
+                email_pessoal: values.email_pessoal,
                 nome_mae: values.nomeMae,
                 nome_pai: values.nomePai,
                 cpf: values.nrCPF,
@@ -215,10 +220,52 @@ function Formulario() {
                 }
             }
 
-            const res = await apiUser.put('/usuario/cadastrar', body);
+            try {
 
-            console.log(res)
+                const res = await apiUser.put('/usuario/atualizarDadosUsuario', body);
 
+                const user = res.data.data;
+
+                var alunoLogado = new Usuario(
+                    user.nome,
+                    user.email,
+                    user.curso.nome,
+                    user.curso.id,
+                    user.turno.nome,
+                    user.turno.id,
+                    user.nrMatricula,
+                    "FATEC SÃO PAULO",
+                    user.email_pessoal,
+                    user.nome_mae,
+                    user.nome_pai,
+                    user.cpf,
+                    user.rg,
+                    user.certificadoMilitar,
+                    user.numeroTitulo,
+                    user.zonaTitulo,
+                    user.telefone,
+                    user.celular,
+                    user.enderecos[0].tipo_endereco,
+                    user.enderecos[0].logradouro,
+                    user.enderecos[0].numero,
+                    user.enderecos[0].complemento,
+                    user.enderecos[0].bairro,
+                    user.enderecos[0].municipio,
+                    user.enderecos[0].estado.id,
+                    user.enderecos[0].cep,
+                    user.tokenAutenticacao);
+
+                localStorage.setItem('alunoLogado', JSON.stringify(alunoLogado));
+
+                alert("Dados Atualizados com Sucesso")
+
+                history.push('/menu-principal')
+
+                window.location.reload()
+
+            } catch (error) {
+                console.log(error)
+            }
 
         }
 
@@ -249,22 +296,13 @@ function Formulario() {
                     </InputLabel>
                     <TextField
                         id="nome"
+                        value={values.nome}
                         onChange={handleChange("nome")}
                         variant="outlined"
                         className='input'
                         size='small'
                     />
-                    <InputLabel htmlFor="nrMatricula" className='label'>
-                        Matricula
-                    </InputLabel>
-                    <TextField
-                        value={values.nrMatricula}
-                        id="nrMatricula"
-                        onChange={handleChange("nrMatricula")}
-                        variant="outlined"
-                        className='input'
-                        size='small'
-                    />
+                    
                     <InputLabel htmlFor="curso" className='label'>
                         Curso
                     </InputLabel>
@@ -320,6 +358,7 @@ function Formulario() {
                     </InputLabel>
                     <TextField
                         id="email"
+                        value={values.email}
                         onChange={handleChange("email")}
                         variant="outlined"
                         className='input'
@@ -330,7 +369,8 @@ function Formulario() {
                     </InputLabel>
                     <TextField
                         id="email_pessoal"
-                        onChange={handleChange("emailPessoal")}
+                        value={values.email_pessoal}
+                        onChange={handleChange("email_pessoal")}
                         variant="outlined"
                         className='input'
                         size='small'
@@ -345,6 +385,7 @@ function Formulario() {
                     </InputLabel>
                     <TextField
                         id="nomeMae"
+                        value={values.nomeMae}
                         onChange={handleChange("nomeMae")}
                         variant="outlined"
                         className='input'
@@ -355,6 +396,7 @@ function Formulario() {
                     </InputLabel>
                     <TextField
                         id="nomePai"
+                        value={values.nomePai}
                         onChange={handleChange("nomePai")}
                         variant="outlined"
                         className='input'
@@ -371,6 +413,7 @@ function Formulario() {
                     </InputLabel>
                     <InputMask
                         mask="999.999.999-99"
+                        value={values.nrCPF}
                         onChange={handleChange("nrCPF")}
                         disabled={false}
                         maskChar=" "
@@ -389,6 +432,7 @@ function Formulario() {
                     </InputLabel>
                     <InputMask
                         mask="99.999.999-9"
+                        value={values.nrRG}
                         onChange={handleChange("nrRG")}
                         disabled={false}
                         maskChar=" "
@@ -406,6 +450,7 @@ function Formulario() {
                     </InputLabel>
                     <TextField
                         id="nrCertificadoMilitar"
+                        value={values.nrCertificadoMilitar}
                         onChange={handleChange("nrCertificadoMilitar")}
                         variant="outlined"
                         className='input'
@@ -418,6 +463,7 @@ function Formulario() {
                     </InputLabel>
                     <InputMask
                         mask="9999 9999 9999"
+                        value={values.nrTituloEleitor}
                         onChange={handleChange("nrTituloEleitor")}
                         disabled={false}
                         maskChar=" "
@@ -434,6 +480,7 @@ function Formulario() {
                     </InputLabel>
                     <TextField
                         id="nrZona"
+                        value={values.nrZona}
                         onChange={handleChange("nrZona")}
                         variant="outlined"
                         className='input'
@@ -444,6 +491,7 @@ function Formulario() {
                     </InputLabel>
                     <InputMask
                         mask="(99) 9999-9999"
+                        value={values.nrTelefone}
                         onChange={handleChange("nrTelefone")}
                         disabled={false}
                         maskChar=" "
@@ -460,6 +508,7 @@ function Formulario() {
                     </InputLabel>
                     <InputMask
                         mask="(99) 99999-9999"
+                        value={values.nrCelular}
                         onChange={handleChange("nrCelular")}
                         disabled={false}
                         maskChar=" "
@@ -497,6 +546,7 @@ function Formulario() {
                     </InputLabel>
                     <TextField
                         id="logradouro"
+                        value={values.logradouro}
                         variant="outlined"
                         onChange={handleChange("logradouro")}
                         className='input'
@@ -507,6 +557,7 @@ function Formulario() {
                     </InputLabel>
                     <TextField
                         id="nrEndereco"
+                        value={values.nrEndereco}
                         variant="outlined"
                         onChange={handleChange("nrEndereco")}
                         className='input'
@@ -519,6 +570,7 @@ function Formulario() {
                     </InputLabel>
                     <TextField
                         id="complemento"
+                        value={values.complemento}
                         variant="outlined"
                         onChange={handleChange("complemento")}
                         className='input'
@@ -529,6 +581,7 @@ function Formulario() {
                     </InputLabel>
                     <TextField
                         id="bairro"
+                        value={values.bairro}
                         variant="outlined"
                         onChange={handleChange("bairro")}
                         className='input'
@@ -541,6 +594,7 @@ function Formulario() {
                     </InputLabel>
                     <TextField
                         id="municipio"
+                        value={values.municipio}
                         variant="outlined"
                         onChange={handleChange("municipio")}
                         className='input'
@@ -570,6 +624,7 @@ function Formulario() {
                     </InputLabel>
                     <InputMask
                         mask="99999-999"
+                        value={values.cep}
                         onChange={handleChange("cep")}
                         disabled={false}
                         maskChar=" "
