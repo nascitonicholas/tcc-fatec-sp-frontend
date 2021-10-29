@@ -12,7 +12,7 @@ import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import { Button } from '@material-ui/core';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import {apiUser} from '../../services/api';
+import { apiUser } from '../../services/api';
 import Usuario from '../../models/Usuario';
 import './Login.scss'
 
@@ -25,7 +25,7 @@ const Login = () => {
         nrMatricula: "",
         password: "",
         showPassword: false,
-        error:""
+        error: ""
     });
 
     const handleChange = (prop) => (event) => {
@@ -44,29 +44,56 @@ const Login = () => {
         event.preventDefault();
 
         const data = {
-            nrMatricula:values.nrMatricula,
-            senha:values.password
+            nrMatricula: values.nrMatricula,
+            senha: values.password
         }
 
-        if(!data.nrMatricula || !data.senha){
-            setValues({ ...values, error : "Preencha matrícula e senha para continuar!"})
+        if (!data.nrMatricula || !data.senha) {
+            setValues({ ...values, error: "Preencha matrícula e senha para continuar!" })
         }
-        else{
+        else {
 
-            try{
+            try {
 
                 const response = await apiUser.post('/usuario/login', data)
-                const usuarioLogado = response.data.data;
-                var alunoLogado = new Usuario(usuarioLogado.nome, usuarioLogado.email, usuarioLogado.curso.nome, usuarioLogado.turno.nome, usuarioLogado.nrMatricula, "FATEC SÃO PAULO", usuarioLogado.tokenAutenticacao);
-                
+                const user = response.data.data;
+                var alunoLogado = new Usuario(
+                    user.nome,
+                    user.email,
+                    user.curso.nome,
+                    user.curso.id,
+                    user.turno.nome,
+                    user.turno.id,
+                    user.nrMatricula,
+                    "FATEC SÃO PAULO",
+                    user.email_pessoal,
+                    user.nome_mae,
+                    user.nome_pai,
+                    user.cpf,
+                    user.rg,
+                    user.certificadoMilitar,
+                    user.numeroTitulo,
+                    user.zonaTitulo,
+                    user.telefone,
+                    user.celular,
+                    user.enderecos[0].tipo_endereco,
+                    user.enderecos[0].logradouro,
+                    user.enderecos[0].numero,
+                    user.enderecos[0].complemento,
+                    user.enderecos[0].bairro,
+                    user.enderecos[0].municipio,
+                    user.enderecos[0].estado.id,
+                    user.enderecos[0].cep,
+                    user.tokenAutenticacao);
+
                 localStorage.setItem('alunoLogado', JSON.stringify(alunoLogado));
-    
+
                 history.push('/menu-principal')
                 window.location.reload()
-    
-            }catch (error){
+
+            } catch (error) {
                 console.log(error)
-                setValues({ ...values, error : error.response.data.message})
+                setValues({ ...values, error: error.response.data.message })
             }
         }
     }
